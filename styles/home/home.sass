@@ -5,253 +5,217 @@
         overflow: hidden
         @include before
         &::before
-            background: linear-gradient(270deg, #DFD7FF 0%, #3107CA 100%)
-            @include media(768)
-                background: linear-gradient( 0deg, #DFD7FF 0%, #3107CA 100%)
+            background: $gradient-a
         .bg
             height: 100vh
             @include media(540)
                 height: 80vh
-            .bg-video
-                transform: translateX(-30%)
-                position: relative
-                height: 100%
-                transition: 1s ease-in-out
-                @include media(768)
-                    // transform: translateX(0%)
-                    transform: translateY(-30%)
-                &::before
-                    content: ""
-                    position: absolute
-                    top: 0
-                    left: 0
-                    height: 100%
-                    width: 100%
-                    background: linear-gradient(90deg, rgba(60, 24, 198, 0.2) 25.96%, rgba(93, 74, 168, 0.2) 100%)
-                    transition: 1s ease-in-out
-                video
-                    // opacity: 15%
-                    transition: 1s ease-in-out
-                .x-vector-icon
-                    position: absolute
-                    top: 55%
-                    left: 99.8%
-                    transform: translate(-50%, -50%)
-                    width: 40%
-                    mask-image: url(/assets/images/home/x-vector.png)
-                    mask-size: 100%
-                    mask-repeat: no-repeat
-                    aspect-ratio: 1.22
-                    line-height: 0
-                    background: white
-                    transition: all 1.5s ease-in-out
-                    @include media(768)
-                        top: 100%
-                        left: 50%
-                        transform: translate(-50%, -50%)
-                        width: 60%
-                    @include media(540)
-                        width: 70%
-                    video
-                        // opacity: 0
-                        width: 100%
-                        height: 100%
-                        object-fit: cover
-                        mix-blend-mode: luminosity
-                        // transition: opacity 1s ease-in-out
-                    &.fade-in video
-                        opacity: 100%
-                        transition: opacity 1s ease-in-out
-
-        .swiper
-            position: absolute
-            top: 55%
-            left: 94%
-            transform: translate(-50%,-50%)
-            z-index: 3
-            width: 20%
-            @include media(768)
+            .banner-wrapper
+                opacity: 1
+                border-radius: 10px
                 position: absolute
-                top: 94%
                 left: 50%
-                transform: translate(-50%, -50%)
-                z-index: 3
+                top: 60%
+                bottom: initial
                 width: 100%
-                height: 40px
-                display: flex
-                flex-direction: column
-                align-items: center
-                justify-content: center
-            @include media(540)
-                height: 80vh
-                top: 47%
+                z-index: 3
+                transform: translate(-50%, -50%)
+                .banner-heading
+                    position: relative
+                    bottom: 40px
+                    ul
+                        display: flex
+                        align-items: center
+                        gap: 20px
+                        li
+                            a
+                                color: $white
+                                font-weight: 500
+                                font-size: 16px
+                                line-height: 16px
+                                
+                                display: flex
+                                justify-content: center
+                                gap: 10px
+                                transition: 0.5s ease
+                                figure
+                                    width: 16px
+                                    height: 16px
+                                    border-radius: 50%
+                                    background: $white
+                                    display: flex
+                                    align-items: center
+                                    justify-content: center
+                                    display: none
+                                    img
+                                        width: 100%
+                                        height: 100%
+                                        object-fit: contain
+                                        padding: 2px
+                                &.active
+                                    padding: 11px 17px
+                                    border-radius: 25px
+                                    border: 1px solid $white
+                                    figure
+                                        display: block
+
+                .flex-box
+                    display: flex
+                    justify-content: center
+                    gap: 40px
+                    .col
+                        width: 100%
+                        height: 347px
+                        max-width: 50%
+                        background: $white
+                        border-radius: 10px
+                        overflow: hidden
+                    .col:first-child
+                        padding: 15px
+                        .flight-search-container
+                            .location-row
+                                border-radius: 6px
+                                border: 1px solid #E0DEDE
+                                width: 100%
+                                height: 118px
+                                position: relative
+                                display: flex
+                                justify-content: space-between
+                                margin-bottom: 15px
+                                .switch-location
+                                    height: fit-content
+                                    position: absolute
+                                    left: 45%
+                                    top: 50%
+                                    transform: translate(-50%, -50%)
+                                    figure
+                                        box-shadow: 0px 1px 4px 0px #00000029
+                                        width: 44px 
+                                        height: 44px
+                                        display: flex
+                                        justify-content: center
+                                        align-items: center
+                                        border-radius: 50%
+                                        padding: 6px
+                                        background: $white
+                                        img
+                                            width: 100%
+                                            height: 100%
+                                .location-section
+                                    padding: 20px
+                                    flex: 0 1 45%
+                                    .location-label
+                                        font-weight: 400
+                                        font-size: 16px
+                                        line-height: 16px
+                                        color: $text
+                                        padding-bottom: 15px
+                                    .location-name
+                                        font-weight: 700
+                                        font-size: 24px
+                                        line-height: 16px
+                                        color: $black       
+                                        padding-bottom: 10px
+
+                                    .location-code
+                                        font-weight: 400
+                                        font-size: 14px
+                                        line-height: 16px
+                                        color: $text
+
+                                .location-section:last-child
+                                    padding: 20px 20px 20px 60px
+                                    border-left:  1px solid #E0DEDE
+                                    flex: 0 1 55%
+                            .details-row
+                                border-radius: 6px
+                                border: 1px solid #E0DEDE
+                                width: 100%
+                                height: 118px
+                                position: relative
+                                display: flex
+                                justify-content: space-between
+                                margin-bottom: 15px
+                                .detail-section
+                                    padding: 20px
+                                    .detail-label
+                                        font-weight: 400
+                                        font-size: 16px
+                                        line-height: 16px
+                                        color: $text
+                                        padding-bottom: 15px
+                                    .detail-value
+                                        padding-bottom: 10px
+                                        b
+                                            font-weight: 700
+                                            font-size: 24px
+                                            line-height: 16px
+                                            color: $black
+                                        span
+                                            font-weight: 400
+                                            font-size: 20px
+                                            line-height: 16px
+                                            color: $black
+                                    .detail-text
+                                        font-weight: 400
+                                        font-size: 14px
+                                        line-height: 16px
+                                        // color: $text
+
+                                .detail-section:nth-child(1)
+                                    flex: 0 1 30%
+                                .detail-section:nth-child(2)
+                                    flex: 0 1 30%
+                                    border-left:  1px solid #E0DEDE
+                                    .detail-text
+                                        color: #AFAFAF
+                                .detail-section:nth-child(3)
+                                    flex: 0 1 60%
+                                    border-left:  1px solid #E0DEDE
+                        .search-button
+                            background: #E7B806
+                            border-radius: 5px
+                            padding: 6px 35px
+                            gap: 10px
+                            color: $black
+                            font-weight: 700
+                            font-size: 18px
+                            text-transform: uppercase
+
+
+
+                    .col:last-child
+                        background: #FFFFFF
+                        background: #FFFFFF80
+                        background: #8E41DC
+        .swiper
+            .swiper-wrapper
+                .swiper-slide
+                    .slide-box
+                        height: 310px
+                        img
+                            border-radius: 10px
+                            overflow: hidden
+                            // object-fit: contain !important
             .swiper-pagination
                 width: 100%
+                height: 50px
                 display: flex
                 justify-content: center
                 align-items: center
                 position: relative
                 z-index: 2
-                height: 160px
-                rotate: 90deg
-                gap: 8px
-                // opacity: 0
-                @include media(768)
-                    rotate: 0deg
-                    height: auto
+                gap: 3px
                 span
                     position: relative
                     background-color: white
                     opacity: 1
                     transition: 0.5s ease
-                    @include media(540)
-                        &::before
-                            content: none !important
-                        &::after
-                            content: none !important
-                    &::before
-                        content: ""
-                        position: absolute
-                        top: -8px
-                        left: -3px
-                        width: 2px
-                        height: 29px
-                        background: white
-                        rotate: 90deg
-                        pointer-events: none
-                        z-index: -1
-                        transition: 0.5s ease
+                    background: #FFFFFF80
                 .swiper-pagination-bullet-active,.fill
-                    background: $primary
+                    background: $white
                     transition: 0.5s ease
-                    &::after
-                        content: ""
-                        position: absolute
-                        top: -8px
-                        left: -3px
-                        width: 2px
-                        height: 29px
-                        background: $primary
-                        rotate: 90deg
-                        pointer-events: none
-                        z-index: -1
-        .banner-wrapper
-            display: flex
-            align-items: center
-            justify-content: start
-            height: 100%
-            top: -10%
-            @include media(768)
-                height: 60%
-            @include media(540)
-                height: 80%
-            .container-fluid
-                margin: inherit
-                @include media(768)
-                    --containerfluid: 0px
-            .heading-wrapper
-                position: relative
-                @include media(768)
-                    width: 100vw
-                .heading
-                    width: 1028px
-                    max-width: 728px
-                    position: absolute
-                    left: 0
-                    top: 0
-                    transition: 1s ease-in-out
-                    opacity: 0
-                    transform: translateX(-100%)
-                    @include media(768)
-                        transform: translateX(0%)
-                        scale: 0
-                    &.active
-                        opacity: 1
-                        transform: translateX(0%)
-                        @include media(768)
-                            transform: translateX(0%)
-                            scale: 1
-                    @include media(1024)
-                        max-width: 478px
-                    @include media(768)
-                        width: 100vw
-                        max-width: 100%
-                        text-align: center
-                    h1
-                        font-weight: 700
-                        font-size: 64px
-                        line-height: 64px
-                        text-transform: uppercase
-                        color: #fff
-                        padding-bottom: 10px
-                        @include media(1024)
-                            font-size: 35px
-                            line-height: 34px
-                        @include media(768)
-                            font-size: 45px
-                            line-height: 1.1
-                            padding-bottom: 0
-                            max-width: 80%
-                            margin: auto
-                            margin-bottom: 10px
-                        @include media(540)
-                            font-size: 25px
-                            max-width: 100%
-
-                    h2
-                        font-family: Poppins
-                        font-weight: 500
-                        font-size: 24px
-                        color: #fff
-                        @include media(991)  
-                            font-size: 80px
-                        @include media(768)
-                            font-size: 35px
-                            margin-bottom: 9px
-                        @include media(540)
-                            font-size: 30px
-                            margin-bottom: 10px
-                            max-width: 100%
-                            font-size: 16px
-                        &:nth-child(2) 
-                            text-align: center
-                        &:last-child 
-                            text-align: end
-                    button
-                        padding: 15px 20px
-                        border-radius: 25px
-                        display: inline-block
-                        margin-top: 40px
-                        color: $white
-                        background: #FFA319
-                        font-weight: 600
-                        font-size: 16px
-                        line-height: 10px
-                        text-transform: uppercase
-                        @include media(540)
-                            display: none
-                    p
-                        font-weight: 500
-                        color: $white
-                        font-size: 14px
-                        max-width: 428px
-                        @include media(768)
-                            margin: auto
-                        @include media(540)
-                            display: none
-                    .text-slider
-                        height: 108px
-                        @include media(768)
-                            height: 80px
-                        @include media(540)
-                            height: 40px
-                        .swiper
-                            height: 100%
-                        h2
-                            text-align: center
-                        .swiper-wrapper
-                            flex-direction: column 
-
+                    
 .home-secA
     position: relative
     .heading
@@ -606,3 +570,5 @@
 
 .displaynone
     display: none
+
+    

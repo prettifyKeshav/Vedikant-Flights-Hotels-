@@ -392,9 +392,9 @@
   --headerheight: 120px;
   --headerfixed: 82px;
   --footerstrip: 64px;
-  --primary: #3107CA;
-  --secondary: #3107CA;
-  --gradient-a: linear-gradient(90deg, rgb(59, 24, 198) 22.12%, #D3CEE6 96.63%);
+  --primary: #400878;
+  --secondary: #611BA7;
+  --gradient-a: linear-gradient(270deg, #8F33EC 0%, #400878 100%);
   --gradient-b: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
   --gradient-c: linear-gradient(270deg, #D8D8D8 0%, #EBEBEB 50%, #C5C5C5 100%);
   --gradient-d: linear-gradient(360deg, #E6E6E6 0%, #C6C6C6 100%);
@@ -434,14 +434,14 @@
 
 body::-webkit-scrollbar {
   width: 8px;
-  background: var(--primary);
+  background: var(--white);
 }
 body::-webkit-scrollbar-track {
   box-shadow: none;
 }
 body::-webkit-scrollbar-thumb {
   border-radius: 7px;
-  background-color: #FFA319;
+  background-color: var(--primary);
 }
 body.overflow-hidden {
   overflow: hidden;
@@ -461,12 +461,16 @@ body.overflow-hidden header {
   }
 }
 
+* {
+  font-family: "Brother 1816";
+}
+
 body, html {
   font-size: 16px;
   line-height: 1.5;
   font-optical-sizing: auto;
   font-style: normal;
-  font-family: "poppins";
+  font-family: "Brother 1816";
   font-weight: normal;
 }
 
@@ -504,13 +508,11 @@ small {
 .heading h2 {
   font-size: 48px;
   line-height: 1.2;
-  font-family: "ttrg-bd";
 }
 .heading p {
   font-size: 16px;
   line-height: 1.5;
   color: var(--black);
-  font-family: "poppins";
 }
 
 .primary-bg {
@@ -645,7 +647,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 64px;
   line-height: 1.05;
-  font-family: "ttrg-bd";
 }
 @media only screen and (max-width: 1024px) {
   h1 {
@@ -666,7 +667,6 @@ h1 {
 h2 {
   font-size: 54px;
   line-height: 1.2;
-  font-family: "ttrg-bd";
 }
 @media only screen and (max-width: 768px) {
   h2 {
@@ -677,7 +677,6 @@ h2 {
 h3 {
   font-size: 48px;
   line-height: 1.2;
-  font-family: "poppins";
 }
 
 .heading:has(h2 ~ h6) h3, .heading:has(h2 ~ h6) h2, .heading:has(h3 ~ h6) h3, .heading:has(h3 ~ h6) h2, .heading:has(h2 ~ h5) h3, .heading:has(h2 ~ h5) h2, .heading:has(h3 ~ h5) h3, .heading:has(h3 ~ h5) h2, .heading:has(h2 ~ p) h3, .heading:has(h2 ~ p) h2, .heading:has(h3 ~ p) h3, .heading:has(h3 ~ p) h2 {
@@ -687,7 +686,6 @@ h3 {
   font-size: 48px;
   line-height: 1.25;
   color: var(--black);
-  font-family: "ttrg-bd";
   font-weight: 600;
 }
 @media only screen and (max-width: 1230px) {
@@ -854,13 +852,11 @@ img {
 }
 
 button, select {
-  font-family: inherit;
   font-size: inherit;
   cursor: pointer;
 }
 
 input {
-  font-family: inherit;
   font-size: inherit;
   border-radius: 0;
 }
@@ -1100,7 +1096,6 @@ button {
 .btn.solid-white {
   background: var(--white);
   color: var(--black);
-  font-family: "poppins";
 }
 .btn.solid-white::before {
   content: "";
@@ -1119,7 +1114,6 @@ button {
 .btn.btn-white {
   background: var(--white);
   color: var(--black);
-  font-family: "poppins";
 }
 .btn.btn-white::before {
   display: none;
@@ -1138,7 +1132,6 @@ button {
 .btn.border-black {
   border-color: var(--black);
   color: var(--black);
-  font-family: "poppins";
 }
 .btn.border-black:hover {
   background: var(--gradient-a);
@@ -1151,7 +1144,6 @@ button {
 .btn.border-white {
   border-color: var(--white);
   color: var(--white);
-  font-family: "poppins";
   transition: 0.5s ease;
 }
 .btn.border-white:hover {
@@ -1475,7 +1467,6 @@ button {
   font-size: 48px;
   margin-bottom: 45px;
   text-align: center;
-  font-family: "ttrg-bd";
   font-weight: normal;
 }
 @media only screen and (max-width: 675px) {
@@ -1689,7 +1680,6 @@ button {
   color: var(--white);
 }
 .banner .content.content-font2 h1 {
-  font-family: "ttrg-bd";
   color: var(--black-light);
   font-weight: 600;
   line-height: 1.25;
@@ -1710,7 +1700,6 @@ button {
 .banner .content h1 {
   font-size: 48px;
   line-height: 1.25;
-  font-family: "ttrg-bd";
   font-weight: 600;
 }
 @media only screen and (max-width: 1152px) {
@@ -1987,7 +1976,6 @@ button {
   top: 50%;
   translate: 0 -50%;
   font-size: 12px;
-  font-family: monospace;
   color: var(--text);
 }
 .breadcrumps li:not(:first-child) {

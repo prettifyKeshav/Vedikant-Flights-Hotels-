@@ -2,8 +2,8 @@ import MainTemplate from "@/components/templates/MainTemplate";
 import "../app/global.css"
 
 export const metadata = {
-  title: "Flextron Circuit Assembly - We Engineer and Build for You !",
-  description: "Flextron Circuit Assembly - We Engineer and Build for You !",
+  title: "Vedikant Flights &amp; Hotels",
+  description: "Vedikant Flights &amp; Hotels",
   icons: {
     icon: "/assets/icon/favicon/favicon.ico",
     shortcut: "/assets/icon/favicon/favicon.ico",

@@ -21,9 +21,9 @@ $scrollwidth: 10px
         --headerfixed: 50px
     // --footerstrip: 66px 
     --footerstrip: 64px 
-    --primary: #3107CA
-    --secondary: #3107CA
-    --gradient-a: linear-gradient(90deg, rgb(59, 24, 198) 22.12%, #D3CEE6 96.63%)
+    --primary: #400878
+    --secondary: #611BA7
+    --gradient-a: linear-gradient(270deg, #8F33EC 0%, #400878 100%)
     --gradient-b: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%)
     --gradient-c: linear-gradient(270deg, #D8D8D8 0%, #EBEBEB 50%, #C5C5C5 100%)
     --gradient-d: linear-gradient(360deg, #E6E6E6 0%, #C6C6C6 100%)
@@ -48,13 +48,12 @@ $scrollwidth: 10px
 body
     &::-webkit-scrollbar
         width: 8px
-        background: $primary
+        background: $white
     &::-webkit-scrollbar-track
         box-shadow: none
     &::-webkit-scrollbar-thumb
         border-radius: 7px
-        background-color: #FFA319
-
+        background-color: $primary
 
     
     // &::-webkit-scrollbar
@@ -74,12 +73,15 @@ body
             width: calc(100% - $scrollwidth)
             @include media(991)
                 width: 100%
+*
+    font-family: $Brother
+    
 body,html
     font-size: 16px 
     line-height: 1.5
     font-optical-sizing: auto
     font-style: normal
-    font-family: $poppins
+    font-family: $Brother
     font-weight: normal
 b
     @include font(500)
@@ -110,12 +112,12 @@ small
     h2
         font-size: 48px
         line-height: 1.2
-        font-family: $ttrg-bd 
+        // font-family: $ttrg-bd 
     p
         font-size: 16px
         line-height: 1.5
         color: $black
-        font-family: $poppins 
+        // font-family: $poppins 
 
 
 
@@ -177,7 +179,7 @@ h1,h2,h3,h4,h5,h6
 h1
     font-size: 64px
     line-height: 1.05
-    font-family: $ttrg-bd
+    // font-family: $ttrg-bd
     @include media(1024)
         font-size: 58px
     @include media(991)
@@ -187,13 +189,13 @@ h1
 h2
     font-size: 54px
     line-height: 1.2
-    font-family: $ttrg-bd 
+    // font-family: $ttrg-bd 
     @include media(768)
         font-size: 40px
 h3
     font-size: 48px
     line-height: 1.2
-    font-family: $poppins
+    // font-family: $poppins
 .heading
     &:has(h2 ~ h6),&:has(h3 ~ h6),&:has(h2 ~ h5),&:has(h3 ~ h5),&:has(h2 ~ p),&:has(h3 ~ p)
         h3,h2
@@ -202,7 +204,7 @@ h3
         font-size: 48px
         line-height: 1.25
         color: $black
-        font-family: $ttrg-bd 
+        // font-family: $ttrg-bd 
         @include font(600)
         @include media(1230)
             font-size: 42px
@@ -297,11 +299,11 @@ img
     object-fit: cover
     max-width: 100%
 button,select
-    font-family: inherit
+    // font-family: inherit
     font-size: inherit
     cursor: pointer
 input
-    font-family: inherit
+    // font-family: inherit
     font-size: inherit
     border-radius: 0
     &::-webkit-outer-spin-button,
@@ -439,7 +441,7 @@ button
     &.solid-white
         background: $white
         color: $black
-        font-family: $poppins
+        // font-family: $poppins
         &::before 
             content: ""
             display: none
@@ -455,7 +457,7 @@ button
     &.btn-white
         background: $white
         color: $black
-        font-family: $poppins
+        // font-family: $poppins
         &::before
             display: none
         &::after
@@ -469,7 +471,7 @@ button
     &.border-black
         border-color: $black
         color: $black
-        font-family: $poppins
+        // font-family: $poppins
         &:hover
             background: var(--gradient-a)
             border-color: var(--primary)
@@ -479,7 +481,7 @@ button
     &.border-white
         border-color: $white
         color: $white
-        font-family: $poppins
+        // font-family: $poppins
         transition: .5s ease
         &:hover
             background: var(--gradient-a)
@@ -743,7 +745,7 @@ button
         font-size: 48px
         margin-bottom: 45px
         text-align: center
-        font-family: $ttrg-bd 
+        // font-family: $ttrg-bd 
         font-weight: normal
         @include media(675)
             font-size: 34px
@@ -882,7 +884,7 @@ button
                     color: $white
         &.content-font2
             h1
-                font-family: $ttrg-bd
+                // font-family: $ttrg-bd
                 color: $black-light
                 @include font(600)
                 line-height: 1.25
@@ -900,7 +902,7 @@ button
         h1
             font-size: 48px
             line-height: 1.25
-            font-family: $ttrg-bd
+            // font-family: $ttrg-bd
             @include font(600)
             @include media(1152)
                 font-size: 42px
@@ -1099,7 +1101,7 @@ button
                 top: 50%
                 translate: 0 -50%
                 font-size: 12px
-                font-family: monospace
+                // font-family: monospace
                 color: $text
         &:not(:first-child)
             padding-left: 20px

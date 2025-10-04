@@ -1,138 +1,166 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { useModalStore } from "@/store/modalStore"
-// import AnimationWrapper from "@/components/AnimationWrapper";
-
+import Link from "next/link";
+import Image from "next/image";
 
 const Hero = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const openEnquire = useModalStore((state) => state.openEnquire)
     const swiperRef = useRef(null);
 
     const slidesData = [
-        {
-            heading: "Fighter Jet Standards",
-            subheading: "Where Electronic Circuits Meet",
-            video: "assets/video/vector-bg1.mp4",
-            description:
-                "Built with unmatched precision, our electronic circuits are engineered to meet the rigorous demands of aerospace-grade performance",
-        },
-        {
-            heading: "Smart Circuits. Brilliant Lighting.",
-            subheading: "Where Electronic Circuits Meet2",
-            video: "assets/video/industries-banner.mp4",
-            description:
-                "Built with unmatched precision, our electronic circuits are engineered to meet the rigorous demands of aerospace-grade performance",
-        },
-        {
-            heading: "Heading 3",
-            video: "assets/video/contact-us-banner.mp4",
-            subheading: "Default Subheading",
-            description: "Default Description",
-        },
-        {
-            heading: "Heading 4",
-            video: "assets/video/Holding-Earth.mp4",
-            subheading: "Default Subheading",
-            description: "Default Description",
-        },
-        {
-            heading: "Heading 5",
-            video: "assets/video/Holding-Earth.mp4",
-            subheading: "Default Subheading",
-            description: "Default Description",
-        },
-        {
-            heading: "Heading 6",
-            video: "assets/video/Holding-Earth.mp4",
-            subheading: "Default Subheading",
-            description: "Default Description",
-        },
+        { image: "assets/images/home/banner/swiper-1.jpg", },
+        { image: "assets/images/home/banner/swiper-1.jpg", },
+        { image: "assets/images/home/banner/swiper-1.jpg", },
+        { image: "assets/images/home/banner/swiper-1.jpg", },
     ];
 
-    const updatePaginationClasses = () => {
-        const bullets = document.querySelectorAll(".swiper-pagination-bullet");
-        bullets.forEach((bullet, index) => {
-            if (index < activeIndex) {
-                bullet.classList.add("fill");
-            } else {
-                bullet.classList.remove("fill");
-            }
-        });
-    };
-
-    useEffect(() => {
-        updatePaginationClasses();
-    }, [activeIndex]);
-
     return (
-        // <AnimationWrapper>
-            <div className="banner home-banner">
-                <div className="bg">
-                    <figure className="bg-video">
-                        <video playsInline autoPlay muted loop width="100%" height="100%" style={{ opacity: '15%' }}>
-                            <source src="assets/video/home-bg-banner.mp4" type="video/mp4" />
-                        </video>
-                        <div className="x-vector-icon" data-animate="zoom-in">
-                            <video
-                                key={activeIndex}
-                                src={slidesData[activeIndex].video}
-                                autoPlay
-                                muted
-                                loop
-                                className="video-box"
-                            />
+        <div className="banner home-banner">
+            <div className="bg">
+                <div className="banner-wrapper">
+                    <div className="container">
+                        <div className="banner-heading">
+                            <ul>
+                                <li>
+                                    <Link href="/" className="active">
+                                        <figure>
+                                            <Image src="assets/images/home/icon/checked.svg" width={11} height={8} alt="check icon"></Image>
+                                        </figure>
+                                        <span>One Way</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+
+                                    <Link href="/" className="">
+                                        <figure>
+                                            <Image src="assets/images/home/icon/checked.svg" width={11} height={8} alt="check icon"></Image>
+                                        </figure>
+                                        <span>Round Trip</span>
+                                    </Link>
+                                </li>
+                            </ul>
                         </div>
-                    </figure>
-                    <div className="banner-wrapper">
-                        <div className="container-fluid">
-                            <div className="heading-wrapper" data-animate="fade-right">
-                                {slidesData.map((slide, index) => (
-                                    <div
-                                        key={index}
-                                        className={`heading ${activeIndex === index ? "active" : ""}`}
-                                    >
-                                        <h2>{slide.subheading || "Default Subheading"}</h2>
-                                        <h1>{slide.heading}</h1>
-                                        <p>{slide.description || "Default Description"}</p>
-                                        <button onClick={openEnquire}>{slide.customBtn || "GET IN TOUCH"}</button>
+                        <div className="flex-box">
+
+                            <div className="col">
+                                <div className="flight-search-container">
+                                    <div className="location-row">
+                                        <div className="location-section">
+                                            <p className="location-label">From</p>
+                                            <p className="location-name">Delhi</p>
+                                            <p className="location-code">DEL, Delhi Airport India...</p>
+                                        </div>
+                                        <Link href="/" className="switch-location">
+                                            <figure>
+                                                <Image src="assets/images/home/icon/switch-icon.svg" width={25} height={25} alt="switch icon"></Image>
+                                            </figure>
+                                        </Link>
+                                        <div className="location-section">
+                                            <p className="location-label">To</p>
+                                            <p className="location-name">Kochi</p>
+                                            <p className="location-code">COK, Cochin International...</p>
+                                        </div>
                                     </div>
-                                ))}
+
+                                    <div className="details-row">
+                                        <div className="detail-section">
+                                            <p className="detail-label">Departure</p>
+                                            <p className="detail-value"><b>16</b> <span>Sep'25</span></p>
+                                            <p className="detail-text">Tuesday</p>
+                                        </div>
+                                        <div className="detail-section">
+                                            <p className="detail-label">Return</p>
+                                            <p className="detail-text">Tap to add a return date for bigger discounts</p>
+                                        </div>
+                                        <div className="detail-section">
+                                            <p className="detail-label">Travellers & Class</p>
+                                            <p className="detail-value"><b>1</b> <span>Traveller</span></p>
+                                            <p className="detail-text">Economy/Premium Economy</p>
+                                        </div>
+                                    </div>
+                                    <button className="search-button">SEARCH</button>
+                                </div>
+                            </div>
+
+
+                            {/* <div className="flight-search-container">
+                                <div className="flight-search-card">
+                                    <div className="location-row">
+                                        <div className="location-section">
+                                            <p className="location-label">From</p>
+                                            <p className="location-name">Delhi</p>
+                                            <p className="location-code">DEL, Delhi Airport India...</p>
+                                        </div>
+                                        <div className="location-arrow">
+                                            <svg className="arrow-icon" fill="#8B5CF6" viewBox="0 0 24 24">
+                                                <path d="M10 6l6 6-6 6V6z" />
+                                            </svg>
+                                        </div>
+                                        <div className="location-section">
+                                            <p className="location-label">To</p>
+                                            <p className="location-name">Kochi</p>
+                                            <p className="location-code">COK, Cochin International...</p>
+                                        </div>
+                                    </div>
+                                    <div className="details-row">
+                                        <div className="detail-section">
+                                            <p className="detail-label">Departure</p>
+                                            <p className="detail-value">16 Sep'25</p>
+                                            <p className="detail-day">Tuesday</p>
+                                        </div>
+                                        <div className="detail-section">
+                                            <p className="detail-label">Return</p>
+                                            <p className="detail-text">Tap to add a return date for bigger discounts</p>
+                                        </div>
+                                        <div className="detail-section">
+                                            <p className="detail-label">Travellers & Class</p>
+                                            <p className="detail-value">1 Traveller</p>
+                                            <p className="detail-text">Economy/Premium Economy</p>
+                                        </div>
+                                    </div>
+                                    <button className="search-button">SEARCH</button>
+                                </div>
+                            </div> */}
+
+                            <div className="col">
+                                <Swiper
+                                    modules={[Pagination, Autoplay]}
+                                    pagination={{
+                                        clickable: true,
+                                    }}
+                                    onSwiper={(swiper) => {
+                                        swiperRef.current = swiper;
+                                    }}
+                                    className="mySwiper"
+                                    autoplay={{ delay: 5000 }}
+                                    loop={true}
+                                >
+                                    {slidesData.map((item, index) => (
+                                        <SwiperSlide key={index}>
+                                            <div className="slide-box">
+                                                <img
+                                                    src={item.image}
+                                                    alt={`Slide ${index + 1}`}
+                                                    style={{
+                                                        width: "100%",
+                                                        height: "100%",
+                                                        objectFit: "cover",
+                                                    }}
+                                                />
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Swiper
-                    modules={[Pagination, Autoplay]}
-                    pagination={{
-                        clickable: true,
-                        renderBullet: (index, className) => {
-                            const isActive = index < activeIndex ? "fill" : "";
-                            return `<span class="${className} ${isActive}"></span>`;
-                        },
-                    }}
-                    onSwiper={(swiper) => {
-                        swiperRef.current = swiper;
-                    }}
-                    onSlideChange={(swiper) => {
-                        setActiveIndex(swiper.activeIndex);
-                        updatePaginationClasses();
-                    }}
-                    className="mySwiper"
-                    autoplay={{ delay: 11000 }}
-                >
-                    {slidesData.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="slide-box">&nbsp;</div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
             </div>
-        // </AnimationWrapper>
+        </div>
     );
 };
 

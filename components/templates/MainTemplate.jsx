@@ -6,11 +6,9 @@ import AnimationWrapper from '../AnimationWrapper'
 const MainTemplate = ({ children }) => {
     return (
         <AnimationWrapper>
-            {/* <> */}
             <Header />
             {children}
             <Footer />
-            {/* </> */}
         </AnimationWrapper>
     )
 }
