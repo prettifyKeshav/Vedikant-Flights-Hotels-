@@ -1,0 +1,28 @@
+@keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+.form-grid {
+  --item: 2;
+  --gaplr: 20px;
+  --gaptb: 20px;
+  --textareaheight: 60px;
+}
+.form-grid.full_width {
+  --item: 1;
+}
+.form-grid .btn-wrap {
+  margin-top: 20px;
+}
+.form-grid .btn-wrap button {
+  border-radius: 5px;
+}/*# sourceMappingURL=enquireform.css.map */

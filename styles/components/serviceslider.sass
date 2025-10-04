@@ -1,0 +1,94 @@
+@import '../_var'
+
+.service-slider
+    margin-top: 40px
+    @include media(540)
+        margin-top: 20px
+    .swiper-nav
+        display: flex
+        align-items: center
+        justify-content: end
+        gap: 30px
+        position: absolute
+        right: 3%
+        top: 9%
+        @include media(991) 
+            top: 8%
+        @include media(540)
+            display: none
+        button
+            // background: $white
+            width: 40px
+            height: 40px
+            // border-radius: 50%
+            // border: 1px solid $black
+            &.swiper-button-disabled
+                opacity: 0.5
+                cursor: no-drop
+            svg
+                vertical-align: middle
+        // button:last-child   
+        //     transform: rotate(180deg)
+    .swiper-slide
+        // margin-right: 0 !important
+        border-top: 1px solid #3107CA
+        border-bottom: 1px solid #3107CA
+        .item-md
+            height: 100%
+            padding: 20px
+            border-right: 1px solid #3107CA
+            @include media(540)
+                padding: 10px
+            &:hover
+                figure
+                    img
+                        scale: 1.04
+            figure
+                overflow: hidden
+                border-radius: 0
+                @include media(540) 
+                img
+                    transition: .5s ease
+                    height: 100% !important
+                    width: 100% !important
+                    object-fit: cover
+            figcaption
+                padding: 30px 20px 20px
+                max-width: 490px
+                margin: auto
+                position: relative
+                h5
+                    font-weight: 500
+                    font-size: 24px
+                    text-align: center
+                    color: #666666
+                    width: 100%
+                    margin: auto
+                    margin-bottom: 10px
+                p
+                    font-size: 14px
+                    color: #666666
+                    font-weight: 400
+                    text-align: center
+                    line-height: 20px
+                    width: 100%
+                    margin: auto
+                    max-width: 336px
+                button
+                    width: 100%
+                    margin-top: 30px
+                    span
+                        background: #3107ca
+                        padding: 16px 24px
+                        border-radius: 25px
+                        white-space: nowrap
+                        font-weight: 600
+                        font-size: 16px
+                        line-height: 10px
+                        text-transform: uppercase
+                        color: white
+                        margin: auto
+                        width: fit-content
+                        display: inline-block
+                        @include media(540)
+                            padding: 10px 24px

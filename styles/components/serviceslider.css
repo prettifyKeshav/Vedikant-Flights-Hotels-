@@ -1,0 +1,128 @@
+@keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+.service-slider {
+  margin-top: 40px;
+}
+@media only screen and (max-width: 540px) {
+  .service-slider {
+    margin-top: 20px;
+  }
+}
+.service-slider .swiper-nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 30px;
+  position: absolute;
+  right: 3%;
+  top: 9%;
+}
+@media only screen and (max-width: 991px) {
+  .service-slider .swiper-nav {
+    top: 8%;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .service-slider .swiper-nav {
+    display: none;
+  }
+}
+.service-slider .swiper-nav button {
+  width: 40px;
+  height: 40px;
+}
+.service-slider .swiper-nav button.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: no-drop;
+}
+.service-slider .swiper-nav button svg {
+  vertical-align: middle;
+}
+.service-slider .swiper-slide {
+  border-top: 1px solid #3107CA;
+  border-bottom: 1px solid #3107CA;
+}
+.service-slider .swiper-slide .item-md {
+  height: 100%;
+  padding: 20px;
+  border-right: 1px solid #3107CA;
+}
+@media only screen and (max-width: 540px) {
+  .service-slider .swiper-slide .item-md {
+    padding: 10px;
+  }
+}
+.service-slider .swiper-slide .item-md:hover figure img {
+  scale: 1.04;
+}
+.service-slider .swiper-slide .item-md figure {
+  overflow: hidden;
+  border-radius: 0;
+}
+.service-slider .swiper-slide .item-md figure img {
+  transition: 0.5s ease;
+  height: 100% !important;
+  width: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.service-slider .swiper-slide .item-md figcaption {
+  padding: 30px 20px 20px;
+  max-width: 490px;
+  margin: auto;
+  position: relative;
+}
+.service-slider .swiper-slide .item-md figcaption h5 {
+  font-weight: 500;
+  font-size: 24px;
+  text-align: center;
+  color: #666666;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.service-slider .swiper-slide .item-md figcaption p {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400;
+  text-align: center;
+  line-height: 20px;
+  width: 100%;
+  margin: auto;
+  max-width: 336px;
+}
+.service-slider .swiper-slide .item-md figcaption button {
+  width: 100%;
+  margin-top: 30px;
+}
+.service-slider .swiper-slide .item-md figcaption button span {
+  background: #3107ca;
+  padding: 16px 24px;
+  border-radius: 25px;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 10px;
+  text-transform: uppercase;
+  color: white;
+  margin: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: inline-block;
+}
+@media only screen and (max-width: 540px) {
+  .service-slider .swiper-slide .item-md figcaption button span {
+    padding: 10px 24px;
+  }
+}/*# sourceMappingURL=serviceslider.css.map */
