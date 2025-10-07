@@ -50,7 +50,7 @@ export default function EnquirePop() {
             <button className="close" onClick={closeEnquire}><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.5 0.5L25.5 25.5M0.5 25.5L25.5 0.5" stroke="black" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
             <div className="model-body">
                 <div className="title">
-                    <h2>Enquire Now</h2>
+                    <h2>Become an Agent</h2>
                     {/* <p>Connect with our experts. Schedule a callback and get personalized assistance.</p> */}
                 </div>
                 <div className="form form-grid">
@@ -77,7 +77,7 @@ export default function EnquirePop() {
                         <textarea name="" id="" className="form-control"></textarea>
                         <label htmlFor="">Message</label>
                     </div>
-                    <button className="btn2 black_round">Submit Now</button>
+                    <button className="btn2 ">Submit Now</button>
                 </div>
             </div>
         </div>

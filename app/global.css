@@ -1173,9 +1173,24 @@ button {
   border-radius: 5px;
 }
 
+.btn2 {
+  border-radius: 5px;
+  padding: 4px 16px;
+  border: 1px solid var(--secondary);
+  background: var(--secondary);
+  color: var(--white);
+  display: inline-flex;
+  margin-top: 40px;
+  transition: 0.5s ease;
+}
+.btn2:hover {
+  background: none;
+  color: var(--secondary);
+}
+
 .enquire-btn {
-  background: var(--white);
-  padding: 5px 15px;
+  background: var(--primary);
+  padding: 5px 16px;
   border-radius: 5px;
   border: 1px solid var(--white);
   transition: 0.5s ease;

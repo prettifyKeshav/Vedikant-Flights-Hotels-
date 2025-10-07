@@ -42,7 +42,6 @@
 .item.projectCard figcaption h6 {
   font-size: 18px;
   line-height: 1.2;
-  font-family: "ttrg-bd";
   padding-bottom: 20px;
 }
 @media only screen and (max-width: 768px) {
@@ -71,7 +70,6 @@
 .item.projectCard .sector h6 {
   font-size: 14px;
   line-height: 1.2;
-  font-family: "ttrg-bd";
   color: var(--white);
 }
 
@@ -92,7 +90,6 @@
 .blogCard figcaption h6 {
   font-size: 14px;
   line-height: 1.2;
-  font-family: "ttrg-bd";
   color: var(--white);
   padding-bottom: 10px;
 }
@@ -100,7 +97,6 @@
   font-size: 20px;
   line-height: 1.2;
   color: var(--white);
-  font-family: "ttrg-bd";
 }
 @media only screen and (max-width: 768px) {
   .blogCard figcaption p {

@@ -54,7 +54,6 @@ body
     &::-webkit-scrollbar-thumb
         border-radius: 7px
         background-color: $primary
-
     
     // &::-webkit-scrollbar
     //     width: 2px
@@ -112,12 +111,10 @@ small
     h2
         font-size: 48px
         line-height: 1.2
-        // font-family: $ttrg-bd 
     p
         font-size: 16px
         line-height: 1.5
         color: $black
-        // font-family: $poppins 
 
 
 
@@ -179,7 +176,6 @@ h1,h2,h3,h4,h5,h6
 h1
     font-size: 64px
     line-height: 1.05
-    // font-family: $ttrg-bd
     @include media(1024)
         font-size: 58px
     @include media(991)
@@ -189,13 +185,11 @@ h1
 h2
     font-size: 54px
     line-height: 1.2
-    // font-family: $ttrg-bd 
     @include media(768)
         font-size: 40px
 h3
     font-size: 48px
     line-height: 1.2
-    // font-family: $poppins
 .heading
     &:has(h2 ~ h6),&:has(h3 ~ h6),&:has(h2 ~ h5),&:has(h3 ~ h5),&:has(h2 ~ p),&:has(h3 ~ p)
         h3,h2
@@ -204,7 +198,6 @@ h3
         font-size: 48px
         line-height: 1.25
         color: $black
-        // font-family: $ttrg-bd 
         @include font(600)
         @include media(1230)
             font-size: 42px
@@ -299,11 +292,9 @@ img
     object-fit: cover
     max-width: 100%
 button,select
-    // font-family: inherit
     font-size: inherit
     cursor: pointer
 input
-    // font-family: inherit
     font-size: inherit
     border-radius: 0
     &::-webkit-outer-spin-button,
@@ -441,7 +432,6 @@ button
     &.solid-white
         background: $white
         color: $black
-        // font-family: $poppins
         &::before 
             content: ""
             display: none
@@ -501,9 +491,22 @@ button
     &.btn-btn
         border-radius: 5px
 
+.btn2
+    border-radius: 5px
+    padding: 4px 16px
+    border: 1px solid $secondary
+    background: $secondary
+    color: $white
+    display: inline-flex
+    margin-top: 40px
+    transition: 0.5s ease
+    &:hover
+        background: none
+        color: $secondary
+
 .enquire-btn
-    background: $white
-    padding: 5px 15px
+    background: $primary
+    padding: 5px 16px
     border-radius: 5px
     border: 1px solid $white
     transition: .5s ease
@@ -745,7 +748,6 @@ button
         font-size: 48px
         margin-bottom: 45px
         text-align: center
-        // font-family: $ttrg-bd 
         font-weight: normal
         @include media(675)
             font-size: 34px
@@ -884,7 +886,6 @@ button
                     color: $white
         &.content-font2
             h1
-                // font-family: $ttrg-bd
                 color: $black-light
                 @include font(600)
                 line-height: 1.25
@@ -902,7 +903,6 @@ button
         h1
             font-size: 48px
             line-height: 1.25
-            // font-family: $ttrg-bd
             @include font(600)
             @include media(1152)
                 font-size: 42px

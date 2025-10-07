@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link"
 import Image from "next/image"
 import '@/styles/header.css'
@@ -6,6 +7,8 @@ import { useModalStore } from "@/store/modalStore";
 
 const Header = () => {
     const openHam = useModalStore((state) => state.openHam);
+    const openEnquire = useModalStore((state) => state.openEnquire)
+
     return (
         <>
             <header >
@@ -47,14 +50,16 @@ const Header = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/become-agent" className="nav-link">
+                                        {/* <Link href="/become" className="nav-link">
                                             Become an Agent
-                                        </Link>
+                                        </Link> */}
+                                        <button className="nav-link" onClick={openEnquire}>Become an Agent</button>
                                     </li>
                                     <li>
-                                        <Link href="/login" className="nav-link">
+                                        {/* <Link href="/login" className="nav-link">
                                             Login
-                                        </Link>
+                                        </Link> */}
+                                        <button className="nav-link" onClick={openEnquire}>Login</button>
                                     </li>
                                     <li>
                                         <Link href="tel:+917066692662">

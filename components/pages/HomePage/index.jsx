@@ -1,21 +1,27 @@
-// "use client"
-// import { useEffect } from "react";
+
 import "@/styles/home/home.css";
+
 import Hero from './Hero'
-// import ServiceSlider from './ServiceSlider';
-// import About from './About';
-// import Industries from './Industries';
-import Certifications from './Certifications';
+import Home_SectionA from "./Home_SectionA";
+import Home_SectionB from "./Home_SectionB";
+import Home_SectionC from "./Home_SectionC";
+import Home_SectionD from "./Home_SectionD";
+import Home_SectionE from "./Home_SectionE";
+import Home_SectionF from "./Home_SectionF";
+import Home_SectionG from "./Home_SectionG";
 
 const HomePage = () => {
   return (
     <>
       <main>
         <Hero />
-        {/* <ServiceSlider /> */}
-        {/* <About /> */}
-        {/* <Industries /> */}
-        <Certifications />
+        <Home_SectionA />
+        <Home_SectionB />
+        <Home_SectionC />
+        <Home_SectionD />
+        <Home_SectionE />
+        <Home_SectionF />
+        <Home_SectionG />
       </main>
     </>
   )

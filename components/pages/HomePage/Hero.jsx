@@ -86,46 +86,6 @@ const Hero = () => {
                                 </div>
                             </div>
 
-
-                            {/* <div className="flight-search-container">
-                                <div className="flight-search-card">
-                                    <div className="location-row">
-                                        <div className="location-section">
-                                            <p className="location-label">From</p>
-                                            <p className="location-name">Delhi</p>
-                                            <p className="location-code">DEL, Delhi Airport India...</p>
-                                        </div>
-                                        <div className="location-arrow">
-                                            <svg className="arrow-icon" fill="#8B5CF6" viewBox="0 0 24 24">
-                                                <path d="M10 6l6 6-6 6V6z" />
-                                            </svg>
-                                        </div>
-                                        <div className="location-section">
-                                            <p className="location-label">To</p>
-                                            <p className="location-name">Kochi</p>
-                                            <p className="location-code">COK, Cochin International...</p>
-                                        </div>
-                                    </div>
-                                    <div className="details-row">
-                                        <div className="detail-section">
-                                            <p className="detail-label">Departure</p>
-                                            <p className="detail-value">16 Sep'25</p>
-                                            <p className="detail-day">Tuesday</p>
-                                        </div>
-                                        <div className="detail-section">
-                                            <p className="detail-label">Return</p>
-                                            <p className="detail-text">Tap to add a return date for bigger discounts</p>
-                                        </div>
-                                        <div className="detail-section">
-                                            <p className="detail-label">Travellers & Class</p>
-                                            <p className="detail-value">1 Traveller</p>
-                                            <p className="detail-text">Economy/Premium Economy</p>
-                                        </div>
-                                    </div>
-                                    <button className="search-button">SEARCH</button>
-                                </div>
-                            </div> */}
-
                             <div className="col">
                                 <Swiper
                                     modules={[Pagination, Autoplay]}
