@@ -344,7 +344,6 @@ header
 // FOOTER Start========================>>>>
 footer
     position: relative
-    overflow: hidden
     &::before
         content: ""
         position: absolute
@@ -356,8 +355,53 @@ footer
         z-index: -1
     @include media(540)
         margin-bottom: var(--footerstrip)
+    .upper-footer
+        position: absolute
+        top: -10%
+        left: 0
+        width: 100%
+        .grid-box
+            height: 86px
+            border-radius: 50px
+            background: #E7B806
+            padding: 0 40px
+            display: grid
+            grid-template-columns: repeat(4,1fr)
+            gap: 40px
+            .col
+                // padding: 10px
+                display: flex
+                align-items: center
+                justify-content: space-between
+                .flex   
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    figure
+                        width: 43px
+                        height: 43px
+                        flex: 0 1 20%
+                        img
+                            width: 100%
+                            height: 100%
+                            object-fit: contain
+                    .content
+                        flex: 0 1 75%
+                        h4
+                            font-weight: 700
+                            color: black
+                            font-size: 16px
+                            margin: 0 0 7px 0
+                            line-height: 18px
+                        p
+                            font-weight: 400
+                            font-size: 13px
+                            line-height: 15px
+                            color: black
+
+
     .main-footer
-        padding: 50px 25px 10px
+        padding: 80px 25px 50px
         display: flex
         gap: 60px
         @include media(1024)
@@ -532,8 +576,18 @@ footer
             font-size: 14px
             line-height: 24px
             color: white
+            display: flex
+            align-items: center
             @include media(540)
                 text-align: center
+            span
+                width: 80px
+                height: 20px
+                display: inline-block
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: contain
         .pret
             display: flex
             justify-content: end
