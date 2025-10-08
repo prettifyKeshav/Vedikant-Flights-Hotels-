@@ -93,7 +93,6 @@ const flightDeals = [
         },
         category: "mumbai"
     },
-
     {
         id: 7,
         link: "/",
@@ -154,11 +153,11 @@ const flightDeals = [
 
 const Home_SectionE = () => {
     const swiperRef = useRef(null);
-    const [isActiveTab, setIsActiveTab] = useState("newdelhi")
+    const [isActiveTab, setIsActiveTab] = useState("newdelhi");
 
-    const handleTabClick = ((tab) => {
-        setIsActiveTab(tab)
-    })
+    const handleTabClick = (tab) => {
+        setIsActiveTab(tab);
+    };
 
     const handleSwiperInit = (swiper) => {
         if (swiper.slides.length <= 1) {
@@ -175,7 +174,6 @@ const Home_SectionE = () => {
         { name: "Hyderabad", value: "hyderabad" },
         { name: "View All", value: "viewall" },
     ];
-
 
     return (
         <div className="home-secE">
@@ -244,7 +242,7 @@ const Home_SectionE = () => {
                             }}
                             spaceBetween={20}
                             slidesPerView={3}
-                            loop={flightDeals.length > 1}
+                            loop={flightDeals.filter((deal) => deal.category === "newdelhi").length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                                 handleSwiperInit(swiper);
@@ -295,7 +293,7 @@ const Home_SectionE = () => {
                             }}
                             spaceBetween={20}
                             slidesPerView={3}
-                            loop={flightDeals.length > 1}
+                            loop={flightDeals.filter((deal) => deal.category === "mumbai").length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                                 handleSwiperInit(swiper);
@@ -304,7 +302,6 @@ const Home_SectionE = () => {
                             {flightDeals
                                 .filter((deal) => deal.category === "mumbai")
                                 .map((deal) => (
-
                                     <SwiperSlide key={deal.id}>
                                         <Link href={deal.link}>
                                             <figure>
@@ -337,6 +334,107 @@ const Home_SectionE = () => {
                                 ))}
                         </Swiper>
                     </div>
+
+                    <div className={`tabs ${isActiveTab === "bengaluru" ? 'active' : ""}`} data-tab="bengaluru">
+                        <Swiper
+                            modules={[Navigation]}
+                            navigation={{
+                                nextEl: ".homesecE-nav-next",
+                                prevEl: ".homesecE-nav-prev",
+                            }}
+                            spaceBetween={20}
+                            slidesPerView={3}
+                            loop={flightDeals.filter((deal) => deal.category === "bengaluru").length > 1}
+                            onSwiper={(swiper) => {
+                                swiperRef.current = swiper;
+                                handleSwiperInit(swiper);
+                            }}
+                        >
+                            {flightDeals
+                                .filter((deal) => deal.category === "bengaluru")
+                                .map((deal) => (
+                                    <SwiperSlide key={deal.id}>
+                                        <Link href={deal.link}>
+                                            <figure>
+                                                <Image
+                                                    src={deal.mainImage}
+                                                    alt="Cheapest flight deal"
+                                                    width={390}
+                                                    height={248}
+                                                />
+                                                <div className="content">
+                                                    <p>{deal.city}</p>
+                                                    <p>{deal.country}</p>
+                                                </div>
+                                            </figure>
+                                            <figcaption>
+                                                <h4>{deal.title}</h4>
+                                                <p>{deal.desc}</p>
+                                                <div className="grid-box">
+                                                    <div className="col">
+                                                        <span>{deal.figcaption.rating}</span>
+                                                        <Image src="/assets/images/home/icon/star.svg" width={15} height={15} alt="star image" />
+                                                    </div>
+                                                    <div className="col">{deal.figcaption.ratingText}</div>
+                                                    <div className="col">{deal.figcaption.userCount}</div>
+                                                    <div className="col">{deal.figcaption.price}</div>
+                                                </div>
+                                            </figcaption>
+                                        </Link>
+                                    </SwiperSlide>
+                                ))}
+                        </Swiper>
+                    </div>
+
+                    <div className={`tabs ${isActiveTab === "viewall" ? 'active' : ""}`} data-tab="viewall">
+                        <Swiper
+                            modules={[Navigation]}
+                            navigation={{
+                                nextEl: ".homesecE-nav-next",
+                                prevEl: ".homesecE-nav-prev",
+                            }}
+                            spaceBetween={20}
+                            slidesPerView={3}
+                            loop={flightDeals.length > 1}
+                            onSwiper={(swiper) => {
+                                swiperRef.current = swiper;
+                                handleSwiperInit(swiper);
+                            }}
+                        >
+                            {flightDeals.map((deal) => (
+                                <SwiperSlide key={deal.id}>
+                                    <Link href={deal.link}>
+                                        <figure>
+                                            <Image
+                                                src={deal.mainImage}
+                                                alt="Cheapest flight deal"
+                                                width={390}
+                                                height={248}
+                                            />
+                                            <div className="content">
+                                                <p>{deal.city}</p>
+                                                <p>{deal.country}</p>
+                                            </div>
+                                        </figure>
+                                        <figcaption>
+                                            <h4>{deal.title}</h4>
+                                            <p>{deal.desc}</p>
+                                            <div className="grid-box">
+                                                <div className="col">
+                                                    <span>{deal.figcaption.rating}</span>
+                                                    <Image src="/assets/images/home/icon/star.svg" width={15} height={15} alt="star image" />
+                                                </div>
+                                                <div className="col">{deal.figcaption.ratingText}</div>
+                                                <div className="col">{deal.figcaption.userCount}</div>
+                                                <div className="col">{deal.figcaption.price}</div>
+                                            </div>
+                                        </figcaption>
+                                    </Link>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                    
                 </div>
             </div>
         </div>
