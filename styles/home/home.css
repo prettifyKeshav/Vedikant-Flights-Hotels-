@@ -568,6 +568,15 @@
   transition: 0.5s ease;
   background: var(--secondary);
 }
+.home-secC .tab-nav-content .tabs {
+  transform: translateY(30%);
+  opacity: 0;
+  transition: 1s ease;
+}
+.home-secC .tab-nav-content .tabs.active {
+  transform: translateY(0%);
+  opacity: 1;
+}
 .home-secC .grid-box {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -784,6 +793,15 @@
 }
 .home-secE .heading .col:last-child .swiper-nav .homesecE-nav-next svg {
   rotate: -180deg;
+}
+.home-secE .tab-nav-content .tabs {
+  transform: translateY(30%);
+  opacity: 0;
+  transition: 1s ease;
+}
+.home-secE .tab-nav-content .tabs.active {
+  transform: translateY(0%);
+  opacity: 1;
 }
 .home-secE .swiper .swiper-wrapper {
   padding: 40px 0;

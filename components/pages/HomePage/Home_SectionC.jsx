@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const Home_SectionC = () => {
+  const [activeTab, setActiveTab] = useState("domestic");
+
   const sectionData = {
     section: {
       name: "home-secC",
@@ -10,12 +13,7 @@ const Home_SectionC = () => {
         title: "Top Selling Travel Destinations",
         description:
           "Explore the world’s favorite destinations that top every traveler’s list year after year.",
-        tabs: [
-          { name: "Domestic", active: true },
-          { name: "International", active: false },
-        ],
       },
-
       destinations: [
         {
           link: "/",
@@ -23,11 +21,12 @@ const Home_SectionC = () => {
             src: "/assets/images/home/Top-Selling/1.jpg",
             width: 205,
             height: 219,
-            alt: "Top Selling 1",
+            alt: "Top Selling Himachal",
           },
           name: "Himachal",
           price: "₹ 12,002",
           priceLabel: "Starting Price",
+          category: "domestic",
         },
         {
           link: "/",
@@ -40,6 +39,7 @@ const Home_SectionC = () => {
           name: "Kerala",
           price: "₹ 15,000",
           priceLabel: "Starting Price",
+          category: "domestic",
         },
         {
           link: "/",
@@ -52,6 +52,7 @@ const Home_SectionC = () => {
           name: "Rajasthan",
           price: "₹ 18,000",
           priceLabel: "Starting Price",
+          category: "domestic",
         },
         {
           link: "/",
@@ -64,6 +65,7 @@ const Home_SectionC = () => {
           name: "Goa",
           price: "₹ 10,000",
           priceLabel: "Starting Price",
+          category: "domestic",
         },
         {
           link: "/",
@@ -76,6 +78,7 @@ const Home_SectionC = () => {
           name: "Uttarakhand",
           price: "₹ 14,000",
           priceLabel: "Starting Price",
+          category: "domestic",
         },
         {
           link: "/",
@@ -88,6 +91,7 @@ const Home_SectionC = () => {
           name: "Kashmir",
           price: "₹ 20,000",
           priceLabel: "Starting Price",
+          category: "domestic",
         },
         {
           link: "/",
@@ -100,9 +104,41 @@ const Home_SectionC = () => {
           name: "Andaman",
           price: "₹ 25,000",
           priceLabel: "Starting Price",
+          category: "domestic",
+        },
+
+        {
+          link: "/",
+          image: {
+            src: "/assets/images/home/Top-Selling/7.jpg",
+            width: 205,
+            height: 219,
+            alt: "Top Selling Maldives",
+          },
+          name: "Maldives",
+          price: "$ 500",
+          priceLabel: "Starting Price",
+          category: "international",
+        },
+        {
+          link: "/",
+          image: {
+            src: "/assets/images/home/Top-Selling/7.jpg",
+            width: 205,
+            height: 219,
+            alt: "Top Selling Dubai",
+          },
+          name: "Dubai",
+          price: "$ 600",
+          priceLabel: "Starting Price",
+          category: "international",
         },
       ],
     },
+  };
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
   };
 
   return (
@@ -111,37 +147,79 @@ const Home_SectionC = () => {
         <div className="container">
           <div className="heading">
             <div className="col">
-              <h2>{sectionData.section.heading.title}</h2>
-              <p>{sectionData.section.heading.description}</p>
+              <h2>Top Selling Travel Destinations</h2>
+              <p>Explore the world’s favorite destinations that top every traveler’s list year after year.</p>
             </div>
 
             <ul className="col tab-nav">
-              {sectionData.section.heading.tabs.map((tab, index) => (
-                <li key={index} className={tab.active ? "active" : ""}>
-                  {tab.name}
-                </li>
-              ))}
+              <li
+                className={activeTab === "domestic" ? "active" : ""}
+                data-tab="domestic"
+                onClick={() => handleTabClick("domestic")}
+              >
+                Domestic
+              </li>
+              <li
+                className={activeTab === "international" ? "active" : ""}
+                data-tab="international"
+                onClick={() => handleTabClick("international")}
+              >
+                International
+              </li>
             </ul>
           </div>
 
           <div className="tab-nav-content">
-            <div className="grid-box">
-              {sectionData.section.destinations.map((destination, index) => (
-                <Link href={destination.link} className="col" key={index}>
-                  <Image
-                    src={destination.image.src}
-                    width={destination.image.width}
-                    height={destination.image.height}
-                    alt={destination.image.alt}
-                  />
-                  <figcaption>
-                    <h4>{destination.name}</h4>
-                    <p>
-                      {destination.price} <span>{destination.priceLabel}</span>
-                    </p>
-                  </figcaption>
-                </Link>
-              ))}
+            <div
+              className={`tabs ${activeTab === "domestic" ? "active" : ""}`}
+              data-tab="domestic"
+            >
+              <div className="grid-box">
+                {sectionData.section.destinations
+                  .filter((destination) => destination.category === "domestic")
+                  .map((destination, index) => (
+                    <Link href={destination.link} className="col" key={index}>
+                      <Image
+                        src={destination.image.src}
+                        width={destination.image.width}
+                        height={destination.image.height}
+                        alt={destination.image.alt}
+                      />
+                      <figcaption>
+                        <h4>{destination.name}</h4>
+                        <p>
+                          {destination.price} <span>{destination.priceLabel}</span>
+                        </p>
+                      </figcaption>
+                    </Link>
+                  ))}
+              </div>
+            </div>
+            
+            <div
+              className={`tabs ${activeTab === "international" ? "active" : ""}`}
+              data-tab="international"
+            >
+              <div className="grid-box">
+                {sectionData.section.destinations
+                  .filter((destination) => destination.category === "international")
+                  .map((destination, index) => (
+                    <Link href={destination.link} className="col" key={index}>
+                      <Image
+                        src={destination.image.src}
+                        width={destination.image.width}
+                        height={destination.image.height}
+                        alt={destination.image.alt}
+                      />
+                      <figcaption>
+                        <h4>{destination.name}</h4>
+                        <p>
+                          {destination.price} <span>{destination.priceLabel}</span>
+                        </p>
+                      </figcaption>
+                    </Link>
+                  ))}
+              </div>
             </div>
           </div>
         </div>

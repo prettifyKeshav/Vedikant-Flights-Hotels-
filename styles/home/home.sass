@@ -468,6 +468,15 @@
                     height: 2px 
                     transition: 0.5s ease
                     background: $secondary
+    .tab-nav-content
+        .tabs
+            transform: translateY(30%)
+            opacity: 0
+            transition: 1s ease
+            &.active
+                transform: translateY(0%)
+                opacity: 1
+                
     .grid-box
         display: grid
         grid-template-columns: repeat(5, 1fr)
@@ -650,6 +659,14 @@
                 .homesecE-nav-next
                     svg
                         rotate: -180deg
+    .tab-nav-content
+        .tabs
+            transform: translateY(30%)
+            opacity: 0
+            transition: 1s ease
+            &.active
+                transform: translateY(0%)
+                opacity: 1
     .swiper
         .swiper-wrapper
             padding: 40px 0

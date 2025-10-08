@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,8 +20,8 @@ const flightDeals = [
             ratingText: "Excellent",
             userCount: "676 Users",
             price: "₹ 5,002",
-            
-        }
+        },
+        category: "newdelhi"
     },
     {
         id: 2,
@@ -34,7 +34,8 @@ const flightDeals = [
             ratingText: "Excellent",
             userCount: "676 Users",
             price: "₹ 5,002",
-        }
+        },
+        category: "newdelhi"
     },
     {
         id: 3,
@@ -47,7 +48,8 @@ const flightDeals = [
             ratingText: "Excellent",
             userCount: "676 Users",
             price: "₹ 5,002",
-        }
+        },
+        category: "newdelhi"
     },
     {
         id: 4,
@@ -60,12 +62,103 @@ const flightDeals = [
             ratingText: "Excellent",
             userCount: "676 Users",
             price: "₹ 5,002",
-        }
+        },
+        category: "newdelhi"
+    },
+    {
+        id: 5,
+        link: "/",
+        mainImage: "/assets/images/home/second-slider/1.jpg",
+        title: "Hyderabad Haven",
+        desc: "Banjara Hills",
+        figcaption: {
+            rating: 4.5,
+            ratingText: "Excellent",
+            userCount: "676 Users",
+            price: "₹ 5,002",
+        },
+        category: "mumbai"
+    },
+    {
+        id: 6,
+        link: "/",
+        mainImage: "/assets/images/home/second-slider/1.jpg",
+        title: "Hyderabad Haven",
+        desc: "Banjara Hills",
+        figcaption: {
+            rating: 4.5,
+            ratingText: "Excellent",
+            userCount: "676 Users",
+            price: "₹ 5,002",
+        },
+        category: "mumbai"
+    },
+
+    {
+        id: 7,
+        link: "/",
+        mainImage: "/assets/images/home/second-slider/1.jpg",
+        title: "Hyderabad Haven",
+        desc: "Banjara Hills",
+        figcaption: {
+            rating: 4.5,
+            ratingText: "Excellent",
+            userCount: "676 Users",
+            price: "₹ 5,002",
+        },
+        category: "mumbai"
+    },
+    {
+        id: 8,
+        link: "/",
+        mainImage: "/assets/images/home/second-slider/1.jpg",
+        title: "Hyderabad Haven",
+        desc: "Banjara Hills",
+        figcaption: {
+            rating: 4.5,
+            ratingText: "Excellent",
+            userCount: "676 Users",
+            price: "₹ 5,002",
+        },
+        category: "mumbai"
+    },
+    {
+        id: 9,
+        link: "/",
+        mainImage: "/assets/images/home/second-slider/1.jpg",
+        title: "Hyderabad Haven",
+        desc: "Banjara Hills",
+        figcaption: {
+            rating: 4.5,
+            ratingText: "Excellent",
+            userCount: "676 Users",
+            price: "₹ 5,002",
+        },
+        category: "bengaluru"
+    },
+    {
+        id: 10,
+        link: "/",
+        mainImage: "/assets/images/home/second-slider/1.jpg",
+        title: "Hyderabad Haven",
+        desc: "Banjara Hills",
+        figcaption: {
+            rating: 4.5,
+            ratingText: "Excellent",
+            userCount: "676 Users",
+            price: "₹ 5,002",
+        },
+        category: "bengaluru"
     },
 ];
 
 const Home_SectionE = () => {
     const swiperRef = useRef(null);
+    const [isActiveTab, setIsActiveTab] = useState("newdelhi")
+
+    const handleTabClick = ((tab) => {
+        setIsActiveTab(tab)
+    })
 
     const handleSwiperInit = (swiper) => {
         if (swiper.slides.length <= 1) {
@@ -74,6 +167,15 @@ const Home_SectionE = () => {
             document.querySelector(".homesecE-nav-next").style.display = "none";
         }
     };
+
+    const tabs = [
+        { name: "New Delhi", value: "newdelhi" },
+        { name: "Mumbai", value: "mumbai" },
+        { name: "Bengaluru", value: "bengaluru" },
+        { name: "Hyderabad", value: "hyderabad" },
+        { name: "View All", value: "viewall" },
+    ];
+
 
     return (
         <div className="home-secE">
@@ -85,11 +187,16 @@ const Home_SectionE = () => {
 
                     <div className="col">
                         <ul className="tab-nav">
-                            <li className="active">New Delhi</li>
-                            <li>Mumbai</li>
-                            <li>Bengaluru</li>
-                            <li>Hyderabad</li>
-                            <li>View All</li>
+                            {tabs.map((tab) => (
+                                <li
+                                    key={tab.value}
+                                    className={isActiveTab === tab.value ? "active" : ""}
+                                    data-tab={tab.value}
+                                    onClick={() => handleTabClick(tab.value)}
+                                >
+                                    {tab.name}
+                                </li>
+                            ))}
                         </ul>
 
                         <div className="swiper-nav">
@@ -127,52 +234,110 @@ const Home_SectionE = () => {
                     </div>
                 </div>
 
-                <Swiper
-                    modules={[Navigation]}
-                    navigation={{
-                        nextEl: ".homesecE-nav-next",
-                        prevEl: ".homesecE-nav-prev",
-                    }}
-                    spaceBetween={20}
-                    slidesPerView={3}
-                    loop={flightDeals.length > 1}
-                    onSwiper={(swiper) => {
-                        swiperRef.current = swiper;
-                        handleSwiperInit(swiper);
-                    }}
-                >
-                    {flightDeals.map((deal) => (
-                        <SwiperSlide key={deal.id}>
-                            <Link href={deal.link}>
-                                <figure>
-                                    <Image
-                                        src={deal.mainImage}
-                                        alt="Cheapest flight deal"
-                                        width={390}
-                                        height={248}
-                                    />
-                                    <div className="content">
-                                        <p>{deal.city}</p>
-                                        <p>{deal.country}</p>
-                                    </div>
-                                </figure>
-                                <figcaption>
-                                    <h4>{deal.title}</h4>
-                                    <p>{deal.desc}</p>
-                                    <div className="grid-box">
-                                        <div className="col">
-                                            <span>{deal.figcaption.rating}</span>
-                                            <Image src="/assets/images/home/icon/star.svg" width={15} height={15} alt="star image" />
-                                        </div>
-                                        <div className="col">{deal.figcaption.ratingText}</div>
-                                        <div className="col">{deal.figcaption.userCount}</div>
-                                        <div className="col">{deal.figcaption.price}</div>
-                                    </div>
-                                </figcaption>
-                            </Link>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                <div className="tab-nav-content">
+                    <div className={`tabs ${isActiveTab === "newdelhi" ? 'active' : ""}`} data-tab="newdelhi">
+                        <Swiper
+                            modules={[Navigation]}
+                            navigation={{
+                                nextEl: ".homesecE-nav-next",
+                                prevEl: ".homesecE-nav-prev",
+                            }}
+                            spaceBetween={20}
+                            slidesPerView={3}
+                            loop={flightDeals.length > 1}
+                            onSwiper={(swiper) => {
+                                swiperRef.current = swiper;
+                                handleSwiperInit(swiper);
+                            }}
+                        >
+                            {flightDeals
+                                .filter((deal) => deal.category === "newdelhi")
+                                .map((deal) => (
+                                    <SwiperSlide key={deal.id}>
+                                        <Link href={deal.link}>
+                                            <figure>
+                                                <Image
+                                                    src={deal.mainImage}
+                                                    alt="Cheapest flight deal"
+                                                    width={390}
+                                                    height={248}
+                                                />
+                                                <div className="content">
+                                                    <p>{deal.city}</p>
+                                                    <p>{deal.country}</p>
+                                                </div>
+                                            </figure>
+                                            <figcaption>
+                                                <h4>{deal.title}</h4>
+                                                <p>{deal.desc}</p>
+                                                <div className="grid-box">
+                                                    <div className="col">
+                                                        <span>{deal.figcaption.rating}</span>
+                                                        <Image src="/assets/images/home/icon/star.svg" width={15} height={15} alt="star image" />
+                                                    </div>
+                                                    <div className="col">{deal.figcaption.ratingText}</div>
+                                                    <div className="col">{deal.figcaption.userCount}</div>
+                                                    <div className="col">{deal.figcaption.price}</div>
+                                                </div>
+                                            </figcaption>
+                                        </Link>
+                                    </SwiperSlide>
+                                ))}
+                        </Swiper>
+                    </div>
+
+                    <div className={`tabs ${isActiveTab === "mumbai" ? 'active' : ""}`} data-tab="mumbai">
+                        <Swiper
+                            modules={[Navigation]}
+                            navigation={{
+                                nextEl: ".homesecE-nav-next",
+                                prevEl: ".homesecE-nav-prev",
+                            }}
+                            spaceBetween={20}
+                            slidesPerView={3}
+                            loop={flightDeals.length > 1}
+                            onSwiper={(swiper) => {
+                                swiperRef.current = swiper;
+                                handleSwiperInit(swiper);
+                            }}
+                        >
+                            {flightDeals
+                                .filter((deal) => deal.category === "mumbai")
+                                .map((deal) => (
+
+                                    <SwiperSlide key={deal.id}>
+                                        <Link href={deal.link}>
+                                            <figure>
+                                                <Image
+                                                    src={deal.mainImage}
+                                                    alt="Cheapest flight deal"
+                                                    width={390}
+                                                    height={248}
+                                                />
+                                                <div className="content">
+                                                    <p>{deal.city}</p>
+                                                    <p>{deal.country}</p>
+                                                </div>
+                                            </figure>
+                                            <figcaption>
+                                                <h4>{deal.title}</h4>
+                                                <p>{deal.desc}</p>
+                                                <div className="grid-box">
+                                                    <div className="col">
+                                                        <span>{deal.figcaption.rating}</span>
+                                                        <Image src="/assets/images/home/icon/star.svg" width={15} height={15} alt="star image" />
+                                                    </div>
+                                                    <div className="col">{deal.figcaption.ratingText}</div>
+                                                    <div className="col">{deal.figcaption.userCount}</div>
+                                                    <div className="col">{deal.figcaption.price}</div>
+                                                </div>
+                                            </figcaption>
+                                        </Link>
+                                    </SwiperSlide>
+                                ))}
+                        </Swiper>
+                    </div>
+                </div>
             </div>
         </div>
     );
