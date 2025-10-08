@@ -7,20 +7,46 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import { useModalStore } from "@/store/modalStore";
+
 
 const flightDeals = [
     {
         id: 1,
-        link: "/",
         mainImage: "/assets/images/home/first-slider/1.jpg",
-        city: "Name Here",
-        country: "Gurugram",
+        name: "Name Here",
+        city: "Gurugram",
     },
-   
+    {
+        id: 2,
+        mainImage: "/assets/images/home/first-slider/1.jpg",
+        name: "Name Here",
+        city: "Gurugram",
+    },
+    {
+        id: 3,
+        mainImage: "/assets/images/home/first-slider/1.jpg",
+        name: "Name Here",
+        city: "Gurugram",
+    },
+    {
+        id: 4,
+        mainImage: "/assets/images/home/first-slider/1.jpg",
+        name: "Name Here",
+        city: "Gurugram",
+    },
+    {
+        id: 5,
+        mainImage: "/assets/images/home/first-slider/1.jpg",
+        name: "Name Here",
+        city: "Gurugram",
+    },
+
 ];
 
 const Home_SectionG = () => {
     const swiperRef = useRef(null);
+    const openVideo = useModalStore((state) => state.openVideo)
 
     const handleSwiperInit = (swiper) => {
         if (swiper.slides.length <= 1) {
@@ -29,7 +55,6 @@ const Home_SectionG = () => {
             document.querySelector(".homesecG-nav-next").style.display = "none";
         }
     };
-
     return (
         <div className="home-secG">
             <div className="container">
@@ -37,9 +62,9 @@ const Home_SectionG = () => {
                     <div className="col">
                         <h2>Business Travellers Love Us</h2>
                     </div>
-
+                    
                     <div className="col">
-                        <div className="swiper-nav" data-animate="zoom-in">
+                        <div className="swiper-nav">
                             <button className="homesecG-nav-prev">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -90,20 +115,28 @@ const Home_SectionG = () => {
                 >
                     {flightDeals.map((deal) => (
                         <SwiperSlide key={deal.id}>
-                            <Link href={deal.link}>
-                                <figure>
-                                    <Image
-                                        src={deal.mainImage}
-                                        alt="Cheapest flight deal"
-                                        width={390}
-                                        height={248}
-                                    />
-                                    <div className="content">
-                                        <p>{deal.city}</p>
-                                        <p>{deal.country}</p>
+                            <figure>
+                                <Image
+                                    src={deal.mainImage}
+                                    alt="Cheapest flight deal"
+                                    width={390}
+                                    height={248}
+                                />
+                                <div className="content">
+                                    <div className="flex-box">
+                                        <div className="col">
+                                            <p>{deal.name}</p>
+                                            <p>{deal.city}</p>
+                                        </div>
+                                        <div className="col">
+                                            <div className="play-button" onClick={openVideo} data-video="https://www.youtube.com/embed/EG3n3TRMDXo?si=4HqoHycaR7RSPV3z">
+                                                <button type="button" className="play-btn"></button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </figure>
-                            </Link>
+                                </div>
+
+                            </figure>
                         </SwiperSlide>
                     ))}
                 </Swiper>

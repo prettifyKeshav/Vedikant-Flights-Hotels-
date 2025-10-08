@@ -955,8 +955,8 @@
 }
 .home-secG .heading {
   display: flex;
-  justify-content: space-between;
-  align-items: end;
+  justify-content: center;
+  position: relative;
 }
 .home-secG .heading .col:first-child h2 {
   font-weight: 700;
@@ -964,6 +964,11 @@
   font-size: 36px;
   line-height: 30px;
   text-align: center;
+}
+.home-secG .heading .col:last-child {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .home-secG .heading .col:last-child .swiper-nav {
   display: flex;
@@ -993,7 +998,7 @@
   rotate: -180deg;
 }
 .home-secG .swiper .swiper-wrapper {
-  padding: 40px 0;
+  padding: 50px 0 20px 0;
 }
 .home-secG .swiper .swiper-wrapper .swiper-slide {
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1019607843);
@@ -1028,13 +1033,19 @@
   left: 0;
   padding: 25px 30px;
   z-index: 2;
+  width: 100%;
 }
-.home-secG .swiper .swiper-wrapper .swiper-slide .content p:first-child {
+.home-secG .swiper .swiper-wrapper .swiper-slide .content .flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-secG .swiper .swiper-wrapper .swiper-slide .content .flex-box .col:first-child p:first-child {
   font-weight: 700;
   font-size: 20px;
   color: var(--white);
 }
-.home-secG .swiper .swiper-wrapper .swiper-slide .content p:last-child {
+.home-secG .swiper .swiper-wrapper .swiper-slide .content .flex-box .col:first-child p:last-child {
   font-weight: 500;
   font-size: 16px;
   color: var(--white);
@@ -1131,4 +1142,41 @@
 .home-secG .swiper .swiper-wrapper .swiper-slide figcaption .flex-box .col:nth-child(3) img {
   width: 15px;
   height: 15px;
+}
+
+.home-secH {
+  background: #EEEEEE;
+  padding: 50px 0;
+}
+.home-secH .col {
+  margin: 0 0 30px 0;
+}
+.home-secH .col h4 {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 30px;
+  color: #000000;
+  padding: 0 0 8px;
+}
+.home-secH .col p {
+  font-weight: h4;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 18px;
+}
+.home-secH .flex-box {
+  display: flex;
+  justify-content: space-between;
+}
+.home-secH .flex-box .col {
+  flex: 0 1 50%;
+}
+.home-secH .flex-box .col .heading {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 40px;
+}
+.home-secH .flex-box .col .heading h4 {
+  padding: 0;
 }/*# sourceMappingURL=home.css.map */

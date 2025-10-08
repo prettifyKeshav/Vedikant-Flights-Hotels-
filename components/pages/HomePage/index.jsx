@@ -9,6 +9,7 @@ import Home_SectionD from "./Home_SectionD";
 import Home_SectionE from "./Home_SectionE";
 import Home_SectionF from "./Home_SectionF";
 import Home_SectionG from "./Home_SectionG";
+import Home_SectionH from "./Home_SectionH";
 
 const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ const HomePage = () => {
         <Home_SectionE />
         <Home_SectionF />
         <Home_SectionG />
+        <Home_SectionH />
       </main>
     </>
   )
