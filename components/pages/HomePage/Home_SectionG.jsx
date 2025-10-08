@@ -13,31 +13,31 @@ import { useModalStore } from "@/store/modalStore";
 const flightDeals = [
     {
         id: 1,
-        mainImage: "/assets/images/home/first-slider/1.jpg",
+        mainImage: "/assets/images/home/Business-Travellers/1.jpg",
         name: "Name Here",
         city: "Gurugram",
     },
     {
         id: 2,
-        mainImage: "/assets/images/home/first-slider/1.jpg",
+        mainImage: "/assets/images/home/Business-Travellers/2.jpg",
         name: "Name Here",
         city: "Gurugram",
     },
     {
         id: 3,
-        mainImage: "/assets/images/home/first-slider/1.jpg",
+        mainImage: "/assets/images/home/Business-Travellers/3.jpg",
         name: "Name Here",
         city: "Gurugram",
     },
     {
         id: 4,
-        mainImage: "/assets/images/home/first-slider/1.jpg",
+        mainImage: "/assets/images/home/Business-Travellers/4.jpg",
         name: "Name Here",
         city: "Gurugram",
     },
     {
         id: 5,
-        mainImage: "/assets/images/home/first-slider/1.jpg",
+        mainImage: "/assets/images/home/Business-Travellers/1.jpg",
         name: "Name Here",
         city: "Gurugram",
     },

@@ -1188,18 +1188,6 @@ button {
   color: var(--secondary);
 }
 
-.enquire-btn {
-  background: var(--primary);
-  padding: 5px 16px;
-  border-radius: 5px;
-  border: 1px solid var(--white);
-  transition: 0.5s ease;
-}
-.enquire-btn:hover {
-  background: transparent;
-  color: var(--white);
-}
-
 .white-border {
   background: transparent;
   padding: 5px 15px;

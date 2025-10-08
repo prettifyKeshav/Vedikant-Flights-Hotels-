@@ -352,7 +352,7 @@ footer
         left: 0
         height: 100%
         width: 100%
-        background: linear-gradient(180deg, #FFFFFF 0%, #CABAFF 100%)
+        background: $primary
         z-index: -1
     @include media(540)
         margin-bottom: var(--footerstrip)
@@ -370,22 +370,24 @@ footer
             flex: 0 1 233px 
             flex-direction: column
             display: flex
-            gap: 100px
+            gap: 40px
             @include media(991)
                 margin: 0 auto 20px
             @include media(768)
                 flex: 0 1 163px
                 gap: 30px
-                
             @include media(540)     
                 margin: 0 auto
+            figure
+                width: 134px
+                height: 134px
             .social-icons
                 display: flex
                 justify-content: start
                 align-items: center
                 gap: 8px
                 a
-                    border: 1px solid #232963
+                    border: 1px solid white
                     border-radius: 50%
                     display: flex
                     justify-content: center
@@ -393,13 +395,13 @@ footer
                     height: 43px
                     width: 43px
                     &:hover
-                        background: #232963
+                        background: white
                         svg
                             path
-                                fill: white
+                                fill: $primary
                     svg 
                         path
-                            fill: #232963
+                            fill: white
             img
                 height: fit-content
                 @include media(991)
@@ -426,11 +428,11 @@ footer
                 h6
                     line-height: 1.2
                     margin-bottom: 22px
+
                     font-weight: 700
-                    font-size: 12px
-                    text-transform: uppercase
-                    color: $text
-                    letter-spacing: 2px
+                    font-size: 16px
+                    line-height: 18px
+                    color: white
                 ul
                     li
                         margin-bottom: 5px
@@ -440,13 +442,26 @@ footer
                             font-weight: 600
                             font-size: 14px
                             line-height: 16px
-                            color: #232963
+                            color: $white
                             transition: .5s ease
-                            &:hover
-                                color: $primary
-                                padding-left: 5px
+                            // &:hover
+                            //     color: $primary
+                            //     padding-left: 5px
+                &:nth-child(1)
+                    ul
+                        li
+                            margin: 0 0 15px 0
+                            a
+                                color: $white
+                                font-weight: 700
+                                font-size: 25px
+                                line-height: 18px
                 &:nth-child(2)
                     flex: 1 1
+                    ul li a
+                        font-weight: 400
+                        font-size: 16px
+                        line-height: 18px
                 &:nth-child(3)
                     flex: 0 1 30%
                     @include media(540)
@@ -459,10 +474,17 @@ footer
                         li
                             a
                                 font-size: 14px
-                                font-weight: 600
+                                font-weight: 500
+                                line-height: 20px
+
+                                svg
+                                    path 
+                                        fill: white
+                                    &:first-child
+                                        stroke: white
                         li:first-child  
                             span
-                                max-width: 60%
+                                max-width: 80%
                                 @include media(540)
                                     max-width: 100%
                         .phone
@@ -475,8 +497,8 @@ footer
                         .bottom-btn
                             border-radius: 25px
                             padding: 10px 24px
-                            background: #3107CA
-                            color: white
+                            background: #E7B806
+                            color: $primary
                             display: flex
                             justify-content: center
                             align-items: center
@@ -494,198 +516,38 @@ footer
                         gap: 5px
                         svg
                             flex: 0 1 30px
-    .middle-footer
-        padding: 30px 25px 190px
+    .bottom-footer
+        padding: 30px 25px
         display: flex
         justify-content: space-between
         width: 100%
         align-items: center
+        border-top: 1px solid #FFFFFF2B
         @include media(540)
             flex-direction: column
             gap: 5px
             padding: 30px 25px 80px
         p
-            font-weight: 400
-            font-size: 12px
-            color: $text
+            font-weight: 500
+            font-size: 14px
+            line-height: 24px
+            color: white
             @include media(540)
                 text-align: center
         .pret
-            a
-                display: flex
-                align-items: center
-                color: $text
-                font-weight: 400
-                font-size: 12px
-    .bottom-footer
-        .bg
-            height: 50vh
-            @include media(1024)
-                height: 40vh
-            @include media(768)
-                height: 30vh
-            @include media(540)
-                height: 20vh
-            .banner-wrapper
-                top: 0%
-                left: 50%
-                transform: translate(-50%, -50%)
-                height: fit-content
-                width: fit-content
-            figure 
-                height: 100%
-        .banner
-            overflow: visible
-            &::before
-                background: none
-        .banner-image
-            width: 609px
-            height: 296px
             display: flex
-            justify-content: center
-            align-items: center
-            @include media(540)
-                width: 100%
-                height: 100%
+            justify-content: end
+            gap: 50px
+            a
+                font-weight: 400
+                font-size: 16px
+                line-height: 18px
+                color: white
 
-// footer
-//     background: linear-gradient(270deg, #000000 0%, #464646 100%)
-//     .footer-wrapper
-//         padding: 90px 0 82px
-//         position: relative
-//         z-index: 1
-//         @include media(768)
-//             padding: 50px 0
-//         .flex
-//             @include media(768)
-//                 flex-direction: column
-//                 align-items: center
-//                 justify-content: center
-//                 gap: 35px
-//             h6
-//                 color: $white
-//                 font-size: 18px
-//             .col-md
-//                 ul
-//                     li
-//                         &:not(:last-child)
-//                             margin-bottom: 3px
-//                         a
-//                             display: block
-//                             color: $white
-//                             padding: 3px 0
-//                             &:hover
-//                                 color: $primary
-//             .colA
-//                 flex: 0 1 auto
-//                 @include media(768)
-//                     width: 100%
-//                 .logo
-//                     margin-bottom: 35px
-//                     width: 274px
-//                     img
-//                         width: 100%
-//                 ul
-//                     li
-//                         &:not(:last-child)
-//                             margin-bottom: 1rem
-//                         a
-//                             display: inline-flex
-//                             align-items: center
-//                             color: $white
-//                             gap: 18px
-//                             &:hover
-//                                 color: $primary
-//             .colB
-//                 flex: 1
-//                 display: flex
-//                 gap: 8rem
-//                 padding-left: 10rem
-//                 padding-right: 2rem
-//                 @include media(1024)   
-//                     gap: 3rem
-//                     padding-left: 4rem
-//                 @include media(768)
-//                     padding: 0
-//                     width: 100%
-//                     justify-content: start
-//                     gap: 8rem
-//                 @include media(540)
-//                     justify-content: space-between
-//                     gap: 0  
-//             .colC
-//                 flex: 0 1 auto
-//                 @include media(991)
-//                     margin-top: 50px
-//                 @include media(768)
-//                     width: 100%
-//                     text-align: left
-//                     margin-top: 0
-//                 .social-icons
-//                     margin-bottom: 38px
-//                     @include media(768)
-//                         margin-bottom: 20px
-//                     a
-//                         display: inline-flex
-//                         vertical-align: middle
-//                         align-items: center
-//                         justify-content: center
-//                         height: 40px
-//                         width: 40px
-//                         border-radius: 50%
-//                         line-height: 0
-//                         overflow: hidden
-//                         @include before($gradient-a)
-//                         &::before
-//                             border-radius: 50%
-//                             transform: scale(1.5)
-//                             z-index: -1
-//                             opacity: 0
-//                             transition: .2s ease
-//                         &:not(:last-child)
-//                             margin-right: 10px
-//                         svg
-//                             width: 24px
-//                             height: auto
-//                         &:hover
-//                             &::before
-//                                 transition: .5s ease
-//                                 opacity: 1
-//                                 transform: scale(1)
-//                 .btn-wrap
-//                     >*
-//                         &:not(:last-child)
-//                             margin-right: 10px
-//     .bottom-footer
-//         border-top: 1px solid #DCD6D633
-//         padding: 22px 0 36px
-//         position: relative
-//         z-index: 1
-//         @include media(675)
-//             margin-bottom: var(--footerstrip)
-//         .flex
-//             gap: 2rem
-//             @include media(540)     
-//                 gap: 0
-//                 flex-direction: column
-//                 align-items: center
-//             p
-//                 color: #9C9A9A
-//                 font-size: 14px
-//                 line-height: 24px
-//                 @include media(520)
-//                     font-size: 12px
-//                     color: rgb(256 256 256 / .6)
-//                 span
-//                     display: inline-block
-//                     margin-left: 4px
-//                 img
-//                     display: inline-block
-//                     vertical-align: middle
-//                     margin-left: 4px
-//                     width: 60px
-//                 &:first-child
-//                     flex: 1
+
+
+
+
 
 .model.ham-pop
     right: 0
