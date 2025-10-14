@@ -832,6 +832,423 @@ footer
                 background: transparent
                 color: $secondary
 
+.login-pop, .signUp-pop
+    max-width: 511px
+    background: $white
+    right: 0
+    transform: translateX(100%)
+    transition: .7s ease
+    background: $white
+    &.is-open
+        transform: translateX(0%)
+    .close
+        top: 25px
+        right: 25px
+        @include media(675)
+            top: 20px
+            right: 20px
+        path
+            stroke: $black
+    .model-body
+        padding: 0 70px 50px
+        height: 100%
+        overflow-y: auto
+        margin-top: 40px
+        height: calc(100% - 40px)
+        // @include scrollbar(6px,none,$primary,25px)
+        @include media(675)
+            padding: 40px 25px 50px
+        .title
+            margin-bottom: 2.5rem
+            .icon
+                height: 76px
+                width: 102px
+                line-height: 0
+                margin: 0 auto 25px
+                svg
+                    path 
+                        fill: #000
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+            h2
+                font-weight: 500
+                font-size: 24px
+                text-align: center
+                color: black
+
+        .form
+            --gaptb: 30px
+            .form-group
+                label
+                    font-weight: 400
+                    font-size: 16px
+                    line-height: 24px
+                    color: $text
+            .verify
+                position: absolute
+                left: 0
+                color: red
+                font-weight: 500
+                font-size: 14px
+                top: calc(100% + 10px)
+            .forget_pass
+                text-align: end
+                color: $text
+            .resend_code
+                .upper_resend
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    p
+                        color: $text
+                    .resend
+                        font-size: 14px
+                        text-decoration: underline
+                .otp_verify
+                    position: relative
+                    margin: 30px auto 0
+                    @include flex
+                    gap: 0 21px
+                    .verify
+                        left: 50%
+                        transform: translateX(-50%)
+                    input
+                        flex: 1
+                        height: 40px
+                        width: 100%
+                        border: none
+                        @include font(500)
+                        border: 1px solid #D9D9D9
+                        border-radius: 5px  
+                        text-align: center
+                        &:focus
+                            outline: none
+                    .verify_btn
+                        flex: 1
+                        height: 40px
+                        width: 100%
+                        background: #D5D4D4
+                        border: 1px solid #C5C4C4
+                        border-radius: 5px  
+                        transition: .5s ease
+                        &:hover
+                            background: $white
+                            border-color: $black
+        .sbmt-btn-div
+            margin: 10px 0 20px
+            text-align: center
+            .btn
+                width: 100%
+                --height: 40px
+                border-radius: 5px
+                border-bottom-width: 1px
+                padding: 5px 110px
+        .split-sec
+            overflow: hidden
+            p
+                text-align: center
+                position: relative
+                width: fit-content
+                margin: 0 auto
+                color: $text
+                @include font(500)
+                &::before,&::after
+                    content: ''
+                    position: absolute
+                    top: 50%
+                    translate: 0 -50%
+                    width: 200px
+                    height: 1px
+                    background: #ECECEC
+                &::before
+                    left: calc(100% + 12px)
+                &::after
+                    right: calc(100% + 12px)
+        .btm-social-wrp
+            display: flex
+            align-items: center
+            gap: 0 30px
+            margin: 40px 0
+            > *
+                flex: 1
+            svg
+                width: auto
+            .google-btn, .facebook-btn
+                opacity: 1
+                border-radius: 5px
+                border-width: 1px
+                padding: 8px 23px
+                background: white
+            a
+                color: #611BA7
+                display: flex
+                justify-content: center
+                align-items: center
+                gap: 15px
+
+                font-weight: 500
+                font-size: 12px
+                letter-spacing: 10%
+                text-align: center
+                text-transform: uppercase
+                &:hover
+                    background: $primary
+                    color: white
+                    svg
+                        path
+                            fill: $white
+                svg
+                    path
+                        fill: #611BA7
+                // border: 1px solid #D1D1D1
+                // color: $text
+                // &::before
+                //     background-color: #000   
+                // &:hover
+                //     color: $white
+                //     padding: 0
+        .non_member
+            text-align: center
+            color: $text
+            .signup
+                color: $black
+
+// SearchFromPop Start ===========================================>>>>
+
+.flight-search-dropdown
+    position: absolute
+    display: inline-block
+    width: 100%
+    top: 0
+    left: 0
+    .dropdown-menu
+        transition: .7s ease
+        background: $white
+        border-radius: 4px
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2)
+        width: 20rem
+        max-width: 20rem
+        position: absolute
+        top: 40px
+        left: 0
+        right: 0
+        max-height: 316px
+        z-index: 999999
+        overflow-y: auto
+        @include scrollbar(5px,none,$primary,2px)
+    .search-input
+        width: 100%
+        padding: 6px 16px
+        border: none
+        border-bottom: 1px solid #eee
+        font-size: 16px
+        outline: none
+        &::placeholder
+            color: #999
+
+    .suggestions-container .section
+        border-bottom: 1px solid #eee
+        &:last-child
+            border-bottom: none
+        .section-title
+            padding: 8px 16px
+            margin: 0
+            font-size: 12px
+            font-weight: bold
+            color: #666
+            text-transform: uppercase
+
+        .suggestions-list
+            list-style: none
+            margin: 0
+            padding: 0
+
+            .suggestion-item
+                cursor: pointer
+                padding: 12px 16px
+                border-bottom: 1px solid #f5f5f5
+                transition: background 0.2s
+                &:hover, &:focus
+                    background: #f8f9fa
+                &:last-child
+                    border-bottom: none
+            .item-content
+                .item-main
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    margin-bottom: 11px
+                .item-name
+                    font-size: 14px
+                    font-weight: 500
+                    color: #333
+                .item-code
+                    font-size: 14px
+                    color: #999
+                    font-weight: bold
+                .item-subtitle
+                    font-size: 12px
+                    color: #666
+                    margin: 0
+                    line-height: 1.4
+.dropdown-overlay
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: transparent
+    z-index: 999
+// SearchFromPop END ===========================================>>>>
+
+
+    
+// SearchFromPop Start ===========================================>>>>
+.calendar-dropdown
+  position: relative
+
+.detail-section
+  cursor: pointer
+  display: block
+  padding: 8px 0
+
+.calendar-popup
+  position: absolute
+  top: 100%
+  left: 0
+  right: 0
+  background: white
+  border: 1px solid #ddd
+  border-radius: 8px
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+  z-index: 1000
+  max-width: 600px
+  font-family: Arial, sans-serif
+
+.calendar-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 16px
+  border-bottom: 1px solid #eee
+  background: #f8f9fa
+
+.nav-arrow
+  background: none
+  border: none
+  font-size: 20px
+  cursor: pointer
+  padding: 4px 8px
+  border-radius: 4px
+
+  &:hover
+    background: #e9ecef
+
+.selected-dates
+  font-size: 14px
+  font-weight: bold
+  text-align: center
+  flex: 1
+  margin: 0 16px
+
+.months-container
+  display: flex
+  gap: 20px
+  padding: 16px
+
+.month
+  flex: 1
+
+  h3
+    text-align: center
+    margin: 0 0 8px 0
+    font-size: 14px
+    color: #333
+
+.week-days
+  display: grid
+  grid-template-columns: repeat(7, 1fr)
+  gap: 2px
+  margin-bottom: 4px
+
+.week-day
+  text-align: center
+  font-size: 12px
+  color: #666
+  padding: 4px
+
+.days-grid
+  display: grid
+  grid-template-columns: repeat(7, 1fr)
+  gap: 2px
+
+.day-cell
+  aspect-ratio: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  border: 1px solid #f0f0f0
+  cursor: pointer
+  position: relative
+  transition: background 0.2s
+
+  &:hover
+    background: #f8f9fa
+
+  &.empty
+    border: none
+    cursor: default
+
+  &.selected, &.selected-end
+    background: #007bff
+    color: white
+    border-color: #007bff
+
+  &.in-range
+    background: #e3f2fd
+    border-color: #bbdefb
+
+.day-number
+  font-size: 14px
+  font-weight: bold
+  z-index: 2
+  position: relative
+
+.price
+  position: absolute
+  bottom: 2px
+  right: 2px
+  font-size: 10px
+  color: #666
+  background: white
+  padding: 1px 3px
+  border-radius: 3px
+  border: 1px solid #eee
+
+.calendar-footer
+  padding: 8px 16px
+  text-align: center
+  font-size: 12px
+  color: #999
+  border-top: 1px solid #eee
+  background: #f8f9fa
+
+.dropdown-overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: transparent
+  z-index: 999
+
+
+// SearchFromPop End ===========================================>>>>
+
+
+
 .video-pop
     left: 0
     right: 0

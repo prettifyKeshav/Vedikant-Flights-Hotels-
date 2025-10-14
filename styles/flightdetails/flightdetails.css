@@ -1,0 +1,39 @@
+@keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+.flight-secA {
+  background: var(--gradient-a);
+  margin-top: var(--headerheight);
+  margin-bottom: 200px;
+}
+.flight-secA .grid-box {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.flight-secA .grid-box .col:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.1490196078);
+}
+.flight-secA .grid-box .col:nth-child(2) {
+  grid-column: span 2;
+}
+.flight-secA .grid-box .col:nth-child(5) {
+  grid-column: span 2;
+}
+.flight-secA .grid-box .col {
+  padding: 15px 20px 30px 20px;
+}
+.flight-secA .grid-box .col .detail-label {
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6980392157);
+}/*# sourceMappingURL=flightdetails.css.map */

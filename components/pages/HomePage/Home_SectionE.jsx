@@ -242,7 +242,7 @@ const Home_SectionE = () => {
                             }}
                             spaceBetween={20}
                             slidesPerView={3}
-                            loop={flightDeals.filter((deal) => deal.category === "newdelhi").length > 1}
+                            // loop={flightDeals.filter((deal) => deal.category === "newdelhi").length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                                 handleSwiperInit(swiper);
@@ -293,7 +293,7 @@ const Home_SectionE = () => {
                             }}
                             spaceBetween={20}
                             slidesPerView={3}
-                            loop={flightDeals.filter((deal) => deal.category === "mumbai").length > 1}
+                            // loop={flightDeals.filter((deal) => deal.category === "mumbai").length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                                 handleSwiperInit(swiper);
@@ -344,7 +344,7 @@ const Home_SectionE = () => {
                             }}
                             spaceBetween={20}
                             slidesPerView={3}
-                            loop={flightDeals.filter((deal) => deal.category === "bengaluru").length > 1}
+                            // loop={flightDeals.filter((deal) => deal.category === "bengaluru").length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                                 handleSwiperInit(swiper);
@@ -395,7 +395,7 @@ const Home_SectionE = () => {
                             }}
                             spaceBetween={20}
                             slidesPerView={3}
-                            loop={flightDeals.length > 1}
+                            // loop={flightDeals.length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                                 handleSwiperInit(swiper);

@@ -33,7 +33,7 @@
   background: var(--gradient-a);
 }
 .banner.home-banner .bg {
-  height: 100vh;
+  height: auto;
 }
 @media only screen and (max-width: 540px) {
   .banner.home-banner .bg {
@@ -41,15 +41,8 @@
   }
 }
 .banner.home-banner .bg .banner-wrapper {
-  opacity: 1;
-  border-radius: 10px;
-  position: absolute;
-  left: 50%;
-  top: 58%;
-  bottom: initial;
-  width: 100%;
-  z-index: 3;
-  transform: translate(-50%, -50%);
+  position: relative;
+  margin: 200px auto 70px;
 }
 .banner.home-banner .bg .banner-wrapper .banner-heading {
   position: relative;
@@ -106,7 +99,6 @@
   max-width: 50%;
   background: var(--white);
   border-radius: 10px;
-  overflow: hidden;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child {
   padding: 15px;
@@ -128,6 +120,7 @@
   left: 45%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .location-row .switch-location figure {
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1607843137);
@@ -139,6 +132,10 @@
   border-radius: 50%;
   padding: 6px;
   background: var(--white);
+  transition: 0.5s ease;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .location-row .switch-location figure:hover {
+  background: rgba(241, 228, 255, 0.9882352941);
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .location-row .switch-location figure img {
   width: 100%;
@@ -147,6 +144,12 @@
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .location-row .location-section {
   padding: 20px;
   flex: 0 1 45%;
+  transition: 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .location-row .location-section:hover {
+  background: rgba(241, 228, 255, 0.9882352941);
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .location-row .location-section .location-label {
   font-weight: 400;
@@ -172,6 +175,7 @@
   padding: 20px 20px 20px 60px;
   border-left: 1px solid #E0DEDE;
   flex: 0 1 55%;
+  position: relative;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row {
   border-radius: 6px;
@@ -185,6 +189,10 @@
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section {
   padding: 20px;
+  transition: 0.3s ease;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:hover {
+  background: rgba(241, 228, 255, 0.9882352941);
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section .detail-label {
   font-weight: 400;
@@ -222,6 +230,7 @@
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(2) .detail-text {
   color: #AFAFAF;
+  font-size: 12px;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(3) {
   flex: 0 1 60%;

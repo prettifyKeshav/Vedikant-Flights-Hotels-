@@ -195,7 +195,7 @@ const Home_SectionC = () => {
                   ))}
               </div>
             </div>
-            
+
             <div
               className={`tabs ${activeTab === "international" ? "active" : ""}`}
               data-tab="international"

@@ -13,7 +13,8 @@ export const useModalStore = create((set) => {
       isEmbroideryGuideOpen: false,
       isAddressOpen: false,
       isPassChangeOpen: false,
-      isFilterOpen: false
+      isFilterOpen: false,
+      isSearchFlightsPop: false
     });
 
   return {
@@ -28,12 +29,19 @@ export const useModalStore = create((set) => {
     isAddressOpen: false,
     isPassChangeOpen: false,
     isFilterOpen: false,
+    isSearchFlightsPop: false,
 
     openSearch: () => {
       closeAll();
       set({ isSearchOpen: true });
     },
     closeSearch: () => set({ isSearchOpen: false }),
+
+    openSearchFlightsPop: () => {
+      closeAll();
+      set({ isSearchFlightsPop: true });
+    },
+    closeSearchFlightsPop: () => set({ isSearchFlightsPop: false }),
 
     openHam: () => {
       closeAll();

@@ -8,6 +8,8 @@ import { useModalStore } from "@/store/modalStore";
 const Header = () => {
     const openHam = useModalStore((state) => state.openHam);
     const openEnquire = useModalStore((state) => state.openEnquire)
+    const openLogin = useModalStore((state) => state.openLogin)
+
 
     return (
         <>
@@ -59,7 +61,7 @@ const Header = () => {
                                         {/* <Link href="/login" className="nav-link">
                                             Login
                                         </Link> */}
-                                        <button className="nav-link" onClick={openEnquire}>Login</button>
+                                        <button className="nav-link" onClick={openLogin}>Login</button>
                                     </li>
                                     <li>
                                         <Link href="tel:+917066692662">
