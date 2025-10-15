@@ -13,7 +13,6 @@ const FlightSearchDropdown = ({ label, name: initialName, code: initialCode, onS
         setSelectedCode(initialCode);
     }, [initialName, initialCode]);
 
-
     const recentSearches = [
         {
             name: "Mumbai, India",
@@ -216,7 +215,7 @@ const FlightSearchDropdown = ({ label, name: initialName, code: initialCode, onS
                     )}
 
                     {isOpen && (
-                        <div className="dropdown-overlay" onClick={() => setIsOpen(false)} />
+                        <div className="FlightSearchdropdown-overlay" onClick={() => setIsOpen(false)} />
                     )}
                 </div>
             </div>

@@ -62,6 +62,9 @@
   justify-content: center;
   gap: 10px;
   transition: 0.5s ease;
+  padding: 11px 17px;
+  border-radius: 25px;
+  border: 1px solid transparent;
 }
 .banner.home-banner .bg .banner-wrapper .banner-heading ul li a figure {
   width: 16px;
@@ -71,7 +74,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
+  transition: 0.5s ease;
+  scale: 0;
+  opacity: 0;
 }
 .banner.home-banner .bg .banner-wrapper .banner-heading ul li a figure img {
   width: 100%;
@@ -86,7 +91,8 @@
   border: 1px solid var(--white);
 }
 .banner.home-banner .bg .banner-wrapper .banner-heading ul li a.active figure {
-  display: block;
+  opacity: 1;
+  scale: 1;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box {
   display: flex;
@@ -231,6 +237,37 @@
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(2) .detail-text {
   color: #AFAFAF;
   font-size: 12px;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(2) .hide {
+  display: none;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(2) .calendar-return {
+  position: relative;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(2) .calendar-return .cross-icon {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  z-index: 1;
+  cursor: pointer;
+  background: rgba(153, 153, 153, 0.737254902);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: 0.4s ease;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(2) .calendar-return .cross-icon:hover {
+  background: #999999;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(2) .calendar-return .cross-icon::before {
+  content: "x";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 0;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(3) {
   flex: 0 1 60%;
