@@ -17,16 +17,44 @@ const Hero = () => {
     const [showReturn, setShowReturn] = useState(false);
     const [tripType, setTripType] = useState("oneway");
 
+    const [locations, setLocations] = useState({
+        from: { name: "Delhi", code: "DEL, Delhi Airport India..." },
+        to: { name: "Kochi", code: "COK, Cochin International..." },
+    });
+
+    const [travellerData, setTravellerData] = useState({
+        adults: 1,
+        children: 0,
+        infants: 0,
+        travelClass: "Economy/Premium Economy",
+    });
+
     const [calendarOpenFor, setCalendarOpenFor] = useState(null); // "departure" | "return" | null
     const [selectedDates, setSelectedDates] = useState({
         start: null,
         end: null,
     });
 
+    // const handleReturn = (e) => {
+    //     e.stopPropagation();
+    //     setShowReturn(true);
+    //     setTripType("roundtrip");
+    // };
+
     const handleReturn = (e) => {
         e.stopPropagation();
         setShowReturn(true);
         setTripType("roundtrip");
+
+        setSelectedDates((prev) => {
+            // If user already selected a return date, keep it
+            if (prev.end) return prev;
+            // Otherwise auto-select next day after departure (or tomorrow)
+            const startDate = prev.start || new Date();
+            const nextDay = new Date(startDate);
+            nextDay.setDate(startDate.getDate() + 1);
+            return { ...prev, end: nextDay };
+        });
     };
 
     const handleCloseReturn = (e) => {
@@ -34,11 +62,6 @@ const Hero = () => {
         setShowReturn(false);
         setTripType("oneway");
     };
-
-    const [locations, setLocations] = useState({
-        from: { name: "Delhi", code: "DEL, Delhi Airport India..." },
-        to: { name: "Kochi", code: "COK, Cochin International..." },
-    });
 
     const handleFromSelect = (item) => {
         setLocations((prev) => ({
@@ -61,6 +84,48 @@ const Hero = () => {
             to: prev.from,
         }));
     };
+
+    // const handleSearch = (e) => {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     alert(`
+    //         FROM Location = 
+    //         TO Location = 
+    //         Depature =
+    //         Return =
+    //         Travellers & Class =
+    //         `)
+    // }
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const dep = selectedDates.start
+            ? selectedDates.start.toLocaleDateString("en-GB")
+            : "Not selected";
+        const ret = selectedDates.end
+            ? selectedDates.end.toLocaleDateString("en-GB")
+            : "Not selected";
+
+        alert(`
+            FLIGHT SEARCH DETAILS =======>>>>>>>>
+            
+            From: ${locations.from.name} (${locations.from.code})
+            To: ${locations.to.name} (${locations.to.code})
+
+            Departure: ${dep}
+            Return: ${tripType === "roundtrip" ? ret : "One Way"}
+
+            Travellers: 
+            Adults: ${travellerData.adults}
+            Children: ${travellerData.children}
+            Infants: ${travellerData.infants}
+
+            Class: ${travellerData.travelClass}
+            `);
+    };
+
 
     const slidesData = [
         { image: "assets/images/home/banner/swiper-1.jpg" },
@@ -120,13 +185,26 @@ const Hero = () => {
                                     <Link
                                         href="/"
                                         className={tripType === "roundtrip" ? "active" : ""}
+                                        // onClick={(e) => {
+                                        //     e.preventDefault();
+                                        //     setTripType("roundtrip");
+                                        //     setShowReturn(true); // shows return section for round trip
+                                        //     // e.stopPropagation();
+                                        //     // handleReturn(e);
+                                        //     // setCalendarOpenFor("return");
+                                        // }}
+
                                         onClick={(e) => {
                                             e.preventDefault();
                                             setTripType("roundtrip");
-                                            setShowReturn(true); // shows return section for round trip
-                                            e.stopPropagation();
-                                            handleReturn(e);
-                                            setCalendarOpenFor("return");
+                                            setShowReturn(true);
+
+                                            setSelectedDates((prev) => {
+                                                const startDate = prev.start || new Date();
+                                                const nextDay = new Date(startDate);
+                                                nextDay.setDate(startDate.getDate() + 1);
+                                                return { ...prev, end: nextDay };
+                                            });
                                         }}
                                     >
                                         <figure>
@@ -247,10 +325,7 @@ const Hero = () => {
                                                             <>
                                                                 <b>{selectedDates.end.getDate()}</b>{" "}
                                                                 <span>
-                                                                    {selectedDates.end.toLocaleDateString("en-US", {
-                                                                        month: "short",
-                                                                    })}
-                                                                    '25
+                                                                    {selectedDates.end.toLocaleDateString("en-US", { month: "short" })}'25
                                                                 </span>
                                                             </>
                                                         ) : (
@@ -259,10 +334,24 @@ const Hero = () => {
                                                             </>
                                                         )}
                                                     </p>
-                                                    <p className="detail-text">
+
+                                                    {/* <p className="detail-text">
                                                         {selectedDates.end
                                                             ? selectedDates.end.toLocaleDateString("en-US", { weekday: "long" })
                                                             : "Tuesday"}
+                                                    </p> */}
+                                                    <p className="detail-text">
+                                                        {(() => {
+                                                            if (selectedDates.end) {
+                                                                return selectedDates.end.toLocaleDateString("en-US", { weekday: "long" });
+                                                            } else if (selectedDates.start) {
+                                                                const nextDay = new Date(selectedDates.start);
+                                                                nextDay.setDate(selectedDates.start.getDate() + 1);
+                                                                return nextDay.toLocaleDateString("en-US", { weekday: "long" });
+                                                            } else {
+                                                                return new Date(Date.now() + 86400000).toLocaleDateString("en-US", { weekday: "long" }); // Tommorw date will be select automatic here okay babu
+                                                            }
+                                                        })()}
                                                     </p>
                                                     <button
                                                         className="cross-icon"
@@ -279,17 +368,16 @@ const Hero = () => {
                                                 </div>
                                             </div>
 
-
-
                                             <Link href="/" className="detail-section">
-                                                <p className="detail-label">Travellers & Class</p>
+                                                {/* <p className="detail-label">Travellers & Class</p>
                                                 <p className="detail-value"><b>1</b> <span>Traveller</span></p>
-                                                <p className="detail-text">Economy/Premium Economy</p>
+                                                <p className="detail-text">Economy/Premium Economy</p> */}
+                                                {/* < TravellersAndClass /> */}
+                                                <TravellersAndClass onApply={(data) => setTravellerData(data)} />
                                             </Link>
-                                            {/* < TravellersAndClass /> */}
                                         </div>
 
-                                        <button className="search-button">SEARCH</button>
+                                        <button className="search-button" onClick={handleSearch}>SEARCH</button>
                                     </div>
                                 </form>
                             </div>

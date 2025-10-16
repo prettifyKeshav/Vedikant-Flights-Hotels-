@@ -1047,7 +1047,6 @@ footer
         outline: none
         &::placeholder
             color: #999
-
     .suggestions-container .section
         border-bottom: 1px solid #eee
         &:last-child
@@ -1375,98 +1374,73 @@ footer
 // Datepicker End ===========================================>>>>
 
 // travellers counter Start ===========================================>>>>
-// .travellers-wrapper
-//   position: relative
 
-// .detail-section
-//   cursor: pointer
-
-// .travellers-dropdown
-//   position: absolute
-//   top: 100%
-//   left: 0
-//   background: #fff
-//   border-radius: 10px
-//   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1)
-//   width: 420px
-//   padding: 20px
-//   z-index: 100
-
-// .travellers-group
-//   margin-bottom: 16px
-
-// .group-label
-//   font-size: 13px
-//   font-weight: 600
-//   color: #333
-//   margin-bottom: 6px
-
-//   span
-//     font-weight: 400
-//     font-size: 12px
-//     color: #666
-//     margin-left: 5px
-
-// .number-row
-//   display: flex
-//   gap: 6px
-//   flex-wrap: wrap
-
-// .num-btn
-//   background: #f2f4f6
-//   border: none
-//   border-radius: 6px
-//   width: 36px
-//   height: 32px
-//   font-size: 14px
-//   cursor: pointer
-//   color: #333
-//   transition: all 0.2s ease
-
-//   &.active
-//     background: #006aff
-//     color: #fff
-
-// .class-section
-//   margin-top: 12px
-
-// .class-buttons
-//   display: flex
-//   gap: 6px
-//   flex-wrap: wrap
-
-// .class-btn
-//   padding: 8px 10px
-//   border-radius: 6px
-//   background: #f2f4f6
-//   border: none
-//   font-size: 13px
-//   cursor: pointer
-//   transition: all 0.2s ease
-
-//   &.active
-//     background: #006aff
-//     color: #fff
-
-// .apply-btn
-//   background: #ff6b00
-//   border: none
-//   color: #fff
-//   font-weight: 600
-//   font-size: 14px
-//   border-radius: 20px
-//   padding: 8px 20px
-//   margin-top: 16px
-//   float: right
-//   cursor: pointer
-//   transition: 0.3s
-
-//   &:hover
-//     background: #ff7f25
-
+.travellers-wrapper
+    position: relative
+    .travellers-dropdown
+        position: absolute
+        top: -200px
+        left: 0
+        background: #fff
+        border-radius: 10px
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1)
+        width: 680px
+        padding: 30px 20px
+        z-index: 100
+        .travellers-group
+            margin-bottom: 16px
+            .number-row
+                display: flex
+                gap: 6px
+                flex-wrap: wrap
+                .num-btn
+                    background: #f2f4f6
+                    border: none
+                    border-radius: 6px
+                    width: 36px
+                    height: 32px
+                    font-size: 14px
+                    cursor: pointer
+                    color: #333
+                    transition: all 0.2s ease
+                    &.active
+                        background: $secondary
+                        color: #fff
+        .group-label
+            font-size: 13px
+            font-weight: 600
+            color: #333
+            margin-bottom: 9px
+            line-height: 1
+            span
+                font-weight: 400
+                font-size: 12px
+                color: #666
+                margin-left: 5px
+        .class-section
+            margin-top: 12px
+            .class-buttons
+                display: flex
+                gap: 6px
+                flex-wrap: wrap
+            .class-btn
+                padding: 8px 10px
+                border-radius: 6px
+                background: #f2f4f6
+                border: none
+                font-size: 13px
+                cursor: pointer
+                transition: all 0.2s ease
+                &.active
+                    background: $secondary
+                    color: #fff
+        .apply-btn
+            font-weight: 600
+            font-size: 14px
+            padding: 5px 30px
+            margin-top: 16px
+            float: right
 // travellers counter End ===========================================>>>>
-
-
 
 
 .video-pop

@@ -161,12 +161,34 @@
                                     transition: 0.3s ease
                                     &:hover
                                         background: #f1e4fffc
+                                    &:nth-child(2)
+                                        .detail-label
+                                            &::before
+                                                right: 38px
+                                    &:nth-child(3)
+                                        .detail-label
+                                            &::before
+                                                right: 100px
                                     .detail-label
                                         font-weight: 400
                                         font-size: 16px
                                         line-height: 16px
                                         color: $text
                                         padding-bottom: 15px
+                                        position: relative
+                                        &::before
+                                            content: ""
+                                            position: absolute
+                                            right: 20px
+                                            top: 0
+                                            border: solid $primary
+                                            border-width: 0 2px 2px 0
+                                            display: inline-block
+                                            padding: 3px
+                                            transform: rotate(45deg)
+                                            vertical-align: top
+                                            margin: 3px 0 0 8px
+                                            transition: all 0.3s ease-in-out
                                     .detail-value
                                         padding-bottom: 10px
                                         b
@@ -237,11 +259,12 @@
                             &:hover
                                 border: 1px solid #000000
                                 background: none
-
                     .col:last-child
                         background: #FFFFFF
                         background: #FFFFFF80
                         background: #8E41DC
+                        border-radius: 10px
+                        overflow: hidden
 
         .swiper
             .swiper-wrapper

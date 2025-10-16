@@ -81,16 +81,39 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
     const nextMonth = new Date(currentMonth); nextMonth.setMonth(nextMonth.getMonth() + 1);
     const nextMonthDays = generateMonthDays(nextMonth);
 
+    // const handleDayClick = (day) => {
+    //     if (!day || !(day.date instanceof Date)) return;
+    //     const date = day.date;
+    //     if (!selectedStart) {
+    //         setSelectedStart(date);
+    //         onSelect({ start: date });
+    //     } else if (isRoundTrip && !selectedEnd) {
+    //         if (date > selectedStart) {
+    //             setSelectedEnd(date);
+    //             onSelect({ start: selectedStart, end: date });
+    //         } else {
+    //             setSelectedStart(date);
+    //         }
+    //     } else {
+    //         setSelectedStart(date);
+    //         setSelectedEnd(null);
+    //         onSelect({ start: date });
+    //     }
+    // };
+
     const handleDayClick = (day) => {
         if (!day || !(day.date instanceof Date)) return;
         const date = day.date;
+
         if (!selectedStart) {
             setSelectedStart(date);
             onSelect({ start: date });
+            closeCalendar();
         } else if (isRoundTrip && !selectedEnd) {
             if (date > selectedStart) {
                 setSelectedEnd(date);
                 onSelect({ start: selectedStart, end: date });
+                closeCalendar();
             } else {
                 setSelectedStart(date);
             }
@@ -98,8 +121,10 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
             setSelectedStart(date);
             setSelectedEnd(null);
             onSelect({ start: date });
+            closeCalendar();
         }
     };
+
 
     const isSelected = (date) => date && selectedStart && selectedStart.toDateString() === date.toDateString();
     const isInRange = (date) => date && selectedStart && selectedEnd && date >= selectedStart && date <= selectedEnd;
@@ -118,11 +143,18 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
         setIsOpen(open);
     }, [open]);
 
-    const toggleCalendar = () => {
-        if (isOpen) {
-            setIsOpen(false);
-            onClose?.();
-        } else {
+    // const toggleCalendar = () => {
+    //     if (isOpen) {
+    //         setIsOpen(false);
+    //         onClose?.();
+    //     } else {
+    //         setIsOpen(true);
+    //         onOpen?.();
+    //     }
+    // };
+
+    const openCalendar = () => {
+        if (!isOpen) {
             setIsOpen(true);
             onOpen?.();
         }
@@ -132,7 +164,6 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
         setIsOpen(false);
         onClose?.();
     };
-
 
     const renderMonth = (month, days) => (
         <div className="month">
@@ -164,7 +195,7 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
     return (
         <>
             <div className="flight-calendar">
-                <div className="" onClick={toggleCalendar}>
+                <div className="" onClick={openCalendar}>
                     <p className="detail-label">Depature</p>
                     <p className="detail-value">
                         <b>{formatSelected(selectedStart).split(' ')[0] || '15'}</b>{' '}
@@ -183,8 +214,20 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
                         </div>
                         <div className="months-container">
                             <div className="navigation-bar">
-                                <button className="nav-arrow left" onClick={() => setCurrentMonth((prev) => { const m = new Date(prev); m.setMonth(m.getMonth() - 1); return m; })}>←</button>
-                                <button className="nav-arrow right" onClick={() => setCurrentMonth((prev) => { const m = new Date(prev); m.setMonth(m.getMonth() + 1); return m; })}>→</button>
+                                <button className="nav-arrow left"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setCurrentMonth((prev) => { const m = new Date(prev); m.setMonth(m.getMonth() - 1); return m; })
+                                    }}>←
+                                </button>
+                                <button className="nav-arrow right"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setCurrentMonth((prev) => { const m = new Date(prev); m.setMonth(m.getMonth() + 1); return m; })
+                                    }}>→
+                                </button>
                             </div>
                             {renderMonth(currentMonth, monthDays)}
                             {renderMonth(nextMonth, nextMonthDays)}
@@ -197,7 +240,7 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
                 {isOpen && (
                     <div className="Calendardropdown-overlay" onClick={() => setIsOpen(false)} />
                 )}
-            </div>
+            </div >
         </>
     );
 };

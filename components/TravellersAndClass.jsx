@@ -23,15 +23,16 @@ const TravellersAndClass = ({ onApply }) => {
 
     const totalTravellers = adults + children + infants;
 
+    useEffect(() => {
+        if (onApply) {
+            onApply({ adults, children, infants, travelClass });
+        }
+    }, [adults, children, infants, travelClass]);
+
     return (
         <div className="travellers-wrapper" ref={dropdownRef}>
             <div
-                className="detail-section"
-                onClick={(e) => {
-                    e.preventDefault();
-                    setOpen(!open);
-                }}
-            >
+                onClick={(e) => { e.preventDefault(); setOpen(!open); }}>
                 <p className="detail-label">Travellers & Class</p>
                 <p className="detail-value">
                     <b>{totalTravellers}</b> <span>Traveller{totalTravellers > 1 ? "s" : ""}</span>
@@ -52,8 +53,7 @@ const TravellersAndClass = ({ onApply }) => {
                                     <button
                                         key={num}
                                         className={`num-btn ${adults === num ? "active" : ""}`}
-                                        onClick={() => setAdults(num)}
-                                    >
+                                        onClick={() => setAdults(num)} >
                                         {num <= 9 ? num : ">9"}
                                     </button>
                                 );
@@ -116,7 +116,7 @@ const TravellersAndClass = ({ onApply }) => {
                         </div>
                     </div>
 
-                    <button
+                    {/* <button
                         className="apply-btn"
                         onClick={() => {
                             setOpen(false);
@@ -124,7 +124,14 @@ const TravellersAndClass = ({ onApply }) => {
                         }}
                     >
                         APPLY
-                    </button>
+                    </button> */}
+
+                    <div className="sbmt-btn-div"><button type="button" className="btn apply-btn"
+                        onClick={() => {
+                            setOpen(false);
+                            if (onApply) onApply({ adults, children, infants, travelClass });
+                        }}
+                    >APPLY</button></div>
                 </div>
             )}
         </div>

@@ -200,12 +200,33 @@
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:hover {
   background: rgba(241, 228, 255, 0.9882352941);
 }
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(2) .detail-label::before {
+  right: 38px;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section:nth-child(3) .detail-label::before {
+  right: 100px;
+}
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section .detail-label {
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
   color: var(--text);
   padding-bottom: 15px;
+  position: relative;
+}
+.banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section .detail-label::before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 0;
+  border: solid var(--primary);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  vertical-align: top;
+  margin: 3px 0 0 8px;
+  transition: all 0.3s ease-in-out;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .flight-search-container .details-row .detail-section .detail-value {
   padding-bottom: 10px;
@@ -293,6 +314,8 @@
   background: #FFFFFF;
   background: rgba(255, 255, 255, 0.5019607843);
   background: #8E41DC;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .banner.home-banner .swiper .swiper-wrapper .swiper-slide .slide-box {
   height: 310px;
