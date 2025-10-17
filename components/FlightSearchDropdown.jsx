@@ -155,7 +155,7 @@ const FlightSearchDropdown = ({ label, name: initialName, code: initialCode, onS
         setIsOpen(!isOpen);
         if (!isOpen) setQuery("");
     };
-
+    
     return (
         <>
             <div className="location-section" onClick={handleToggle}>

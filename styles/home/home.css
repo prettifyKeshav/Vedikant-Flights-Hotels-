@@ -307,8 +307,8 @@
   transition: 0.5s ease;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:first-child .search-button:hover {
-  border: 1px solid #000000;
-  background: none;
+  border: 1px solid #F6E7AD;
+  background: #F6E7AD;
 }
 .banner.home-banner .bg .banner-wrapper .flex-box .col:last-child {
   background: #FFFFFF;

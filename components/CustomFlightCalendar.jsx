@@ -127,7 +127,16 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
 
 
     const isSelected = (date) => date && selectedStart && selectedStart.toDateString() === date.toDateString();
-    const isInRange = (date) => date && selectedStart && selectedEnd && date >= selectedStart && date <= selectedEnd;
+    // const isInRange = (date) => date && selectedStart && selectedEnd && date >= selectedStart && date <= selectedEnd;
+
+    const isInRange = (date, index, days) => {
+        if (!date || !selectedStart || !selectedEnd || !(date instanceof Date) || !(selectedStart instanceof Date) || !(selectedEnd instanceof Date)) return false;
+        const isInRangeDate = date >= selectedStart && date <= selectedEnd;
+        if (isInRangeDate && (date.toDateString() === selectedStart.toDateString() || date.toDateString() === selectedEnd.toDateString())) {
+            return 'in-range selected';
+        }
+        return isInRangeDate ? 'in-range' : '';
+    };
 
     const formatSelected = (date) => {
         if (!date || !(date instanceof Date)) return '';
@@ -177,7 +186,7 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
                 {days.map((day, i) => (
                     <div
                         key={i}
-                        className={`day-cell ${!day ? 'empty' : ''} ${isSelected(day?.date) ? 'selected' : ''} ${isInRange(day?.date) ? 'in-range' : ''}`}
+                        className={`day-cell ${!day ? 'empty' : ''} ${isSelected(day?.date) ? 'selected' : ''} ${isInRange(day?.date, i, days) || ''}`}
                         onClick={() => handleDayClick(day)}
                     >
                         {day && (

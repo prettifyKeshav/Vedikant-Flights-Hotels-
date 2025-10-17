@@ -1,10 +1,11 @@
-import FlightDetailsPage from '@/components/pages/FlightDetailsPage'
+
+import FlightListingPage from '@/components/pages/FlightListingPage'
 import React from 'react'
 
 const page = () => {
     return (
         <>
-            <FlightDetailsPage />
+            <FlightListingPage />
         </>
     )
 }

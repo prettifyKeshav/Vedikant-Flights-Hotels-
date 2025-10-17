@@ -1,11 +1,12 @@
+import React from 'react'
 import { useModalStore } from "@/store/modalStore"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function LoginPop() {
+const LoginPop = () => {
     const isOpen = useModalStore((state) => state.isLoginOpen)
     const closeLogin = useModalStore((state) => state.closeLogin)
-    const openSignUp = useModalStore((state) => state.openSignUp)
+
     return (
         <div className={`model login-pop ${isOpen ? "is-open" : ""}`}>
             <button className="close" type="button" onClick={closeLogin}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.75 0.75L23.25 23.25M0.75 23.25L23.25 0.75" stroke="black" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
@@ -22,12 +23,7 @@ export default function LoginPop() {
                         <label htmlFor="text">Enter email  OR Phone no </label>
                         <p className="verify">Invalid</p>
                     </div>
-                    {/* <div className="form-group">
-                        <input type="text" name="password"  className="form-control" />
-                        <label htmlFor="password">Password</label>
-                        <p className="verify">Invalid</p>
-                    </div> */}
-                    {/* <button type="button" className="forget_pass">Forget Password?</button> */}
+
                     <div className="sbmt-btn-div">
                         <button type="button" className="btn">CONTINUE</button>
                     </div>
@@ -49,10 +45,11 @@ export default function LoginPop() {
                     </Link>
 
                 </div>
-                {/* <p className="non_member">
-                    Not a member? <button type="button" className="signup" onClick={openSignUp}>Sign up now</button>
-                </p> */}
             </div>
         </div>
+        
+        
     )
 }
+
+export default LoginPop

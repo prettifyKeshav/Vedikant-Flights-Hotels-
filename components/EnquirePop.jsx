@@ -15,6 +15,7 @@ export default function EnquirePop() {
     const isOpen = useModalStore((state) => state.isEnquireOpen)
     const closeEnquire = useModalStore((state) => state.closeEnquire)
     const [services, setServices] = useState(null)
+    
     useEffect(() => {
         const inputBoxes = document.querySelectorAll('.form-control');
 

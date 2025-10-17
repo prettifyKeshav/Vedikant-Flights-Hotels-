@@ -879,13 +879,12 @@ footer
                 color: black
 
         .form
-            --gaptb: 30px
-            .form-group
-                label
-                    font-weight: 400
-                    font-size: 16px
-                    line-height: 24px
-                    color: $text
+            --gaptb: 15px 
+            --item: 1
+            --labelbefore: var(--text)
+            --labelafter: #000
+            --borderbefore: var(--text)
+            --borderafter: #000
             .verify
                 position: absolute
                 left: 0
@@ -893,51 +892,8 @@ footer
                 font-weight: 500
                 font-size: 14px
                 top: calc(100% + 10px)
-            .forget_pass
-                text-align: end
-                color: $text
-            .resend_code
-                .upper_resend
-                    display: flex
-                    align-items: center
-                    justify-content: space-between
-                    p
-                        color: $text
-                    .resend
-                        font-size: 14px
-                        text-decoration: underline
-                .otp_verify
-                    position: relative
-                    margin: 30px auto 0
-                    @include flex
-                    gap: 0 21px
-                    .verify
-                        left: 50%
-                        transform: translateX(-50%)
-                    input
-                        flex: 1
-                        height: 40px
-                        width: 100%
-                        border: none
-                        @include font(500)
-                        border: 1px solid #D9D9D9
-                        border-radius: 5px  
-                        text-align: center
-                        &:focus
-                            outline: none
-                    .verify_btn
-                        flex: 1
-                        height: 40px
-                        width: 100%
-                        background: #D5D4D4
-                        border: 1px solid #C5C4C4
-                        border-radius: 5px  
-                        transition: .5s ease
-                        &:hover
-                            background: $white
-                            border-color: $black
         .sbmt-btn-div
-            margin: 10px 0 20px
+            margin: 40px 0 20px
             text-align: center
             .btn
                 width: 100%
@@ -1306,6 +1262,11 @@ footer
 
 /* Selection States
 .day-cell
+    &.in-range
+        background: #e3f2fd !important
+        border-color: #bbdefb !important
+        .day-number
+            color: #fff
     &.selected
         background: $primary !important
         color: #fff !important
@@ -1314,11 +1275,6 @@ footer
             color: $white
         .day-number
             color: $white
-    &.in-range
-        background: #e3f2fd !important
-        border-color: #bbdefb !important
-        .day-number
-            color: #fff
 
 /* Footer
 

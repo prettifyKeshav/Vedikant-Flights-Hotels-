@@ -111,18 +111,18 @@ const Hero = () => {
         alert(`
             FLIGHT SEARCH DETAILS =======>>>>>>>>
             
-            From: ${locations.from.name} (${locations.from.code})
-            To: ${locations.to.name} (${locations.to.code})
+            From := ${locations.from.name} (${locations.from.code})
+            To := ${locations.to.name} (${locations.to.code})
 
-            Departure: ${dep}
-            Return: ${tripType === "roundtrip" ? ret : "One Way"}
+            Departure := ${dep}
+            Return := ${tripType === "roundtrip" ? ret : "One Way"}
 
-            Travellers: 
-            Adults: ${travellerData.adults}
-            Children: ${travellerData.children}
-            Infants: ${travellerData.infants}
+            Travellers := 
+            Adults := ${travellerData.adults}
+            Children := ${travellerData.children}
+            Infants := ${travellerData.infants}
 
-            Class: ${travellerData.travelClass}
+            Class := ${travellerData.travelClass}
             `);
     };
 
@@ -268,7 +268,6 @@ const Hero = () => {
                                                     }}
                                                 />
                                             </div>
-
 
                                             {/* <Link href="/" className="detail-section" onClick={handleReturn}>
                                                 <div className="calendar-label">
