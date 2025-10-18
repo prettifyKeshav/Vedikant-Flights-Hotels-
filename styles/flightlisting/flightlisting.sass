@@ -89,6 +89,17 @@ body
             .fliter-dropdown
                 .accordian
                     position: relative
+                    &.open
+                        .col
+                            &::after
+                                content: ""
+                                position: absolute
+                                top: 50%
+                                left: 100%
+                                transform: translate(-50%,-50%) !important
+                                width: 15px
+                                height: 2px
+                                background: $black
                     .accordian-title
                         border-bottom: 1px solid #D9D9D9
                         padding: 8px 20px 8px 10px
@@ -104,6 +115,17 @@ body
                             position: absolute
                             top: 20px
                             right: 20px
+                            transition: 0.5s ease
+                            &::after
+                                content: ""
+                                position: absolute
+                                top: 50%
+                                left: 100%
+                                transform: translate(-50%,-50%) rotate(90deg)
+                                width: 15px
+                                height: 2px
+                                background: $black
+                                transition: 0.5s ease
                             &::before
                                 content: ""
                                 position: absolute
@@ -113,18 +135,24 @@ body
                                 width: 15px
                                 height: 2px
                                 background: $black
+                                transition: 0.5s ease
                         h4
                             font-weight: 500
                             font-size: 16px
                             line-height: 24px
                 .accordian-description 
-                    padding: 16px 7px
+                    max-height: 0
+                    overflow: hidden
+                    transition: max-height 0.4s ease, padding 0.3s ease
+                    background: #fff
                     .flex-box
                         display: flex
                         justify-content: space-between
                         align-items: center
                         padding: 0 10px 
-                        margin-bottom: 10px
+                        margin-bottom: 15px
+                        &:first-child
+                            margin-top: 15px
                         .form-group
                             position: relative
                             display: flex
@@ -173,9 +201,7 @@ body
                                 font-size: 14px
                                 line-height: 24px
                                 color: $text
-
-
-                            
+                                padding: 0
 
     .flight-list
         flex: 1
@@ -295,6 +321,12 @@ body
                     border-top: 1px solid #0000001C
                     border-bottom: 1px solid #0000001C
                     padding: 11px 15px
+                    
+                    cursor: pointer
+                    position: relative
+                    transition: 0.3s ease
+                    &:hover
+                        background: #f8f9fa
                     .grid-box
                         display: grid
                         grid-template-columns: repeat(3,1fr)
@@ -349,5 +381,51 @@ body
                                     border-left: 2px solid $secondary
                                     border-bottom: 2px solid $secondary
                                     transform: translate(-50%, -50%) rotate(-45deg)
+
+// .accordion
+//   border: 1px solid #ddd
+//   border-radius: 10px
+//   overflow: hidden
+//   background: #fff
+//   transition: all 0.3s ease
+//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05)
+//   margin-bottom: 10px
+
+// .accordian-title
+//   width: 100%
+//   background: #f7f7f7
+//   border: none
+//   outline: none
+//   padding: 14px 18px
+//   text-align: left
+//   cursor: pointer
+//   font-size: 16px
+//   font-weight: 500
+//   display: flex
+//   justify-content: space-between
+//   align-items: center
+//   transition: background 0.3s ease
+
+//   &:hover
+//     background: #eee
+
+// .accordion-icon
+//   font-size: 18px
+//   transition: transform 0.3s ease
+
+//   &.rotate
+//     transform: rotate(180deg)
+
+// .accordian-description
+//   p
+//     margin: 0
+//     padding: 14px 18px
+//     font-size: 15px
+//     line-height: 1.6
+//     color: #444
+
+// .accordion.open
+//   border-color: #0070f3
+
 
                             
