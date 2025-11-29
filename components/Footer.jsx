@@ -138,7 +138,7 @@ export default function Footer() {
                 </div>
 
                 <div className="bottom-footer container">
-                    <p>&copy; Vedikant Travel All rights reserved. &nbsp; |  &nbsp;Made by passion  :  <span>
+                    <p>&copy; Vedikant Travel All rights reserved. &nbsp; |  &nbsp;Made by : <span>
                         <Link href="https://www.prettifycreative.com/" target="_blank"><Image src="/assets/icon/prettify-light.svg" width={100} height={100} alt="prettify creative"></Image></Link></span></p>
                     <div className="pret">
                         <Link href="/privacy-policy">Privacy Policy</Link>

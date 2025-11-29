@@ -3397,6 +3397,7 @@ footer .bottom-footer .pret a {
   border-radius: 5px;
   border-bottom-width: 1px;
   padding: 5px 110px;
+  text-transform: uppercase;
 }
 .login-pop .model-body .split-sec, .signUp-pop .model-body .split-sec {
   overflow: hidden;
@@ -3472,6 +3473,22 @@ footer .bottom-footer .pret a {
 }
 .login-pop .model-body .non_member .signup, .signUp-pop .model-body .non_member .signup {
   color: var(--black);
+}
+.login-pop .otp-model-body .title, .signUp-pop .otp-model-body .title {
+  text-align: center;
+  padding-top: 100px;
+}
+.login-pop .otp-model-body .title h4, .signUp-pop .otp-model-body .title h4 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.login-pop .otp-model-body .title p, .signUp-pop .otp-model-body .title p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 .flight-search-dropdown {
