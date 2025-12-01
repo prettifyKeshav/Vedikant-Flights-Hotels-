@@ -18,6 +18,9 @@ body {
 .flight-listing-secA {
   background: var(--gradient-a);
   margin-top: var(--headerheight);
+  position: sticky;
+  top: var(--headerheight);
+  z-index: 5;
 }
 .flight-listing-secA .grid-box {
   display: grid;
@@ -48,6 +51,7 @@ body {
   font-weight: 500;
   color: var(--white);
   font-size: 14px;
+  white-space: nowrap;
 }
 .flight-listing-secA .grid-box .col .search-button {
   background: #E7B806;
@@ -252,6 +256,52 @@ body {
   padding: 0 20px;
   margin-bottom: 20px;
 }
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 8px 10px;
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item {
+  border: 1px solid #D8D8D8;
+  margin: 15px 0;
+  border-radius: 5px;
+  padding: 8px 4px;
+  text-align: center;
+  transition: 0.5s ease;
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active {
+  border-color: var(--secondary);
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active p {
+  color: var(--secondary);
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active svg path {
+  fill: var(--secondary);
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item figure {
+  width: 20px;
+  height: 21px;
+  margin: auto;
+  margin-bottom: 3px;
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item figure img, .flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item figure svg {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.5s ease;
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item p {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--text);
+  width: 53px;
+  margin: auto;
+  transition: 0.5s ease;
+}
 .flight-listing-secB .flight-list {
   flex: 1;
   width: 100%;
@@ -283,6 +333,48 @@ body {
   font-size: 16px;
   line-height: 24px;
   color: var(--black);
+}
+.flight-listing-secB .flight-list .flight-card .selected-filter .flex-box .sort-by {
+  width: 87;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 4px 10px;
+  border: 1px solid #802BD6;
+  background: #FFFFFF;
+  font-weight: 400;
+  font-size: 12px;
+}
+.flight-listing-secB .flight-list .flight-card .selected-filter .applied-filter {
+  margin-top: 20px;
+  display: inline-flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.flight-listing-secB .flight-list .flight-card .selected-filter .applied-filter li {
+  background: var(--white);
+  gap: 10px;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.flight-listing-secB .flight-list .flight-card .selected-filter .applied-filter li .filterCross {
+  cursor: pointer;
+}
+.flight-listing-secB .flight-list .flight-card .selected-filter .applied-filter-clear-all {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--primary);
+  display: inline-block;
+  margin-left: 20px;
 }
 .flight-listing-secB .flight-list .flight-card .card-container {
   background: var(--white);
@@ -725,6 +817,748 @@ body {
   color: var(--black);
 }
 .flight-listing-secB .flight-list .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(4) .grid-box2 .content p {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 16px;
+}
+
+.flight-detail-secA {
+  margin-top: var(--headerheight);
+  display: flex;
+  gap: 1.5rem;
+  padding: 30px 0;
+  margin-bottom: 200px;
+  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.flight-detail-secA aside {
+  flex: 0 1 25%;
+  background: var(--white);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2509803922);
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.flight-detail-secA aside .filters-wrapper .head {
+  background: #EAE2F2;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flight-detail-secA aside .filters-wrapper .head h3 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #611BA7;
+}
+.flight-detail-secA aside .filters-wrapper .head p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--black);
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian {
+  position: relative;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian.open .col::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%) !important;
+  width: 15px;
+  height: 2px;
+  background: var(--black);
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian .accordian-title {
+  border-bottom: 1px solid #D9D9D9;
+  padding: 8px 20px 8px 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian .accordian-title:hover {
+  background: #f8f9fa;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian .accordian-title .col {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: 0.5s ease;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian .accordian-title .col::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  width: 15px;
+  height: 2px;
+  background: var(--black);
+  transition: 0.5s ease;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian .accordian-title .col::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 2px;
+  background: var(--black);
+  transition: 0.5s ease;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian .accordian-title h4 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background: #fff;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box:first-child {
+  margin-top: 15px;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box .form-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box .form-group input[type=checkbox] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 5px;
+  background: #D9D9D9;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s ease;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box .form-group input[type=checkbox]:checked {
+  background: var(--secondary);
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box .form-group input[type=checkbox]:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 10px;
+  height: 6px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box .checkmark {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  pointer-events: none;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box label {
+  margin-left: 15px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--text);
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flex-box .price p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--text);
+  padding: 0;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flight-price-range .flight-range-slider-range {
+  padding: 0 20px;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .flight-price-range .price-range-input-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 8px 10px;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item {
+  border: 1px solid #D8D8D8;
+  margin: 15px 0;
+  border-radius: 5px;
+  padding: 8px 4px;
+  text-align: center;
+  transition: 0.5s ease;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active {
+  border-color: var(--secondary);
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active p {
+  color: var(--secondary);
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active svg path {
+  fill: var(--secondary);
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item figure {
+  width: 20px;
+  height: 21px;
+  margin: auto;
+  margin-bottom: 3px;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item figure img, .flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item figure svg {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.5s ease;
+}
+.flight-detail-secA aside .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item p {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--text);
+  width: 53px;
+  margin: auto;
+  transition: 0.5s ease;
+}
+.flight-detail-secA .flight-detail {
+  flex: 1;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.flight-detail-secA .flight-detail .flight-card figure {
+  border-radius: 5px;
+  overflow: hidden;
+  height: 85px;
+  margin-bottom: 10px;
+}
+.flight-detail-secA .flight-detail .flight-card figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.flight-detail-secA .flight-detail .flight-card .selected-filter {
+  margin-bottom: 20px;
+}
+.flight-detail-secA .flight-detail .flight-card .selected-filter .flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flight-detail-secA .flight-detail .flight-card .selected-filter .flex-box h4 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--black);
+}
+.flight-detail-secA .flight-detail .flight-card .selected-filter .flex-box .sort-by {
+  width: 87;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 4px 10px;
+  border: 1px solid #802BD6;
+  background: #FFFFFF;
+  font-weight: 400;
+  font-size: 12px;
+}
+.flight-detail-secA .flight-detail .flight-card .selected-filter .applied-filter {
+  margin-top: 20px;
+  display: inline-flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.flight-detail-secA .flight-detail .flight-card .selected-filter .applied-filter li {
+  background: var(--white);
+  gap: 10px;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.flight-detail-secA .flight-detail .flight-card .selected-filter .applied-filter li .filterCross {
+  cursor: pointer;
+}
+.flight-detail-secA .flight-detail .flight-card .selected-filter .applied-filter-clear-all {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--primary);
+  display: inline-block;
+  margin-left: 20px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container {
+  background: var(--white);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box {
+  padding: 18px 15px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 25px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(1) figure {
+  width: 38px;
+  height: 38px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(1) figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(1) .content h5 {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--black);
+  line-height: 16px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(1) .content p {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 16px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(3) .content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(3) .content h4 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text);
+  border-bottom: 2px solid #06A523;
+  padding: 0 0 6px 0;
+  margin: 0 0 1px 0;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(3) .content h4 span {
+  color: var(--black);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(3) .content p {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--text);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(2) .content, .flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(4) .content, .flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(5) .content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(2) .content h5, .flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(4) .content h5, .flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(5) .content h5 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--black);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(2) .content p, .flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(4) .content p, .flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(5) .content p {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 16px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(6) .selct-btn-div {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(6) .selct-btn-div .btn {
+  border-radius: 5px;
+  padding: 6px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(6) .selct-btn-div .btn span {
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .grid-box .col:nth-child(6) .selct-btn-div .btn img {
+  width: 12px;
+  height: 12px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian.true .accordian-title .grid-box .col:nth-child(3) span::before {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title {
+  border-top: 1px solid rgba(0, 0, 0, 0.1098039216);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1098039216);
+  padding: 11px 22px 11px 15px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title:hover {
+  background: #f8f9fa;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(1) {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 17px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(1) p:first-child {
+  font-weight: 500;
+  font-size: 12px;
+  color: #06A523;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(1) p:last-child {
+  color: #FF6D38;
+  font-weight: 500;
+  font-size: 12px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(1) .point {
+  border-radius: 50%;
+  background: rgba(102, 102, 102, 0.4);
+  height: 5px;
+  width: 5px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(2) p {
+  color: #06A523;
+  font-weight: 400;
+  font-size: 12px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(2) p strong {
+  font-weight: 700;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(3) {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 20px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(3) p {
+  font-weight: 500;
+  color: var(--secondary);
+  font-size: 11px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(3) span {
+  position: relative;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-title .grid-box .col:nth-child(3) span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-left: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--secondary);
+  transition: 0.3s ease;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section {
+  padding: 11px 15px 15px 15px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section ul {
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section ul li {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  color: var(--text);
+  border-radius: 5px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section ul li:hover span {
+  color: #611BA7;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section ul li span {
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  color: var(--text);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section ul li.active {
+  background: #F2E9FA;
+  border: 1px solid #802BD6;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section ul li.active span {
+  color: #611BA7;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs {
+  border: 1px solid #E3E3E3;
+  height: 242px;
+  border-radius: 5px;
+  margin-top: 20px;
+  opacity: 0;
+  transition: 0.8s ease;
+  transform: scale(0.5);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.cancellation .head {
+  background: rgba(0, 0, 0, 0.03);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.cancellation table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.cancellation table thead th {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 12px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.cancellation table thead th span {
+  font-weight: normal;
+  color: var(--text);
+  display: block;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.cancellation table tbody td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  font-size: 12px;
+  color: var(--text);
+  vertical-align: top;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col .title {
+  flex: 0 1 10%;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col span {
+  flex: 0 1 90%;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(1) {
+  margin-bottom: 8px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(1) .title {
+  font-size: 14px;
+  font-weight: 50000;
+  color: var(--black);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(1) span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(2), .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(3) {
+  margin-bottom: 7px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(2) .title, .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(3) .title {
+  color: var(--text);
+  font-size: 12px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(2) span, .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .flex-box .col:nth-child(3) span {
+  font-size: 12px;
+  color: var(--text);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .head {
+  border-bottom: 1px solid #E3E3E3;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .head h4 {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 8px 16px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom {
+  padding: 18px 15px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .col {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 25px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .col figure {
+  width: 38px;
+  height: 38px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .col figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .col h5 {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--black);
+  line-height: 16px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .col p {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 16px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box {
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: baseline;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(1), .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(3) {
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(1) .content, .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(3) .content {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 4px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(1) .content h5, .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(3) .content h5 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--black);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(1) .content p, .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(3) .content p {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--black);
+  line-height: 16px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(1) .bott h5, .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(3) .bott h5 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #06A523;
+  margin-bottom: 5px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(1) .bott p, .flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(3) .bott p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(2) .content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(2) .content h4 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text);
+  border-bottom: 2px solid rgba(102, 102, 102, 0.5803921569);
+  padding: 0 0 6px 0;
+  margin: 0 0 1px 0;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(2) .content h4 span {
+  color: var(--black);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(4) {
+  grid-column: span 3;
+  flex-direction: column;
+  gap: 15px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(4) .info {
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.6980392157);
+  background: #F2E9FA;
+  overflow: hidden;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(4) .grid-box2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(4) .grid-box2 .content {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 4px;
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(4) .grid-box2 .content h5 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--black);
+}
+.flight-detail-secA .flight-detail .flight-card .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .bottom .grid-box .col:nth-child(4) .grid-box2 .content p {
   font-weight: 400;
   font-size: 12px;
   color: var(--text);

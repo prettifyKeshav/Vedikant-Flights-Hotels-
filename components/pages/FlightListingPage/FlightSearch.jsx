@@ -16,12 +16,12 @@ const FlightSearch = () => {
                         <div className="col">
                             <div className="detail-label" data-animate="fade-slide">Trip Type</div>
                             {/* <MySelect
-                                    id="category-select"
-                                    placeholder="One Way*"
-                                    options={options_Trip_type}
-                                    selectedValue={tripType}
-                                    onValueChange={setTripType}
-                                /> */}
+                                id="category-select"
+                                placeholder="One Way*"
+                                options={options_Trip_type}
+                                selectedValue={tripType}
+                                onValueChange={setTripType}
+                            /> */}
                         </div>
                         <div className="col location-section">
                             <div className="tt">

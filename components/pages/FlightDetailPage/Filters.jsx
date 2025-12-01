@@ -12,31 +12,14 @@ const Filters = () => {
     const [open5, setOpen5] = useState(true);
     const [open6, setOpen6] = useState(true);
 
-    const [selectedFilter, setselectedFilter] = useState([]);
+    const [appliedFilter, setappliedFilter] = useState(false);
 
-    // const handleSelectedFilter = (event) => {
-    //     const [value, checked] = event.target;
-    //     if (checked) {
-    //         setselectedFilter((prevSelected) => [...prevSelected, value]);
-    //     } else {
-    //         setselectedFilter((prevSelected) =>
-    //             prevSelected.filter((item) => item !== value)
-    //         );
-    //     }
-    //     console.log(selectedFilter)
-    // }
-
-    // const handleSelectedFilter = (event) => {
-    //     const value = event.target.value;
-    //     const checked = event.target.checked;
-
-    //     if (checked) {
-    //         setselectedFilter((prev) => [...prev, value]);
-    //     } else {
-    //         setselectedFilter((prev) => prev.filter((item) => item !== value));
-    //     }
-    // };
-
+    const handleAppliedFilter = () => {
+        setappliedFilter(!appliedFilter);
+        if (!appliedFilter) {
+            alert("Checked!");
+        }
+    };
 
     const MIN = 0;
     const MAX = 10000;
@@ -76,8 +59,7 @@ const Filters = () => {
     return (
         <div className="filters-wrapper">
             <div className="head">
-                <h3>Filters</h3>
-                <p>Clear all</p>
+                <h3>Price Details</h3>
             </div>
 
             <div className="fliter-dropdown">
@@ -103,7 +85,7 @@ const Filters = () => {
                         <ul>
                             <li className="flex-box">
                                 <div className="form-group">
-                                    <input type="checkbox" value="Non Stop" onChange={handleSelectedFilter} id="nonStop1" />
+                                    <input type="checkbox" checked={appliedFilter} onChange={handleAppliedFilter} id="nonStop1" />
                                     <span className="checkmark"></span>
                                     <label htmlFor="nonStop1">Non Stop</label>
                                 </div>

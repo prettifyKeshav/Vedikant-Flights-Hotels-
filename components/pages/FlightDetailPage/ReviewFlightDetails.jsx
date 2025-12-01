@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const FlightCard = () => {
+const ReviewFlightDetails = () => {
     // Accordion states
     const [open1, setOpen1] = useState(false);
     const [open2, setOpen2] = useState(false);
@@ -562,4 +562,4 @@ const FlightCard = () => {
     );
 };
 
-export default FlightCard;
+export default ReviewFlightDetails;

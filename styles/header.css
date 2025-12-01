@@ -3341,6 +3341,7 @@ footer .bottom-footer .pret a {
   overflow-y: auto;
   margin-top: 40px;
   height: calc(100% - 40px);
+  transition: 0.5s ease;
 }
 @media only screen and (max-width: 675px) {
   .login-pop .model-body, .signUp-pop .model-body {
@@ -3398,6 +3399,7 @@ footer .bottom-footer .pret a {
   border-bottom-width: 1px;
   padding: 5px 110px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .login-pop .model-body .split-sec, .signUp-pop .model-body .split-sec {
   overflow: hidden;
@@ -3474,6 +3476,28 @@ footer .bottom-footer .pret a {
 .login-pop .model-body .non_member .signup, .signUp-pop .model-body .non_member .signup {
   color: var(--black);
 }
+.login-pop .otp-model-body, .signUp-pop .otp-model-body {
+  transition: 0.5s ease;
+}
+.login-pop .otp-model-body .back-btn, .signUp-pop .otp-model-body .back-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.login-pop .otp-model-body .back-btn:hover p, .signUp-pop .otp-model-body .back-btn:hover p {
+  margin-left: 3px;
+}
+.login-pop .otp-model-body .back-btn p, .signUp-pop .otp-model-body .back-btn p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--secondary);
+  transition: 0.3s ease;
+}
+.login-pop .otp-model-body .back-btn img, .signUp-pop .otp-model-body .back-btn img {
+  width: -moz-fit-content;
+  width: fit-content;
+}
 .login-pop .otp-model-body .title, .signUp-pop .otp-model-body .title {
   text-align: center;
   padding-top: 100px;
@@ -3489,6 +3513,43 @@ footer .bottom-footer .pret a {
   font-weight: 500;
   font-size: 18px;
   line-height: 1.2;
+}
+.login-pop .otp-model-body .form .otp-box, .signUp-pop .otp-model-body .form .otp-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.login-pop .otp-model-body .form .otp-box input, .signUp-pop .otp-model-body .form .otp-box input {
+  width: 59px;
+  height: 51px;
+  padding: 10px;
+  border-radius: 5px !important;
+  border: 1px solid #cccccc;
+  font-size: 24px;
+  text-align: center;
+  outline: none;
+  transition: 0.2s;
+  color: #666666;
+}
+.login-pop .otp-model-body .form .otp-box input .otp-box input:focus, .signUp-pop .otp-model-body .form .otp-box input .otp-box input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+.login-pop .otp-model-body .resend-otp, .signUp-pop .otp-model-body .resend-otp {
+  text-align: center;
+  margin: 40px auto;
+}
+.login-pop .otp-model-body .resend-otp p, .signUp-pop .otp-model-body .resend-otp p {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.2;
+}
+.login-pop .otp-model-body .resend-otp p a, .signUp-pop .otp-model-body .resend-otp p a {
+  color: var(--secondary);
+  font-weight: 500;
+}
+.login-pop .hide-model, .signUp-pop .hide-model {
+  display: none;
 }
 
 .flight-search-dropdown {

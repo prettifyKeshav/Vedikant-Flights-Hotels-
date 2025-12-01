@@ -855,6 +855,7 @@ footer
         overflow-y: auto
         margin-top: 40px
         height: calc(100% - 40px)
+        transition: 0.5s ease
         // @include scrollbar(6px,none,$primary,25px)
         @include media(675)
             padding: 40px 25px 50px
@@ -902,6 +903,7 @@ footer
                 border-bottom-width: 1px
                 padding: 5px 110px
                 text-transform: uppercase
+                white-space: nowrap
         .split-sec
             overflow: hidden
             p
@@ -972,6 +974,22 @@ footer
             .signup
                 color: $black
     .otp-model-body
+        transition: 0.5s ease
+        .back-btn
+            display: flex
+            align-items: center
+            gap: 10px
+            &:hover
+                p
+                    margin-left: 3px
+            p
+                font-weight: 400
+                font-size: 16px
+                line-height: 1.2
+                color: $secondary
+                transition: 0.3s ease
+            img
+                width: fit-content
         .title
             text-align: center
             padding-top: 100px
@@ -985,6 +1003,37 @@ footer
                 font-weight: 500
                 font-size: 18px
                 line-height: 1.2
+        .form
+            .otp-box 
+                display: flex
+                gap: 10px
+                justify-content: center
+                input
+                    width: 59px
+                    height: 51px
+                    padding: 10px
+                    border-radius: 5px !important
+                    border: 1px solid #cccccc
+                    font-size: 24px
+                    text-align: center
+                    outline: none
+                    transition: 0.2s
+                    color: #666666
+                    .otp-box input:focus 
+                        border-color: #007bff
+                        box-shadow: 0 0 4px rgba(0,123,255,0.4)                
+        .resend-otp         
+            text-align: center
+            margin: 40px auto
+            p
+                font-weight: 400
+                font-size: 15px
+                line-height: 1.2
+                a
+                    color: $secondary
+                    font-weight: 500
+    .hide-model
+        display: none
 
 
 

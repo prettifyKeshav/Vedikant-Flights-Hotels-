@@ -7,10 +7,23 @@ const LoginPop = () => {
     const isOpen = useModalStore((state) => state.isLoginOpen)
     const closeLogin = useModalStore((state) => state.closeLogin)
 
+    const moveNext = (e, index) => {
+        const otpInputs = document.querySelectorAll(".otp-box input");
+        const value = e.target.value;
+        if (value.length === 1 && index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
+        }
+        if (e.key === "Backspace" && index > 0) {
+            otpInputs[index - 1].focus();
+            otpInputs[index - 1].value = "";
+        }
+    };
+
+
     return (
         <div className={`model login-pop ${isOpen ? "is-open" : ""}`}>
             <button className="close" type="button" onClick={closeLogin}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.75 0.75L23.25 23.25M0.75 23.25L23.25 0.75" stroke="black" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
-            {/* <div className="model-body">
+            <div className="model-body">
                 <div className="title">
                     <div className="icon">
                         <Image src="/assets/ham-logo.svg" width="68" height="64" alt="Logo"></Image>
@@ -45,12 +58,12 @@ const LoginPop = () => {
                     </Link>
 
                 </div>
-            </div> */}
+            </div>
 
-            <div className="model-body otp-model-body">
+            <div className="model-body otp-model-body hide-model">
 
-                <Link href="">
-                    {/* <Image></Image> */}
+                <Link href="" className='back-btn'>
+                    <Image src="/assets/icon/back-arrow.svg" width={9} height={16} alt="back btn"></Image>
                     <p>Back</p>
                 </Link>
 
@@ -59,15 +72,20 @@ const LoginPop = () => {
                     <p>9953750291</p>
                 </div>
                 <div className="form form-grid">
-                    <div className="form-group">
-                        <input type="text" name="text" className="form-control" />
-                        <label htmlFor="text">Enter email  OR Phone no </label>
-                        <p className="verify">Invalid</p>
+                    <div className="otp-box">
+                        <input type="text" maxLength="1" onKeyUp={(e) => moveNext(e, 0)} />
+                        <input type="text" maxLength="1" onKeyUp={(e) => moveNext(e, 1)} />
+                        <input type="text" maxLength="1" onKeyUp={(e) => moveNext(e, 2)} />
+                        <input type="text" maxLength="1" onKeyUp={(e) => moveNext(e, 3)} />
                     </div>
 
                     <div className="sbmt-btn-div">
                         <button type="button" className="btn">verify otp</button>
                     </div>
+                </div>
+
+                <div className="resend-otp">
+                    <p>Not received your code? <Link href="">Resend code</Link> </p>
                 </div>
             </div>
 
