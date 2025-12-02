@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useFilterStore } from "@/store/filterStore";
 
 const FlightCard = () => {
     // Accordion states
@@ -16,6 +17,8 @@ const FlightCard = () => {
     // Accordion refs for height animation
     const ref1 = useRef(null);
     const ref2 = useRef(null);
+
+    const { selectedFilters, priceRange, clearFilters } = useFilterStore();
 
     // Handle dynamic accordion height
     useEffect(() => {
@@ -50,9 +53,37 @@ const FlightCard = () => {
                 </div>
 
                 <ul className="applied-filter">
-                    <li>Non Stop <span className="filterCross"><Image src="/assets/icon/crose-icon.svg" width={8} height={8} alt="crose icon"></Image></span></li>
+                    {
+                        selectedFilters?.map((item, index) => {
+                            return (
+                                <li key={index}>{item} <span className="filterCross"><Image src="/assets/icon/crose-icon.svg" width={8} height={8} alt="crose icon"></Image></span></li>
+                            )
+                        })
+                    }
+
+                    {/* {(priceRange > 0 && priceRange < 10000) && <li > {`${priceRange[0]} - ${priceRange[1]} `} <span className="filterCross"><Image src="/assets/icon/crose-icon.svg" width={8} height={8} alt="crose icon"></Image></span></li>} */}
+                    {priceRange &&
+                        JSON.stringify(priceRange) !== JSON.stringify([0, 10000]) && (
+                            <li>
+                                ₹{priceRange[0]} - ₹{priceRange[1]}
+                                <span
+                                    className="filterCross"
+                                    onClick={() => setPriceRange([0, 10000])}
+                                    style={{ cursor: 'pointer' }}
+                                >
+                                    <Image
+                                        src="/assets/icon/crose-icon.svg"
+                                        width={8}
+                                        height={8}
+                                        alt="remove price filter"
+                                    />
+                                </span>
+                            </li>
+                        )}
+
+
                 </ul>
-                <div className="applied-filter-clear-all">
+                <div className="applied-filter-clear-all" onClick={clearFilters} style={{ cursor: "pointer" }}>
                     Clear all filters
                 </div>
             </div>

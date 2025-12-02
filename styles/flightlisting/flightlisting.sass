@@ -228,13 +228,32 @@ body
                             padding: 8px 4px
                             text-align: center
                             transition: 0.5s ease
-                            &.active
+                            position: relative
+                            &:has(input:checked) 
                                 border-color: $secondary
                                 p
                                     color: $secondary
                                 svg
                                     path
                                         fill: $secondary
+                            input
+                                position: absolute
+                                top: 0
+                                left: 0
+                                width: 100%
+                                height: 100%
+                                cursor: pointer
+
+                            input[type="checkbox"] 
+                                position: absolute
+                                top: 0
+                                left: 0
+                                width: 100%
+                                height: 100%
+                                opacity: 0
+                                cursor: pointer
+                                margin: 0
+                                z-index: 2
                             figure
                                 width: 20px
                                 height: 21px
@@ -245,7 +264,7 @@ body
                                     width: 100%
                                     object-fit: cover
                                     transition: 0.5s ease
-                            p
+                            p,label
                                 font-weight: 400
                                 font-size: 11px
                                 line-height: 1.2
@@ -718,6 +737,18 @@ body
 
 // Flight Detail Page =======================================================================
 
+.flight-detail-banner-bg
+    &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 322px
+        background: $gradient-a
+        margin-top: var(--headerheight)
+        z-index: -1
+
 .flight-detail-secA
     margin-top: var(--headerheight)
     display: flex
@@ -920,6 +951,8 @@ body
         width: 100%
         border-radius: 5px 
         overflow: hidden
+        background: $white
+        padding: 10px
         .flight-card
             figure
                 border-radius: 5px

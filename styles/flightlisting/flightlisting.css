@@ -269,15 +269,35 @@ body {
   padding: 8px 4px;
   text-align: center;
   transition: 0.5s ease;
+  position: relative;
 }
-.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active {
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item:has(input:checked) {
   border-color: var(--secondary);
 }
-.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active p {
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item:has(input:checked) p {
   color: var(--secondary);
 }
-.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item.active svg path {
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item:has(input:checked) svg path {
   fill: var(--secondary);
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item input[type=checkbox] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+  z-index: 2;
 }
 .flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item figure {
   width: 20px;
@@ -292,7 +312,7 @@ body {
      object-fit: cover;
   transition: 0.5s ease;
 }
-.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item p {
+.flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item p, .flight-listing-secB .filters .filters-wrapper .fliter-dropdown .accordian-description .grid-box .grid-box-item label {
   font-weight: 400;
   font-size: 11px;
   line-height: 1.2;
@@ -823,6 +843,18 @@ body {
   line-height: 16px;
 }
 
+.flight-detail-banner-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 322px;
+  background: var(--gradient-a);
+  margin-top: var(--headerheight);
+  z-index: -1;
+}
+
 .flight-detail-secA {
   margin-top: var(--headerheight);
   display: flex;
@@ -1049,6 +1081,8 @@ body {
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
+  background: var(--white);
+  padding: 10px;
 }
 .flight-detail-secA .flight-detail .flight-card figure {
   border-radius: 5px;
