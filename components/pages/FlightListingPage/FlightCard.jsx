@@ -5,12 +5,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useFilterStore } from "@/store/filterStore";
 
+import { Swiper, SwiperSlide, } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+import MySelect from "@/components/MySelect";
+
 const FlightCard = () => {
+    const [sortBy, setSortBy] = ""
+
     // Accordion states
     const [open1, setOpen1] = useState(false);
     const [open2, setOpen2] = useState(false);
 
-    // Independent tab states   
+    // Independent tab states
     const [activeTab1, setActiveTab1] = useState("flightDetails");
     const [activeTab2, setActiveTab2] = useState("flightDetails2");
 
@@ -18,7 +28,15 @@ const FlightCard = () => {
     const ref1 = useRef(null);
     const ref2 = useRef(null);
 
-    const { selectedFilters, priceRange, clearFilters } = useFilterStore();
+
+    const { selectedFilters, priceRange, clearFilters, toggleFilter, setPriceRange } = useFilterStore();
+
+    const sortby_option = [
+        { value: "A to Z", label: "A to Z" },
+        { value: "Z to A", label: "Z to A" },
+        { value: "Low to High", label: "Low to High" },
+        { value: "High to Low", label: "High to Low" }
+    ]
 
     // Handle dynamic accordion height
     useEffect(() => {
@@ -36,7 +54,6 @@ const FlightCard = () => {
 
     return (
         <div className="flight-card">
-            {/* ===== HEADER ===== */}
             <figure>
                 <Image
                     src="/assets/images/Flight-Listing/discount-image.PNG"
@@ -49,44 +66,259 @@ const FlightCard = () => {
             <div className="selected-filter">
                 <div className="flex-box">
                     <h4>Flights from New Delhi to Bengaluru</h4>
-                    <div className="sort-by">Sort by</div>
+
+                    <div className="sort-by">
+                        <MySelect
+                            options={sortby_option}
+                            selectedValue={sortBy}
+                            onValueChange={setSortBy}
+                            placeholder={"Sort by"}
+                            styles={{
+                                control: (base, state) => ({
+                                    ...base,
+                                    backgroundColor: "#fff",
+                                    borderRadius: "5px",
+                                    borderColor: state.isFocused ? "none" : "none",
+                                    boxShadow: state.isFocused ? "0 0 0 1px none" : "none",
+                                    padding: "0px 6px",
+                                    marginRight: "10px",
+                                    cursor: "pointer",
+                                    "&:hover": {
+                                        borderColor: "#611BA7"
+                                    },
+                                    "&:focus": {
+                                        borderColor: "transparent",
+                                        outline: "none",
+                                        boxShadow: "none"
+                                    }
+                                }),
+                                menu: (base) => ({
+                                    ...base,
+                                    borderRadius: "8px",
+                                    marginTop: "5px",
+                                    padding: "6px 0",
+                                    zIndex: 9999,
+                                }),
+                                menuList: (base) => ({
+                                    ...base,
+                                    padding: "0",
+                                }),
+                                option: (base, state) => ({
+                                    ...base,
+                                    padding: "10px 12px",
+                                    cursor: "pointer",
+                                    backgroundColor: state.isSelected
+                                        ? "#611BA7"
+                                        : state.isFocused
+                                            ? "#f2e9ff"
+                                            : "white",
+                                    color: state.isSelected ? "white" : "#333",
+                                    "&:active": {
+                                        backgroundColor: "#e0c8ff"
+                                    }
+                                }),
+                                singleValue: (base) => ({
+                                    ...base,
+                                    color: "#000",
+                                    fontSize: "14px",
+                                }),
+                                placeholder: (base) => ({
+                                    ...base,
+                                    fontSize: "14px",
+                                    color: "#000",
+                                }),
+                                dropdownIndicator: (base) => ({
+                                    ...base,
+                                    color: "#611BA7",
+                                    "&:hover": {
+                                        color: "#611BA7"
+                                    }
+                                }),
+                                indicatorSeparator: () => ({
+                                    display: "none",
+                                })
+                            }}
+                        />
+                    </div>
                 </div>
 
-                <ul className="applied-filter">
-                    {
-                        selectedFilters?.map((item, index) => {
-                            return (
-                                <li key={index}>{item} <span className="filterCross"><Image src="/assets/icon/crose-icon.svg" width={8} height={8} alt="crose icon"></Image></span></li>
-                            )
-                        })
-                    }
+                {(selectedFilters.length > 0 || JSON.stringify(priceRange) !== JSON.stringify([0, 10000])) && (
+                    <>
+                        <ul className="applied-filter">
+                            {selectedFilters?.map((item, index) => (
+                                <li key={index}>
+                                    {item}
+                                    <span
+                                        className="filterCross"
+                                        data-animate="fade-slide"
+                                        onClick={() => toggleFilter(item, false)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <Image
+                                            src="/assets/icon/crose-icon.svg"
+                                            width={8}
+                                            height={8}
+                                            alt="remove filter"
+                                        />
+                                    </span>
+                                </li>
+                            ))}
 
-                    {/* {(priceRange > 0 && priceRange < 10000) && <li > {`${priceRange[0]} - ${priceRange[1]} `} <span className="filterCross"><Image src="/assets/icon/crose-icon.svg" width={8} height={8} alt="crose icon"></Image></span></li>} */}
-                    {priceRange &&
-                        JSON.stringify(priceRange) !== JSON.stringify([0, 10000]) && (
-                            <li>
-                                ₹{priceRange[0]} - ₹{priceRange[1]}
-                                <span
-                                    className="filterCross"
-                                    onClick={() => setPriceRange([0, 10000])}
-                                    style={{ cursor: 'pointer' }}
-                                >
-                                    <Image
-                                        src="/assets/icon/crose-icon.svg"
-                                        width={8}
-                                        height={8}
-                                        alt="remove price filter"
-                                    />
-                                </span>
-                            </li>
-                        )}
+                            {/* price filter */}
+                            {JSON.stringify(priceRange) !== JSON.stringify([0, 10000]) && (
+                                <li>
+                                    ₹{priceRange[0]} - ₹{priceRange[1]}
+                                    <span
+                                        className="filterCross"
+                                        onClick={() => setPriceRange([0, 10000])}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <Image
+                                            src="/assets/icon/crose-icon.svg"
+                                            width={8}
+                                            height={8}
+                                            alt="remove price filter"
+                                        />
+                                    </span>
+                                </li>
+                            )}
+                        </ul>
 
+                        <div className="applied-filter-clear-all" onClick={clearFilters} style={{ cursor: 'pointer' }}>Clear all filters</div>
+                    </>
+                )}
 
-                </ul>
-                <div className="applied-filter-clear-all" onClick={clearFilters} style={{ cursor: "pointer" }}>
-                    Clear all filters
-                </div>
             </div>
+
+
+            {/* ===================================== Swiper here ===================================== */}
+            <div className="date-price-swiper">
+
+                <div className="swiper-nav">
+                    <button className="date-price-nav-prev">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 1024 1024"
+                        >
+                            <path
+                                fill="#611BA7"
+                                d="M685.248 104.704a64 64 0 0 1 0 90.496L368.448 512l316.8 316.8a64 64 0 0 1-90.496 90.496L232.704 557.248a64 64 0 0 1 0-90.496l362.048-362.048a64 64 0 0 1 90.496 0"
+                                strokeWidth="25.5"
+                                stroke="#611BA7"
+                            />
+                        </svg>
+                    </button>
+                    <button className="date-price-nav-next">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 1024 1024"
+                        >
+                            <path
+                                fill="#611BA7"
+                                d="M685.248 104.704a64 64 0 0 1 0 90.496L368.448 512l316.8 316.8a64 64 0 0 1-90.496 90.496L232.704 557.248a64 64 0 0 1 0-90.496l362.048-362.048a64 64 0 0 1 90.496 0"
+                                strokeWidth="25.5"
+                                stroke="#611BA7"
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <Swiper
+                    slidesPerView={7}
+                    modules={[Navigation]}
+                    navigation={{
+                        nextEl: ".date-price-nav-next",
+                        prevEl: ".date-price-nav-prev",
+                    }}
+                >
+                    <SwiperSlide>
+                        <Link href="/">
+                            <div className="date">
+                                <p>Mon, Dec 28</p>
+                            </div>
+                            <div className="price">
+                                <p>₹7,171</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Link href="/">
+                            <div className="date">
+                                <p>Mon, Dec 28</p>
+                            </div>
+                            <div className="price">
+                                <p>₹7,171</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Link href="/" className="active">
+                            <div className="date">
+                                <p>Mon, Dec 28</p>
+                            </div>
+                            <div className="price">
+                                <p>₹7,171</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Link href="/">
+                            <div className="date">
+                                <p>Mon, Dec 28</p>
+                            </div>
+                            <div className="price">
+                                <p>₹7,171</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Link href="/">
+                            <div className="date">
+                                <p>Mon, Dec 28</p>
+                            </div>
+                            <div className="price">
+                                <p>₹7,171</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Link href="/">
+                            <div className="date">
+                                <p>Mon, Dec 28</p>
+                            </div>
+                            <div className="price">
+                                <p className="green">₹7,171</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Link href="/">
+                            <div className="date">
+                                <p>Mon, Dec 28</p>
+                            </div>
+                            <div className="price">
+                                <p>₹7,171</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Link href="/">
+                            <div className="date">
+                                <p>Mon, Dec 28</p>
+                            </div>
+                            <div className="price">
+                                <p>₹7,171</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+
+                </Swiper>
+            </div>
+            {/* ===================================== Swiper here ===================================== */}
 
             {/* ================= CARD 1 ================= */}
             <div className="card-container">
@@ -589,7 +821,7 @@ const FlightCard = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -355,12 +355,6 @@ body {
   color: var(--black);
 }
 .flight-listing-secB .flight-list .flight-card .selected-filter .flex-box .sort-by {
-  width: 87;
-  gap: 10px;
-  border-radius: 5px;
-  padding: 4px 10px;
-  border: 1px solid #802BD6;
-  background: #FFFFFF;
   font-weight: 400;
   font-size: 12px;
 }
@@ -395,6 +389,93 @@ body {
   color: var(--primary);
   display: inline-block;
   margin-left: 20px;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper {
+  background: var(--white);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper-nav {
+  width: 100%;
+  max-width: 97%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper-nav button {
+  line-height: 0;
+  pointer-events: all;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+          user-select: auto;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper-nav button:last-child svg {
+  rotate: -180deg;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper-nav .swiper-button-disabled svg path {
+  opacity: 0.5;
+  cursor: no-drop;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper {
+  z-index: 1;
+  max-width: 96%;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide {
+  text-align: center;
+  border-right: 1px solid #E3E3E3 !important;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide:last-child {
+  border-right: none !important;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide a {
+  padding: 10px 0;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  padding: 20px 0px;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--secondary);
+  transition: 0.5s ease;
+  width: 0%;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide a.active p {
+  color: var(--secondary);
+  font-weight: 700;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide a.active::before {
+  width: 100%;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide .date p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide .price p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.flight-listing-secB .flight-list .flight-card .date-price-swiper .swiper .swiper-slide .price p.green {
+  color: #06A523;
+  font-weight: 700;
 }
 .flight-listing-secB .flight-list .flight-card .card-container {
   background: var(--white);
@@ -1148,7 +1229,7 @@ body {
 .flight-detail-secA .flight-detail .flight-card .selected-filter .applied-filter-clear-all {
   font-weight: 400;
   font-size: 14px;
-  color: var(--primary);
+  color: var(--secondary);
   display: inline-block;
   margin-left: 20px;
 }

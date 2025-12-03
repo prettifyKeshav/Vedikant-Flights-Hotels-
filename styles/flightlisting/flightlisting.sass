@@ -301,12 +301,12 @@ body
                         line-height: 24px
                         color: $black
                     .sort-by
-                        width: 87 
-                        gap: 10px
-                        border-radius: 5px
-                        padding: 4px 10px
-                        border: 1px solid #802BD6
-                        background: #FFFFFF 
+                        // width: 87px
+                        // gap: 10px
+                        // border-radius: 5px
+                        // padding: 4px 10px
+                        // border: 1px solid #802BD6
+                        // background: #FFFFFF 
 
                         font-weight: 400
                         font-size: 12px
@@ -340,6 +340,84 @@ body
                     color: $primary
                     display: inline-block
                     margin-left: 20px
+
+            .date-price-swiper
+                background: var(--white)
+                border-radius: 5px
+                overflow: hidden
+                margin-bottom: 10px
+                // padding: 12px 16px
+                position: relative
+                
+                .swiper-nav
+                    width: 100%
+                    max-width: 97%
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    z-index: 2
+                    pointer-events: none
+                    user-select: none
+                    button
+                        line-height: 0
+                        pointer-events: all
+                        user-select: auto
+                        &:last-child
+                            svg
+                                rotate: (-180deg)
+                    .swiper-button-disabled
+                        svg path
+                            opacity: 0.5
+                            cursor: no-drop
+
+
+                .swiper
+                    z-index: 1
+                    max-width: 96%
+                    .swiper-slide
+                        text-align: center
+                        border-right: 1px solid #E3E3E3 !important
+                        &:last-child
+                            border-right: none !important
+                        a
+                            padding: 10px 0
+                            display: inline-block
+                            width: 100%
+                            position: relative
+                            padding: 20px 0px
+                            &::before
+                                content: ""
+                                position: absolute
+                                bottom: 0
+                                left: 0
+                                height: 3px
+                                background: $secondary
+                                transition: 0.5s ease
+                                width: 0%
+                            &.active
+                                p
+                                    color: $secondary
+                                    font-weight: 700
+                                &::before
+                                    width: 100%
+                                
+                        .date p
+                            font-weight: 500
+                            font-size: 12px
+                            line-height: 16px
+                            margin-bottom: 10px
+                        .price p
+                            font-weight: 500
+                            font-size: 12px
+                            line-height: 1.2
+                            &.green
+                                color: #06A523
+                                font-weight: 700
+
             .card-container
                 background: $white
                 border-radius: 5px
@@ -1011,7 +1089,7 @@ body
                 .applied-filter-clear-all
                     font-weight: 400
                     font-size: 14px
-                    color: $primary
+                    color: $secondary
                     display: inline-block
                     margin-left: 20px
             .card-container

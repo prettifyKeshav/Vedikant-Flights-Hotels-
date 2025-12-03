@@ -12,6 +12,7 @@ export const useFilterStore = create((set) => ({
         })),
 
     setPriceRange: (range) => set({ priceRange: range }),
+    
 
     clearFilters: () => set({
         selectedFilters: [],

@@ -49,9 +49,9 @@ const customStyles = {
     marginBottom: "5px",
     fontSize: "16px",
     padding: "4px 10px",
-    color: state.isFocused ? "#000" : "#000",
+    color: state.isFocused ? "#666" : "#666",
     "&:hover": {
-      background: "#000",
+      background: "#611BA7",
       color: "#fff"
     }
   }),

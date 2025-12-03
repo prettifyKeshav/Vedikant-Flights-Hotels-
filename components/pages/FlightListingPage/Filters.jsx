@@ -1,7 +1,7 @@
 'use client';
 import { useState, useRef, useEffect } from "react";
 import { Range } from "react-range";
-import Link from "next/link";
+// import Link from "next/link";
 import { useFilterStore } from "@/store/filterStore";
 
 const Filters = () => {
@@ -13,13 +13,7 @@ const Filters = () => {
     const [open6, setOpen6] = useState(true);
 
     // Below i am using global state
-    const {
-        selectedFilters,
-        toggleFilter,
-        priceRange,
-        setPriceRange,
-        clearFilters
-    } = useFilterStore();
+    const {selectedFilters,toggleFilter,priceRange,setPriceRange,clearFilters} = useFilterStore();
 
     const MIN = 0;
     const MAX = 10000;
@@ -355,9 +349,6 @@ const Filters = () => {
 };
 
 export default Filters;
-
-
-
 
 // {/* Accordion 5 – Departure From New Delhi */}
 // <div className={`accordian ${open5 ? "open" : ""}`}>
