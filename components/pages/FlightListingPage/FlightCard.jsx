@@ -78,13 +78,13 @@ const FlightCard = () => {
                                     ...base,
                                     backgroundColor: "#fff",
                                     borderRadius: "5px",
-                                    borderColor: state.isFocused ? "none" : "none",
+                                    borderColor: state.isFocused ? "#802BD6" : "#802BD6",
                                     boxShadow: state.isFocused ? "0 0 0 1px none" : "none",
                                     padding: "0px 6px",
                                     marginRight: "10px",
                                     cursor: "pointer",
                                     "&:hover": {
-                                        borderColor: "#611BA7"
+                                        borderColor: "#802BD6"
                                     },
                                     "&:focus": {
                                         borderColor: "transparent",
@@ -108,7 +108,7 @@ const FlightCard = () => {
                                     padding: "10px 12px",
                                     cursor: "pointer",
                                     backgroundColor: state.isSelected
-                                        ? "#611BA7"
+                                        ? "#802BD6"
                                         : state.isFocused
                                             ? "#f2e9ff"
                                             : "white",
@@ -129,9 +129,9 @@ const FlightCard = () => {
                                 }),
                                 dropdownIndicator: (base) => ({
                                     ...base,
-                                    color: "#611BA7",
+                                    color: "#802BD6",
                                     "&:hover": {
-                                        color: "#611BA7"
+                                        color: "#802BD6"
                                     }
                                 }),
                                 indicatorSeparator: () => ({

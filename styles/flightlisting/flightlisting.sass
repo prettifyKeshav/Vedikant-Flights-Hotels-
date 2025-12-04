@@ -35,7 +35,7 @@ body
             .search-button
                 background: #E7B806
                 border-radius: 5px
-                padding: 6px 35px
+                padding: 4px 35px
                 gap: 10px
                 color: $black
                 font-weight: 700
@@ -46,16 +46,82 @@ body
                 &:hover
                     border: 1px solid #F6E7AD
                     background: #F6E7AD
-        .location-section
-            display: grid
-            grid-template-columns: repeat(2,1fr)
-            .location-name
-                color: $white
-        .flight-calendar
-            .detail-value            
-                font-weight: 500
-                color: $white
-                font-size: 14px
+        .listing-location-section
+            position: relative
+            display: flex
+            justify-content: space-between
+            .location-section
+                // display: grid
+                // grid-template-columns: repeat(2,1fr)
+                .location-label
+                    font-weight: 400
+                    font-size: 12px
+                    margin-bottom: 4px
+                    color: #FFFFFFB2 
+                .location-name
+                    font-weight: 500
+                    color: $white
+                    font-size: 14px
+                    white-space: nowrap
+                .location-code
+                    display: none
+            .switch-location
+                display: flex
+                justify-content: center
+                align-items: center
+        .details-row
+            .flight-calendar
+                .calendar-popup
+                    top: 0%
+                .detail-value            
+                    font-weight: 500
+                    color: $white
+                    font-size: 14px
+                    b
+                        font-weight: 500
+                        font-size: 14px
+                    span
+                        font-weight: 500
+                        font-size: 14px
+
+                .detail-text
+                    color: white
+        .details-row2
+            .detail-text
+                display: none
+            .hide
+                // display: none
+            .calendar-return
+                position: relative
+                .cross-icon
+                    position: absolute
+                    top: 0%
+                    left: 100%
+                    transform: translate(-50%,-50%)
+                    color: $white
+                    z-index: 1
+                    cursor: pointer
+                    background: #999999bc
+                    width: 20px
+                    height: 20px
+                    border-radius: 50%
+                    transition: 0.4s ease
+                    &:hover
+                        background: #999999
+                    &::before
+                        content: "x"
+                        position: absolute
+                        top: 40%
+                        left: 50%
+                        transform: translate(-50%,-50%)
+                        line-height: 0
+                .detail-value
+                    b
+                        font-weight: 500
+                        font-size: 14px
+                    span
+                        font-weight: 500
+                        font-size: 14px
 
 .flight-listing-secB
     display: flex
@@ -332,8 +398,16 @@ body
                         align-items: center
                         padding: 5px 10px
                         width: fit-content
+                        white-space: nowrap
                         .filterCross
                             cursor: pointer
+                            display: contents
+                            width: 20px 
+                            height: 20px
+                            img
+                                height: 100%
+                                width: 100%
+                                object-fit: contain
                 .applied-filter-clear-all
                     font-weight: 400
                     font-size: 14px

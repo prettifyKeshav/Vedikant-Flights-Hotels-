@@ -220,6 +220,7 @@ const Hero = () => {
                                 </li>
                             </ul>
                         </div>
+                        
                         <div className="flex-box">
                             <div className="col">
                                 <form action="">
