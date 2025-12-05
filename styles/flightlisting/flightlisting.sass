@@ -51,6 +51,7 @@ body
             display: flex
             justify-content: space-between
             .location-section
+                flex: 0 1 40%
                 // display: grid
                 // grid-template-columns: repeat(2,1fr)
                 .location-label
@@ -62,7 +63,7 @@ body
                     font-weight: 500
                     color: $white
                     font-size: 14px
-                    white-space: nowrap
+                    // white-space: nowrap
                 .location-code
                     display: none
             .switch-location
@@ -70,10 +71,12 @@ body
                 justify-content: center
                 align-items: center
         .details-row
+            position: relative
             .flight-calendar
                 .calendar-popup
-                    top: 0%
-                .detail-value            
+                    top: 40%
+                    left: -200%
+                .detail-value
                     font-weight: 500
                     color: $white
                     font-size: 14px
@@ -90,12 +93,13 @@ body
             .detail-text
                 display: none
             .hide
-                // display: none
+                .cross-icon
+                    display: none
             .calendar-return
                 position: relative
                 .cross-icon
                     position: absolute
-                    top: 0%
+                    top: -50%
                     left: 100%
                     transform: translate(-50%,-50%)
                     color: $white
@@ -122,7 +126,29 @@ body
                     span
                         font-weight: 500
                         font-size: 14px
-
+        .detail-section
+            position: relative
+            .travellers-wrapper
+                position: static
+                .travellers-dropdown    
+                    top: 43%
+                    left: -126%
+                .detail-text
+                    // display: none
+                    font-weight: 500
+                    font-size: 14px
+                    color: white
+                    line-height: 1
+                    white-space: nowrap
+                .detail-value
+                    b
+                        font-weight: 500
+                        font-size: 14px
+                        line-height: 1
+                    span
+                        font-weight: 500
+                        font-size: 14px
+                        line-height: 1
 .flight-listing-secB
     display: flex
     gap: 1.5rem
@@ -1042,7 +1068,6 @@ body
                             font-size: 14px
                             line-height: 24px
                             color: $text
-
                         .price 
                             p
                                 margin: 0
@@ -1104,17 +1129,88 @@ body
         border-radius: 5px 
         overflow: hidden
         background: $white
-        padding: 10px
+        padding: 20px 20px 20px 20px
         .flight-card
-            figure
-                border-radius: 5px
-                overflow: hidden
-                height: 85px
-                margin-bottom: 10px
-                img
-                    width: 100%
-                    height: 100%
-                    object-fit: cover
+            .left-card-container
+                // border-left: 1px solid #611BA7
+                .col
+                    .title
+                        display: flex
+                        align-items: center
+                        margin: 20px 0
+                        figure
+                            width: 30px
+                            height: 30px
+                            border-radius: 50%
+                            border: 1px solid #611BA7
+                            padding: 5px
+                            background: white
+                            display: flex
+                            justify-content: center
+                            align-items: center
+                        h3
+                            position: relative
+                            color: black
+                            font-weight: 700
+                            font-size: 18px
+                            padding-left: 20px
+                        .recommended-info
+                            border-radius: 5px
+                            padding: 3px 10px 
+                            background: #F6E7AD
+                            font-weight: 500
+                            font-size: 10px
+                            color: black
+                            margin-left: 20px
+                    .card
+                        border: 1px solid #E3E3E3
+                        border-radius: 5px
+                        margin-left: 50px
+                        .top
+                            border-bottom: 1px solid #E3E3E3
+                            padding: 20px
+                            p
+                                font-weight: 400
+                                font-size: 14px
+                                line-height: 24px
+                                color: #000000
+                            h2
+                                font-weight: 400
+                                color: black
+                                font-size: 24px
+                                span
+                                    font-weight: 400
+                                    font-size: 14px
+                .travel-insurance
+                    .card
+                        .top
+                            display: flex
+                            justify-content: space-between
+                            align-items: center
+                            figure
+                                width: 141px
+                                height: 32px
+                                img
+                                    width: 100%
+                                    height: 100%
+                                    object-fit: cover
+                        .bottom
+                            padding: 10px 20px 20px 20px
+                            .flex-box
+                                display: flex
+                                justify-content: space-between
+                                align-items: center
+                                margin-bottom: 20px
+                                p
+                                    font-weight: 400
+                                    font-size: 14px
+                                    color: black
+                                    .green
+                                        color: #06A523         
+                                a
+                                    font-weight: 400
+                                    font-size: 14px
+                                    text-decoration: underline
             .selected-filter
                 margin-bottom: 20px
                 .flex-box

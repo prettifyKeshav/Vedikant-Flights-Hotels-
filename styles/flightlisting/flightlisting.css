@@ -74,6 +74,9 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.flight-listing-secA .grid-box .listing-location-section .location-section {
+  flex: 0 1 40%;
+}
 .flight-listing-secA .grid-box .listing-location-section .location-section .location-label {
   font-weight: 400;
   font-size: 12px;
@@ -84,7 +87,6 @@ body {
   font-weight: 500;
   color: var(--white);
   font-size: 14px;
-  white-space: nowrap;
 }
 .flight-listing-secA .grid-box .listing-location-section .location-section .location-code {
   display: none;
@@ -94,8 +96,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+.flight-listing-secA .grid-box .details-row {
+  position: relative;
+}
 .flight-listing-secA .grid-box .details-row .flight-calendar .calendar-popup {
-  top: 0%;
+  top: 40%;
+  left: -200%;
 }
 .flight-listing-secA .grid-box .details-row .flight-calendar .detail-value {
   font-weight: 500;
@@ -116,12 +122,15 @@ body {
 .flight-listing-secA .grid-box .details-row2 .detail-text {
   display: none;
 }
+.flight-listing-secA .grid-box .details-row2 .hide .cross-icon {
+  display: none;
+}
 .flight-listing-secA .grid-box .details-row2 .calendar-return {
   position: relative;
 }
 .flight-listing-secA .grid-box .details-row2 .calendar-return .cross-icon {
   position: absolute;
-  top: 0%;
+  top: -50%;
   left: 100%;
   transform: translate(-50%, -50%);
   color: var(--white);
@@ -151,6 +160,33 @@ body {
 .flight-listing-secA .grid-box .details-row2 .calendar-return .detail-value span {
   font-weight: 500;
   font-size: 14px;
+}
+.flight-listing-secA .grid-box .detail-section {
+  position: relative;
+}
+.flight-listing-secA .grid-box .detail-section .travellers-wrapper {
+  position: static;
+}
+.flight-listing-secA .grid-box .detail-section .travellers-wrapper .travellers-dropdown {
+  top: 43%;
+  left: -126%;
+}
+.flight-listing-secA .grid-box .detail-section .travellers-wrapper .detail-text {
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  line-height: 1;
+  white-space: nowrap;
+}
+.flight-listing-secA .grid-box .detail-section .travellers-wrapper .detail-value b {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+}
+.flight-listing-secA .grid-box .detail-section .travellers-wrapper .detail-value span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
 }
 
 .flight-listing-secB {
@@ -1244,19 +1280,100 @@ body {
   border-radius: 5px;
   overflow: hidden;
   background: var(--white);
-  padding: 10px;
+  padding: 20px 20px 20px 20px;
 }
-.flight-detail-secA .flight-detail .flight-card figure {
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .title {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .title figure {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #611BA7;
+  padding: 5px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .title h3 {
+  position: relative;
+  color: black;
+  font-weight: 700;
+  font-size: 18px;
+  padding-left: 20px;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .title .recommended-info {
   border-radius: 5px;
-  overflow: hidden;
-  height: 85px;
-  margin-bottom: 10px;
+  padding: 3px 10px;
+  background: #F6E7AD;
+  font-weight: 500;
+  font-size: 10px;
+  color: black;
+  margin-left: 20px;
 }
-.flight-detail-secA .flight-detail .flight-card figure img {
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .card {
+  border: 1px solid #E3E3E3;
+  border-radius: 5px;
+  margin-left: 50px;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .card .top {
+  border-bottom: 1px solid #E3E3E3;
+  padding: 20px;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .card .top p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .card .top h2 {
+  font-weight: 400;
+  color: black;
+  font-size: 24px;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .col .card .top h2 span {
+  font-weight: 400;
+  font-size: 14px;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .travel-insurance .card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .travel-insurance .card .top figure {
+  width: 141px;
+  height: 32px;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .travel-insurance .card .top figure img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .travel-insurance .card .bottom {
+  padding: 10px 20px 20px 20px;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .travel-insurance .card .bottom .flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .travel-insurance .card .bottom .flex-box p {
+  font-weight: 400;
+  font-size: 14px;
+  color: black;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .travel-insurance .card .bottom .flex-box p .green {
+  color: #06A523;
+}
+.flight-detail-secA .flight-detail .flight-card .left-card-container .travel-insurance .card .bottom .flex-box a {
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: underline;
 }
 .flight-detail-secA .flight-detail .flight-card .selected-filter {
   margin-bottom: 20px;

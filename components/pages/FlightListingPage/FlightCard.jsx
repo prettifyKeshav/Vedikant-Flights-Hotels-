@@ -150,7 +150,6 @@ const FlightCard = () => {
                                     {item}
                                     <span
                                         className="filterCross"
-                                        data-animate="fade-slide"
                                         onClick={() => toggleFilter(item, false)}
                                         style={{ cursor: 'pointer' }}
                                     >

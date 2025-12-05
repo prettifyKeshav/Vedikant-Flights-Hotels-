@@ -3,6 +3,7 @@ import MySelect from '@/components/MySelect'
 import React, { useState } from 'react'
 import Image from 'next/image'
 import CustomFlightCalendar from '@/components/CustomFlightCalendar'
+import TravellersAndClass from '@/components/TravellersAndClass'
 
 const FlightSearch = () => {
     const [tripType, setTripType] = useState('oneway');
@@ -52,10 +53,15 @@ const FlightSearch = () => {
         setShowReturn(false);
         setTripType("oneway");
     };
+    const [travellerData, setTravellerData] = useState({
+        adults: 1,
+        children: 0,
+        infants: 0,
+        travelClass: "Economy/Premium Economy",
+    });
 
 
 
-    // For calendar ===========================================================
     const [showReturn, setShowReturn] = useState(false);
     const [calendarOpenFor, setCalendarOpenFor] = useState(null); // "departure" | "return" | null
     const [selectedDates, setSelectedDates] = useState({
@@ -63,6 +69,35 @@ const FlightSearch = () => {
         end: null,
     });
 
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const dep = selectedDates.start
+            ? selectedDates.start.toLocaleDateString("en-GB")
+            : "Not selected";
+        const ret = selectedDates.end
+            ? selectedDates.end.toLocaleDateString("en-GB")
+            : "Not selected";
+
+        alert(`
+            FLIGHT SEARCH DETAILS =======>>>>>>>>
+            
+            From := ${locations.from.name} (${locations.from.code})
+            To := ${locations.to.name} (${locations.to.code})
+
+            Departure := ${dep}
+            Return := ${tripType === "roundtrip" ? ret : "One Way"}
+
+            Travellers := 
+            Adults := ${travellerData.adults}
+            Children := ${travellerData.children}
+            Infants := ${travellerData.infants}
+
+            Class := ${travellerData.travelClass}
+            `);
+    };
 
     return (
         <>
@@ -72,7 +107,7 @@ const FlightSearch = () => {
                         {/* <form action=""> */}
 
                         <div className="col">
-                            <div className="detail-label" data-animate="zoom-in">Trip Type</div>
+                            <div className="detail-label">Trip Type</div>
 
                             <MySelect
                                 id="category-select"
@@ -95,8 +130,6 @@ const FlightSearch = () => {
                                         cursor: "pointer",
                                         minHeight: "20px !important",
                                         height: "20px !important",
-
-
                                         "&:hover": {
                                             border: "none !important",
                                             borderColor: "transparent !important",
@@ -112,7 +145,6 @@ const FlightSearch = () => {
                                             boxShadow: "none !important"
                                         }
                                     }),
-
                                     valueContainer: (base) => ({
                                         ...base,
                                         padding: 0,
@@ -128,12 +160,10 @@ const FlightSearch = () => {
                                         padding: "6px 0",
                                         zIndex: 9999,
                                     }),
-
                                     menuList: (base) => ({
                                         ...base,
                                         padding: 0,
                                     }),
-
                                     option: (base, state) => ({
                                         ...base,
                                         padding: "5px 12px",
@@ -148,13 +178,11 @@ const FlightSearch = () => {
                                             backgroundColor: "#e0c8ff"
                                         }
                                     }),
-
                                     singleValue: (base) => ({
                                         ...base,
                                         color: "#ffffff",
                                         fontSize: "14px",
                                     }),
-
                                     placeholder: (base) => ({
                                         ...base,
                                         fontSize: "14px",
@@ -164,7 +192,6 @@ const FlightSearch = () => {
                                         top: "10px",
                                         marginLeft: "0px",
                                     }),
-
                                     dropdownIndicator: (base) => ({
                                         ...base,
                                         color: "#ffffff",
@@ -174,12 +201,10 @@ const FlightSearch = () => {
                                             color: "#ffffff",
                                         }
                                     }),
-
                                     indicatorSeparator: () => ({
                                         display: "none",
                                     }),
                                 }}
-
                             />
 
                         </div>
@@ -202,9 +227,6 @@ const FlightSearch = () => {
                             />
                         </div>
                         <div className="col details-row">
-                            {/* <div className="detail-label">Departure</div>
-                            <div className="detail-value">Tue, Sep 30, 2025</div> */}
-
                             <CustomFlightCalendar
                                 isRoundTrip={tripType === "roundtrip"}
                                 open={!!calendarOpenFor}
@@ -224,9 +246,6 @@ const FlightSearch = () => {
 
                         </div>
                         <div className="col details-row details-row2">
-                            {/* <div className="detail-label">Return</div>
-                            <div className="detail-value">Tue, Sep 30, 2025</div> */}
-
                             <div
                                 className={`calendar-label ${showReturn ? "hide" : ""}`}
                                 onClick={(e) => {
@@ -262,11 +281,6 @@ const FlightSearch = () => {
                                     )}
                                 </p>
 
-                                {/* <p className="detail-text">
-                                                        {selectedDates.end
-                                                            ? selectedDates.end.toLocaleDateString("en-US", { weekday: "long" })
-                                                            : "Tuesday"}
-                                                    </p> */}
                                 <p className="detail-text">
                                     {(() => {
                                         if (selectedDates.end) {
@@ -294,14 +308,13 @@ const FlightSearch = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="col">
-                            <div className="travellersClass">
-                                <div className="detail-label">Passengers & Class</div>
-                                <div className="detail-value">1Adult, Economy/ Premium</div>
-                            </div>
 
-                            <button className="search-button">SEARCH</button>
+                        <div className="col detail-section">
+                            <TravellersAndClass onApply={(data) => setTravellerData(data)} />
+
+                            <button className="search-button" onClick={handleSearch}>SEARCH</button>
                         </div>
+
                         {/* </form> */}
                     </div>
                 </div>

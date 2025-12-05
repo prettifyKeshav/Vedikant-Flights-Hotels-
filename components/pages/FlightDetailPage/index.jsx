@@ -1,7 +1,7 @@
 
 import "@/styles/flightlisting/flightlisting.css";
 import Filters from "./Filters";
-import ReviewFlightDetails from "./ReviewFlightDetails";
+import LeftCard from "./LeftCard";
 
 const FlightDetailPage = () => {
     return (
@@ -11,7 +11,7 @@ const FlightDetailPage = () => {
                     <div className="container">
                         <div className="flight-detail-secA">
                             <div className="flight-detail">
-                                <ReviewFlightDetails />
+                                <LeftCard />
                             </div>
 
                             <aside className='filters'>
