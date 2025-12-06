@@ -1181,6 +1181,85 @@ body
                                 span
                                     font-weight: 400
                                     font-size: 14px
+                    .flex-box-bottom
+                        display: flex
+                        align-items: center
+                        gap: 20px
+                        margin: 20px 0px 20px 20px
+                        .form-group
+                            position: relative
+                            display: flex
+                            align-items: center
+                            padding-left: 10px
+                            &:first-child
+                                background: #611BA7
+                                border-radius: 5px
+                                label
+                                    color: white
+                                input[type="checkbox"]
+                                    background: white
+                                    &:checked 
+                                        background: $white
+                                    &:checked + .checkmark::after 
+                                        content: ""
+                                        position: absolute
+                                        top: 50%
+                                        left: 50%
+                                        transform: translate(-50%, -50%) rotate(-45deg)
+                                        width: 10px
+                                        height: 6px
+                                        border: 2px solid $secondary
+                                        border-top: none
+                                        border-right: none
+                            &:last-child
+                                border: 1px solid #D3D3D3
+                                border-radius: 5px
+                                label
+                                    color: $text
+                            input[type="checkbox"]
+                                appearance: none
+                                -webkit-appearance: none
+                                height: 24px
+                                width: 24px
+                                border-radius: 5px
+                                background: #D9D9D9
+                                position: relative
+                                cursor: pointer
+                                outline: none
+                                transition: 0.3s ease
+                                &:checked 
+                                    background: $secondary
+                                &:checked + .checkmark::after 
+                                    content: ""
+                                    position: absolute
+                                    top: 50%
+                                    left: 50%
+                                    transform: translate(-50%, -50%) rotate(-45deg)
+                                    width: 10px
+                                    height: 6px
+                                    border: 2px solid #fff
+                                    border-top: none
+                                    border-right: none
+                        .checkmark
+                            position: absolute
+                            height: 24px
+                            width: 24px
+                            pointer-events: none
+                        label 
+                            cursor: pointer
+                            font-weight: 400
+                            padding: 8px 17px 8px 10px
+                            font-size: 14px
+                            line-height: 24px
+                            color: $text
+                    .disclaimer
+                        margin: 15px 0px 0px 20px
+                        p
+                            font-weight: 400
+                            font-size: 12px
+                            color: black 
+                            a
+                                color: $secondary
                 .travel-insurance
                     .card
                         .top
@@ -1211,6 +1290,148 @@ body
                                     font-weight: 400
                                     font-size: 14px
                                     text-decoration: underline
+                                    color: $secondary
+                            .travel-insurance-swiper-slide
+                                margin: 0 20px
+                                position: relative
+                                .swiper-nav
+                                    position: absolute
+                                    top: 50%
+                                    left: 50%
+                                    transform: translate(-50%,-50%)
+                                    width: 108%
+                                    display: flex
+                                    justify-content: space-between
+                                    align-items: center
+                                    z-index: 2
+                                    pointer-events: none
+                                    user-select: none
+                                    button
+                                        line-height: 0
+                                        pointer-events: all
+                                        user-select: auto
+                                        svg
+                                            padding: 5px
+                                        &:last-child
+                                            svg
+                                                rotate: (-180deg)
+                                    .swiper-button-disabled
+                                        svg path
+                                            opacity: 0.5
+                                            cursor: no-drop
+                                .swiper
+                                    .swiper-wrapper
+                                        .swiper-slide
+                                            border: 1px solid #00000026
+                                            border-radius: 5px
+                                            text-align: center
+                                            a
+                                                padding: 20px
+                                                figure
+                                                    height: 64px
+                                                    width: 109px
+                                                    margin: auto
+                                                    margin-bottom: 10px
+                                                    img
+                                                        height: 100%
+                                                        width: 100%
+                                                        object-fit: contain
+                                                .tit
+                                                    font-weight: 500
+                                                    font-size: 14px
+                                                    line-height: 1.3
+                                                    color: black
+                                                    margin-bottom: 5px
+                                                .price
+                                                    font-weight: 500
+                                                    font-size: 14px
+                                                    line-height: 1.3
+                                                    color: $secondary
+                            .disclaimer
+                                margin: 15px 0px 0px 20px
+                                p
+                                    font-weight: 400
+                                    font-size: 12px
+                                    color: black 
+                                    a
+                                        color: $secondary
+                .web-check-in
+                    .grid-box
+                        display: grid
+                        grid-template-columns: repeat(3, 1fr)
+                        gap: 20px
+                        margin: 20px 20px 0 20px
+                        .grid-box-item
+                            border: 1px solid #00000026
+                            padding: 20px
+                            border-radius: 5px
+                            figure
+                                height: 88px
+                                width: 75px
+                                margin: auto 
+                                img
+                                    height: 100px
+                                    width: 100px
+                                    object-fit: scale-down
+                            h4
+                                font-weight: 500
+                                font-size: 16px
+                                line-height: 1.3
+                                text-align: center
+                                color: $secondary
+                                width: 120px
+                                margin: auto
+                                margin-bottom: 10px
+                            p
+                                font-weight: 400
+                                font-size: 14px
+                                text-align: center
+                                color: $text
+                    .flex-box
+                        display: flex
+                        justify-content: space-between
+                        align-items: center
+                        a
+                            margin: 0 20px 0 0
+                            color: $secondary
+                            border-bottom: 1px solid $secondary
+                            line-height: 1
+                .booking-refundable
+                    .top
+                        display: flex
+                        justify-content: space-between
+                        align-items: center
+                    figure
+                        width: 109px
+                        height: 50px
+                        img
+                            width: 100%
+                            height: 100%
+                            object-fit: contain
+                    .card
+                        .bottom
+                            .grid-box
+                                display: grid
+                                grid-template-columns: repeat(3,1fr)
+                                margin: 20px 20px 0 20px
+                                gap: 10px 10px
+                                margin-bottom: 30px
+                                .grid-box-item
+                                    display: flex
+                                    justify-content: start
+                                    align-items: center
+                                    gap: 10px
+                                    figure
+                                        width: 18px
+                                        height: 18px
+                                        img
+                                            height: 100%
+                                            width: 100%
+                                            object-fit: contain
+                                    p
+                                        color: black
+                                        font-size: 14px
+                                        font-weight: 400
             .selected-filter
                 margin-bottom: 20px
                 .flex-box
