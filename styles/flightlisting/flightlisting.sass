@@ -1260,6 +1260,231 @@ body
                             color: black 
                             a
                                 color: $secondary
+
+                .review-flight-details
+                    .tab-section
+                        padding: 11px 15px 15px 15px
+                        ul
+                            border-radius: 5px
+                            box-shadow: 0px 2px 8px 0px #63636333
+                            width: fit-content  
+                            display: flex
+                            justify-content: start
+                            align-items: center
+                            gap: 10px
+                            li
+                                font-weight: 500
+                                font-size: 12px
+                                line-height: 100%
+                                text-transform: uppercase
+                                padding: 10px 20px
+                                color: $text
+
+                                border-radius: 5px
+                                transition: 0.3s ease
+                                cursor: pointer
+                                &:hover
+                                    span
+                                        color: #611BA7
+                                span
+                                    font-weight: 500
+                                    font-size: 12px
+                                    text-transform: uppercase
+                                    transition: 0.3s ease
+                                    color: $text
+                                &.active
+                                    background: #F2E9FA
+                                    border: 1px solid #802BD6
+                                    span
+                                        color: #611BA7
+                        .tab-nav-content
+                            .tabs   
+                                border: 1px solid #E3E3E3
+                                height: 242px
+                                border-radius: 5px
+                                margin-top: 20px
+                                opacity: 0
+                                transition: 0.8s ease
+                                transform: scale(0.5)
+                                &.active
+                                    opacity: 1
+                                    transform: scale(1)
+                                &.cancellation
+                                    .head
+                                        background: rgba(0,0,0,.03)
+                                    table
+                                        border-collapse: collapse
+                                        border: 1px solid #ddd
+                                        width: 100%
+                                        font-size: 14px
+                                        margin-bottom: 20px
+                                        thead
+                                            th
+                                                border: 1px solid #ddd
+                                                padding: 12px
+                                                text-align: left
+                                                font-weight: bold
+                                                font-size: 12px
+                                                span
+                                                    font-weight: normal
+                                                    color: $text
+                                                    display: block
+                                        tbody
+                                            td
+                                                border: 1px solid #ddd
+                                                padding: 12px
+                                                font-size: 12px
+                                                color: $text
+                                                vertical-align: top
+                                &.fare-summary
+                                    .flex-box
+                                        .col
+                                            .title
+                                                flex: 0 1 10%
+                                            span
+                                                flex: 0 1 90%
+                                        .col:nth-child(1)
+                                            margin-bottom: 8px
+                                            .title
+                                                font-size: 14px
+                                                font-weight: 50000
+                                                color: $black
+                                            span
+                                                font-size: 14px
+                                                font-weight: 500
+                                                color: $black
+                                        .col:nth-child(2),.col:nth-child(3)
+                                            margin-bottom: 7px
+                                            .title
+                                                color: $text
+                                                font-size: 12px
+                                            span
+                                                font-size: 12px
+                                                color: $text
+                                    
+                                .head
+                                    border-bottom: 1px solid #E3E3E3
+                                    h4
+                                        font-weight: 500
+                                        font-size: 14px
+                                        line-height: 24px
+                                        padding: 8px 16px
+                                .bottom
+                                    padding: 18px 15px 
+                                    display: grid
+                                    grid-template-columns: repeat(1,1fr)
+                                    .col
+                                        display: flex
+                                        align-items: center
+                                        justify-content: start
+                                        gap: 25px
+                                        figure
+                                            width: 38px
+                                            height: 38px
+                                            border-radius: 5px 
+                                            overflow: hidden
+                                            margin: 0
+                                            img
+                                                width: 100%
+                                                height: 100%
+                                                object-fit: cover
+                                        h5
+                                            font-weight: 500
+                                            font-size: 14px
+                                            color: $black
+                                            line-height: 16px
+                                        p
+                                            font-weight: 400
+                                            font-size: 12px
+                                            color: $text
+                                            line-height: 16px
+                                    .grid-box
+                                        padding: 18px 0 
+                                        display: grid
+                                        grid-template-columns: repeat(6,1fr)
+                                        align-items: baseline
+                                        .col:nth-child(1),.col:nth-child(3)
+                                            flex-direction: column
+                                            align-items: start
+                                            gap: 10px
+                                            .content
+                                                display: flex
+                                                align-items: start
+                                                justify-content: start
+                                                flex-direction: column
+                                                gap: 4px
+                                                h5
+                                                    font-weight: 700
+                                                    font-size: 16px
+                                                    line-height: 16px
+                                                    color: $black
+                                                p
+                                                    font-weight: 500
+                                                    font-size: 12px
+                                                    color: $black
+                                                    line-height: 16px
+                                            .bott
+                                                h5
+                                                    font-weight: 500
+                                                    font-size: 16px
+                                                    line-height: 16px
+                                                    color: #06A523
+                                                    margin-bottom: 5px
+                                                p
+                                                    font-weight: 400
+                                                    font-size: 12px
+                                                    line-height: 16px
+                                                    color: $text
+
+                                        .col:nth-child(2)
+                                            .content
+                                                display: flex
+                                                align-items: center
+                                                flex-direction: column
+                                                h4
+                                                    font-weight: 400
+                                                    font-size: 12px
+                                                    line-height: 16px
+                                                    color: $text
+                                                    border-bottom: 2px solid #66666694
+                                                    padding: 0 0 6px 0
+                                                    margin: 0 0 1px 0
+                                                    span
+                                                        color: $black
+                                        .col:nth-child(4)
+                                            grid-column: span 3
+                                            flex-direction: column
+                                            gap: 15px
+                                            .info
+                                                border-radius: 5px 
+                                                padding: 6px 10px
+                                                font-weight: 400
+                                                font-size: 10px
+                                                line-height: 16px
+                                                color: #000000B2
+                                                background: #F2E9FA
+                                                overflow: hidden
+
+                                            .grid-box2
+                                                display: grid
+                                                grid-template-columns: repeat(3, 1fr)
+                                                width: 100%
+                                                .content
+                                                    display: flex
+                                                    align-items: start
+                                                    flex-direction: column
+                                                    gap: 4px
+                                                    h5
+                                                        font-weight: 700
+                                                        font-size: 16px
+                                                        line-height: 16px
+                                                        color: $black
+                                                    p
+                                                        font-weight: 400
+                                                        font-size: 12px
+                                                        color: $text
+                                                        line-height: 16px
+
                 .travel-insurance
                     .card
                         .top
@@ -1356,11 +1581,13 @@ body
                                     a
                                         color: $secondary
                 .web-check-in
+                    .bottom
+                        padding: 20px
                     .grid-box
                         display: grid
                         grid-template-columns: repeat(3, 1fr)
                         gap: 20px
-                        margin: 20px 20px 0 20px
+                        // margin: 20px 20px 0 20px
                         .grid-box-item
                             border: 1px solid #00000026
                             padding: 20px
@@ -1396,6 +1623,9 @@ body
                             color: $secondary
                             border-bottom: 1px solid $secondary
                             line-height: 1
+                    .flex-box-bottom
+                        margin: 20px 0 0 0
+
                 .booking-refundable
                     .top
                         display: flex
@@ -1410,10 +1640,11 @@ body
                             object-fit: contain
                     .card
                         .bottom
+                            padding: 20px
                             .grid-box
                                 display: grid
                                 grid-template-columns: repeat(3,1fr)
-                                margin: 20px 20px 0 20px
+                                margin: 0px
                                 gap: 10px 10px
                                 margin-bottom: 30px
                                 .grid-box-item
@@ -1432,6 +1663,373 @@ body
                                         color: black
                                         font-size: 14px
                                         font-weight: 400
+                                    a
+                                        p
+                                            color: $secondary
+                                            border-bottom: 1px solid $secondary
+                            .disclaimer
+                                margin: 0 0 20px 0
+                            .flex-box-bottom
+                                margin: 0px
+                .have-coupon
+                    .card
+                        padding: 20px
+                        .search-wrap
+                            max-width: 420px
+                            display: flex   
+                            justify-content: space-between
+                            align-items: center
+                            input
+                                font-weight: 400
+                                font-size: 13px
+                                outline: none
+                                border: 1px solid #BFBFBF
+                                padding: 10px 
+                                border-top-left-radius: 5px
+                                border-bottom-left-radius: 5px
+                                flex: 0 1 80%
+                            button
+                                border-radius: 0
+                                border-top-right-radius: 5px
+                                border-bottom-right-radius: 5px
+                                font-weight: 400
+                                padding: 22.5px
+                                font-size: 16px
+                                flex: 0 1 20%
+                        .bottom
+                            .grid-box
+                                display: grid
+                                grid-template-columns: repeat(3,1fr)
+                                gap: 30px
+                                margin-top: 30px
+                                .grid-box-item
+                                    border: 1px solid #00000033
+                                    padding: 20px
+                                    text-align: center
+                                    border-radius: 5px
+                                    position: relative
+                                    .copen-title
+                                        font-weight: 400
+                                        font-size: 14px
+                                        color: black
+                                        transition: 0.3s ease
+                                    .copen-code
+                                        font-weight: 500
+                                        font-size: 13px
+                                        color: $primary
+                                        width: fit-content
+                                        margin: 10px auto 0
+                                        line-height: 14px
+                                        border-radius: 5px
+                                        border-width: 1px
+                                        padding: 10px
+                                        border-style: dashed
+                                        dashes: 2, 2
+                                        transition: 0.3s ease
+                                    .remove
+                                        margin-top: 4px
+                                        font-weight: 500
+                                        font-size: 13px
+                                        opacity: 0
+                                        transition: 0.3s ease
+
+                                    .circle
+                                        border: 1px solid #A8A8A8
+                                        width: 19px
+                                        height: 19px
+                                        opacity: 1
+                                        border-width: 1px
+                                        border-radius: 50%
+                                        transition: 0.3s ease
+
+                                        display: inline-flex
+                                        justify-content: center
+                                        align-items: center
+                                        padding: 3px
+                                        margin-bottom: 10px
+
+                                    &:has(input:checked) 
+                                        border-color: #06A523
+                                        p
+                                            color: #06A523
+                                        .circle
+                                            border: 1px solid #06A523
+                                            background: #06A523
+                                        .remove
+                                            opacity: 1
+                                            color: $secondary
+
+                                    input[type="radio"]
+                                        appearance: none
+                                        -webkit-appearance: none
+                                        height: 24px
+                                        width: 24px
+                                        border-radius: 5px
+                                        background: #D9D9D9
+                                        position: relative
+                                        cursor: pointer
+                                        outline: none
+                                        transition: 0.3s ease
+
+                                        position: absolute
+                                        top: 0
+                                        left: 0
+                                        width: 100%
+                                        height: 100%
+                                        opacity: 0
+                                        cursor: pointer
+                                        margin: 0
+                                        z-index: 2
+                                        &:checked 
+                                            background: $secondary
+                                        &:checked + .checkmark::after 
+                                            content: ""
+                                            position: absolute
+                                            top: 50%
+                                            left: 50%
+                                            transform: translate(-50%, -50%) rotate(-45deg)
+                                            width: 10px
+                                            height: 6px
+                                            border: 2px solid #fff
+                                            border-top: none
+                                            border-right: none
+                .price-details
+                    .card
+                        .top
+                            padding: 20px 20px 20px 25px
+                            .accordian
+                                margin-bottom: 15px
+                                &:last-child
+                                    margin-bottom: 0
+                                &.open
+                                    .accordian-title
+                                        .circle
+                                            &::after
+                                                transform: translate(-50%,-50%) rotate(0deg)       
+                                .accordian-title
+                                    padding: 0px 0px 0px 0px
+                                    cursor: pointer
+                                    position: relative
+                                    transition: 0.3s ease
+                                    p
+                                        font-weight: 500
+                                        color: #666666
+                                        font-size: 14px
+                                        &:first-child
+                                            display: flex
+                                            align-items: center
+                                            gap: 5px
+                                            span
+                                                border: 1px solid #666666
+                                                height: 22px
+                                                width: 22px
+                                                border-radius: 50%
+                                                display: inline-block
+                                                position: relative
+                                                &::before
+                                                    content: ""
+                                                    position: absolute
+                                                    top: 50%
+                                                    left: 50%
+                                                    transform: translate(-50%,-50%)
+                                                    width: 11px
+                                                    height: 1px
+                                                    background: #666666
+                                                &::after
+                                                    content: ""
+                                                    position: absolute
+                                                    top: 50%
+                                                    left: 50%
+                                                    transform: translate(-50%,-50%) rotate(-90deg)
+                                                    width: 11px
+                                                    height: 1px
+                                                    background: #666666
+                                                    transition: 0.5s ease
+                                .accordian-description
+                                    max-height: 0
+                                    overflow: hidden
+                                    transition: max-height 0.4s ease, padding 0.3s ease
+                                    padding: 0 0 0 35px
+                                    .tab-nav-content
+                                        .flex-box
+                                            margin: 10px 0 
+                                            p
+                                                font-weight: 400
+                                                color: $text
+                                                font-size: 14px
+                                                &:first-child
+                                                    position: relative
+                                                    &::before
+                                                        content: ""
+                                                        position: absolute
+                                                        top: 50%
+                                                        left: -8%
+                                                        transform: translate(-50%,-50%)
+                                                        background: #666666
+                                                        height: 1px 
+                                                        width: 7px
+
+
+                        .middle
+                            padding: 10px 20px 0px 20px
+                            .flex-box
+                                display: flex                   
+                                justify-content: space-between
+                                align-items: center
+                            table
+                                width: 100%
+                                border-collapse: collapse
+                                th, td 
+                                    padding: 4px 0
+                                    text-align: left
+                                tr
+                                    td:last-child
+                                        text-align: right
+                                thead
+                                    th
+                                        font-weight: 500
+                                        font-size: 14px
+                                    th:last-child
+                                        text-align: right
+                                tbody
+                                    tr
+                                        td
+                                            font-weight: 400
+                                            color: $text
+                                            font-size: 14px
+                                    .green
+                                        td
+                                            color:#06A523 
+                                            padding: 0 0 12px 0
+                        .bottom
+                            .highlight
+                                border-top: 1px solid #0000002B
+                                display: flex
+                                justify-content: space-between
+                                align-items: center
+                                padding: 14px 20px
+                                p
+                                    color: $secondary
+                                    font-weight: 700
+                                    font-size: 18px
+                                    text-transform: uppercase
+                .contact-details
+                    .card
+                        padding: 20px
+                        .form
+                            display: flex
+                            justify-content: space-between
+                            align-items: center
+                            gap: 20px
+                            .form-group:nth-child(2)
+                                flex: 0 1 25%
+                    .info
+                        margin-top: 20px
+                        gap: 7px
+                        figure
+                            height: 18px
+                            width: 18px
+                            line-height: 0
+                            svg
+                                height: 100%
+                                width: 100%
+                                object-fit: cover
+                        p
+                            font-weight: 400
+                            font-size: 12px
+                            color: #666666
+                .enter-traveller-details
+                    
+                .total-ticket-amount
+                    .title
+                        align-items: start
+                    .card
+                        padding: 20px
+                        margin-left: 20px
+                        background: #F3EBFB
+                        border: 1px solid #E3E3E3
+                        width: 100%
+                        .flex-box
+                            h3
+                                padding: 0
+                            .total-amount
+                                color: $secondary
+                                font-weight: 700
+
+                                font-size: 20px
+                                text-transform: uppercase
+                            &:first-child
+                                p
+                                    font-weight: 400
+                                    font-size: 14px
+                                    color: black    
+                            &:last-child
+                                p:first-child
+                                    font-weight: 400
+                                    font-size: 14px
+                                    color: black    
+                .final-check
+                    .flex-box-bottom
+                        display: flex
+                        align-items: center
+                        gap: 20px
+                        margin: 20px 0px 20px 50px
+                        .form-group
+                            position: relative
+                            display: flex
+                            align-items: center
+                            border-radius: 5px
+                            label
+                                color: $text
+                                span
+                                    color: $secondary
+                            input[type="checkbox"]
+                                appearance: none
+                                -webkit-appearance: none
+                                height: 24px
+                                width: 24px
+                                border-radius: 5px
+                                background: #D9D9D9
+                                position: relative
+                                cursor: pointer
+                                outline: none
+                                transition: 0.3s ease
+                                &:checked 
+                                    background: $secondary
+                                &:checked + .checkmark::after 
+                                    content: ""
+                                    position: absolute
+                                    top: 50%
+                                    left: 50%
+                                    transform: translate(-50%, -50%) rotate(-45deg)
+                                    width: 10px
+                                    height: 6px
+                                    border: 2px solid #fff
+                                    border-top: none
+                                    border-right: none
+                        .checkmark
+                            position: absolute
+                            height: 24px
+                            width: 24px
+                            pointer-events: none
+                        label 
+                            cursor: pointer
+                            font-weight: 400
+                            padding: 8px 17px 8px 10px
+                            font-size: 14px
+                            line-height: 24px
+                            color: $text
+                .submit
+                    border-radius: 5px
+                    padding: 6px 35px
+                    margin: 0 0 30px 50px
+                    font-weight: 700
+                    font-size: 16px
+                    color: black
+                    background: #E7B806
+                    text-transform: uppercase
+
+
             .selected-filter
                 margin-bottom: 20px
                 .flex-box
