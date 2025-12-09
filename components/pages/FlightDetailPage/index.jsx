@@ -1,7 +1,7 @@
 
 import "@/styles/flightlisting/flightlisting.css";
-import Filters from "./Filters";
 import LeftCard from "./LeftCard";
+import RightCard from "./RightCard";
 
 const FlightDetailPage = () => {
     return (
@@ -15,7 +15,7 @@ const FlightDetailPage = () => {
                             </div>
 
                             <aside className='filters'>
-                                <Filters />
+                                <RightCard />
                             </aside>
                         </div>
                     </div>

@@ -1,0 +1,735 @@
+@import '../_var'
+
+.layout-wrapper
+    background: #EEEEEE
+.dashboard-layout
+    margin-top: var(--headerheight)
+    display: flex
+    min-height: 100vh
+    gap: 30px
+
+    // LEFT SIDE BARRR==================================================================================>
+    .sidebar
+        width: 300px
+        background: #FFFFFF
+        height: fit-content
+        color: #666666
+        position: sticky
+        top: 125px
+        overflow-y: auto
+        border-radius: 5px
+        margin-bottom: 110px
+        .profile-wrapper
+            border-bottom: 1px solid #0000002B
+            padding: 1rem
+            text-align: center
+            figure
+                width: 73px
+                height: 73px
+                border-radius: 50%
+                overflow: hidden
+                line-height: 0
+                margin: 0 auto 20px
+                img
+                    height: 100%
+                    width: 100%
+                    object-fit: cover
+            .name 
+                p
+                    font-weight: 500
+                    font-size: 16px
+                    line-height: 20px
+                    text-align: center
+                    color: black
+            .email
+                p
+                    font-weight: 400
+                    font-size: 12px
+                    line-height: 20px
+                    text-align: center
+                    color: $text
+            button
+                border: 1px solid $secondary
+                border-radius: 5px
+                padding: 0px 10px
+                margin: 20px auto 10px
+
+                span
+                    font-weight: 500
+                    color: $secondary
+                    font-size: 13px
+
+
+        .nav
+            display: flex
+            flex-direction: column
+            gap: 0.5rem
+            margin: 30px 0
+            .menuItem
+                width: 100%
+                display: flex
+                align-items: center
+                gap: 0.5rem
+                padding: 0.75rem 0.75rem 0.75rem 4.75rem
+                border-radius: 0.5rem
+                transition: background-color 0.2s ease
+                border: none
+                background: none
+                color: inherit
+                cursor: pointer
+                font-size: 1rem
+                transition: 0.3s ease
+                position: relative
+                &::before
+                    content: ""
+                    position: absolute
+                    top: 50%
+                    left: -3%
+                    transform: translate(-100%,-50%)
+                    width: 50%
+                    height: 2px
+                    background: $secondary
+                    transition: 0.3s ease
+                &:hover
+                    background: #cccccc33
+                &.active
+                    color: $secondary
+                    &::before
+                        transform: translate(-50%,-50%)
+                span
+                    font-weight: 500
+                    font-size: 16px
+                    line-height: 1.3
+
+    // right SIDE content ==================================================================================>
+    .contentArea
+        flex: 1
+        min-height: 100vh
+        margin-bottom: var(--headerheight)
+        .contentWrapper
+            background: white
+            border-radius: 5px
+            // padding: 1.5rem
+            max-width: 1024px 
+            margin: 0 auto
+            margin-top: 33px
+        // my-profile ========================>
+        .my-profile
+            padding: 1.5rem
+            h1
+                font-weight: 500
+                font-size: 20px
+                line-height: 1.2
+                color: black
+                margin-bottom: 20px
+            .flex-box
+                display: flex
+                justify-content: start
+                align-items: center
+                gap: 20px
+                figure
+                    width: 73px
+                    height: 73px
+                    border-radius: 50%
+                    overflow: hidden
+                    line-height: 0
+                    img
+                        height: 100%
+                        width: 100%
+                        object-fit: cover
+                .cg-avtar
+                    h3
+                        font-family: Poppins
+                        font-weight: 500
+                        font-size: 14px
+                        color: $text
+                        margin: 0 0 6px 0
+                    p
+                        font-weight: 400
+                        color: $text
+                        font-size: 12px
+                .upload
+                    border: 1px solid $secondary
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    padding: 10px 15px
+                    gap: 10px
+                    border-radius: 5px
+                    transition: 0.5s ease
+                    &:hover
+                        background: $secondary
+                        span
+                            color: white
+                        svg
+                            path
+                                fill: white
+                    span
+                        font-weight: 500
+                        font-size: 12px
+                        color: $secondary
+                        display: inline-block
+                        white-space: nowrap
+                        transition: 0.5s ease
+                .delete
+                    border: 1px solid #BA0000
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    padding: 10px
+                    border-radius: 5px
+                    transition: 0.5s ease
+                    &:hover
+                        background:#BA0000 
+                        svg
+                            path
+                                fill: white
+                    svg
+                        path
+                            fill: #BA0000
+                            transition: 0.5s ease
+            .form
+                margin-top: 30px
+                --item: 2
+                --gaptb: 20px
+                --gaplr: 50px
+                .grid-box
+                    display: grid
+                    grid-template-columns: repeat(3, 1fr)
+                    gap: 20px
+                button
+                    width: fit-content
+                    border-radius: 5px
+                    margin-top: 30px
+
+        // my-flights ========================>
+        .my-flights
+            .card-container
+                background: $white
+                border-radius: 5px
+                overflow: hidden
+                margin-bottom: 10px
+                .top-flex-box
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    border-bottom: 1px solid #E3E3E3
+                    padding: 18px 15px
+                    .left
+                        h2
+                            font-weight: 500
+                            font-size: 16px
+                            line-height: 1.3
+                            color: black
+                            margin-bottom: 4px
+                        p
+                            font-weight: 400
+                            font-size: 12px
+                            line-height: 1.3
+                            color: $text
+                    .right
+                        a
+                            border: 1px solid #802BD6
+                            padding: 6px 20px 
+                            border-radius: 5px
+                            display: flex
+                            justify-content: center
+                            gap: 10px
+                            align-items: center
+                            transition: 0.5s ease
+                            &:hover
+                                background: $secondary
+                                span
+                                    color: white
+                                svg path
+                                    fill: white
+                            span
+                                font-weight: 500
+                                font-size: 14px
+                                color: $secondary
+                                transition: 0.5s ease
+                            svg path
+                                transition: 0.5s ease
+                .grid-box
+                    padding: 18px 15px 
+                    display: grid
+                    grid-template-columns: repeat(5,1fr)
+                    align-items: center
+                    .col:nth-child(1)
+                        display: flex
+                        align-items: center
+                        justify-content: start
+                        gap: 25px
+                        figure
+                            width: 38px
+                            height: 38px
+                            border-radius: 5px 
+                            overflow: hidden
+                            margin: 0
+                            img
+                                width: 100%
+                                height: 100%
+                                object-fit: cover
+                        .content
+                            h5
+                                font-weight: 500
+                                font-size: 14px
+                                color: $black
+                                line-height: 16px
+                            p
+                                font-weight: 400
+                                font-size: 12px
+                                color: $text
+                                line-height: 16px
+                    .col:nth-child(3)
+                        .content
+                            display: flex
+                            align-items: center
+                            flex-direction: column
+                            h4
+                                font-weight: 400
+                                font-size: 12px
+                                line-height: 16px
+                                color: $text
+                                border-bottom: 2px solid #06A523
+                                padding: 0 0 6px 0
+                                margin: 0 0 1px 0
+                                span
+                                    color: $black
+                            p
+                                font-weight: 400
+                                font-size: 10px
+                                line-height: 16px
+                                color: $text
+
+                    .col:nth-child(2),.col:nth-child(4),.col:nth-child(5)
+                        .content
+                            display: flex
+                            align-items: center
+                            flex-direction: column
+                            gap: 4px
+                            h5
+                                font-weight: 700
+                                font-size: 16px
+                                line-height: 16px
+                                color: $black
+                            p
+                                font-weight: 400
+                                font-size: 12px
+                                color: $text
+                                line-height: 16px
+                    // .col:nth-child(6)
+                    //     .selct-btn-div
+                    //         display: flex
+                    //         justify-content: end
+                    //         align-items: center
+                    //         .btn
+                    //             border-radius: 5px
+                    //             padding: 6px 25px
+                        
+                    //             display: flex
+                    //             justify-content: center
+                    //             align-items: center
+                    //             gap: 10px
+                    //             span
+                    //                 font-weight: 500
+                    //                 font-size: 12px
+                    //                 text-transform: uppercase
+                    //             img
+                    //                 width: 12px 
+                    //                 height: 12px
+                                    
+
+                .accordian
+                    &.true
+                        .accordian-title .grid-box
+                            .col:nth-child(3)
+                                span
+                                    &::before
+                                        transform: translate(-50%, -50%) rotate(135deg)
+                    .accordian-title
+                        border-top: 1px solid #0000001C
+                        border-bottom: 1px solid #0000001C
+                        padding: 11px 22px 11px 15px
+                        
+                        cursor: pointer
+                        position: relative
+                        transition: 0.3s ease
+                        &:hover
+                            background: #f8f9fa
+                        .grid-box
+                            display: grid
+                            grid-template-columns: repeat(3,1fr)
+                            padding: 0 
+                            .col:nth-child(1)
+                                display: flex
+                                justify-content: start
+                                align-items: center
+                                gap: 17px
+                                p:first-child
+                                    font-weight: 500
+                                    font-size: 12px
+                                    color: #06A523
+                                p:last-child
+                                    color: #FF6D38
+                                    font-weight: 500
+                                    font-size: 12px
+                                .point
+                                    border-radius: 50%
+                                    background: #66666666
+                                    height: 5px
+                                    width: 5px
+
+                            .col:nth-child(2)
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                p
+                                    color: #06A523
+                                    font-weight: 400
+                                    font-size: 12px
+                                    strong
+                                        font-weight: 700
+                            .col:nth-child(3)
+                                display: flex
+                                justify-content: end
+                                align-items: center
+                                gap: 20px
+                                p
+                                    font-weight: 500
+                                    color: $secondary
+                                    font-size: 11px
+                                span
+                                    position: relative
+                                    &::before
+                                        content: ""
+                                        position: absolute
+                                        top: 50%
+                                        left: 50%
+                                        width: 9px
+                                        height: 9px
+                                        border-left: 2px solid $secondary
+                                        border-bottom: 2px solid $secondary
+                                        transition: 0.3s ease
+                                        transform: translate(-50%, -50%) rotate(-45deg)
+                    .accordian-description
+                        max-height: 0
+                        overflow: hidden
+                        transition: max-height 0.4s ease, padding 0.3s ease
+                        .tab-section
+                            padding: 11px 15px 15px 15px
+                            ul
+                                border-radius: 5px
+                                box-shadow: 0px 2px 8px 0px #63636333
+                                width: fit-content  
+                                display: flex
+                                justify-content: start
+                                align-items: center
+                                gap: 10px
+                                li
+                                    font-weight: 500
+                                    font-size: 12px
+                                    line-height: 100%
+                                    text-transform: uppercase
+                                    padding: 10px 20px
+                                    color: $text
+
+                                    border-radius: 5px
+                                    transition: 0.3s ease
+                                    cursor: pointer
+                                    &:hover
+                                        span
+                                            color: #611BA7
+                                    span
+                                        font-weight: 500
+                                        font-size: 12px
+                                        text-transform: uppercase
+                                        transition: 0.3s ease
+                                        color: $text
+                                    &.active
+                                        background: #F2E9FA
+                                        border: 1px solid #802BD6
+                                        span
+                                            color: #611BA7
+                            .tab-nav-content
+                                .tabs   
+                                    border: 1px solid #E3E3E3
+                                    height: 242px
+                                    border-radius: 5px
+                                    margin-top: 20px
+                                    opacity: 0
+                                    transition: 0.8s ease
+                                    transform: scale(0.5)
+                                    &.active
+                                        opacity: 1
+                                        transform: scale(1)
+                                    &.cancellation
+                                        .head
+                                            background: rgba(0,0,0,.03)
+                                        table
+                                            border-collapse: collapse
+                                            border: 1px solid #ddd
+                                            width: 100%
+                                            font-size: 14px
+                                            margin-bottom: 20px
+                                            thead
+                                                th
+                                                    border: 1px solid #ddd
+                                                    padding: 12px
+                                                    text-align: left
+                                                    font-weight: bold
+                                                    font-size: 12px
+                                                    span
+                                                        font-weight: normal
+                                                        color: $text
+                                                        display: block
+                                            tbody
+                                                td
+                                                    border: 1px solid #ddd
+                                                    padding: 12px
+                                                    font-size: 12px
+                                                    color: $text
+                                                    vertical-align: top
+                                    &.fare-summary
+                                        .card
+                                            .top
+                                                padding: 20px 20px 20px 25px
+                                                border-bottom: 1px solid #0000002B
+                                                .accordian
+                                                    margin-bottom: 15px
+                                                    &:last-child
+                                                        margin-bottom: 0
+                                                    &.open
+                                                        .accordian-title
+                                                            .circle
+                                                                &::after
+                                                                    transform: translate(-50%,-50%) rotate(0deg)       
+                                                    .accordian-title
+                                                        padding: 0px 0px 0px 0px
+                                                        cursor: pointer
+                                                        position: relative
+                                                        transition: 0.3s ease
+                                                        p
+                                                            font-weight: 500
+                                                            color: #666666
+                                                            font-size: 14px
+                                                            &:first-child
+                                                                display: flex
+                                                                align-items: center
+                                                                gap: 5px
+                                                                span
+                                                                    border: 1px solid #666666
+                                                                    height: 22px
+                                                                    width: 22px
+                                                                    border-radius: 50%
+                                                                    display: inline-block
+                                                                    position: relative
+                                                                    &::before
+                                                                        content: ""
+                                                                        position: absolute
+                                                                        top: 50%
+                                                                        left: 50%
+                                                                        transform: translate(-50%,-50%)
+                                                                        width: 11px
+                                                                        height: 1px
+                                                                        background: #666666
+                                                                    &::after
+                                                                        content: ""
+                                                                        position: absolute
+                                                                        top: 50%
+                                                                        left: 50%
+                                                                        transform: translate(-50%,-50%) rotate(-90deg)
+                                                                        width: 11px
+                                                                        height: 1px
+                                                                        background: #666666
+                                                                        transition: 0.5s ease
+                                                    .accordian-description
+                                                        max-height: 0
+                                                        overflow: hidden
+                                                        transition: max-height 0.4s ease, padding 0.3s ease
+                                                        padding: 0 0 0 35px
+                                                        .tab-nav-content
+                                                            .flex-box
+                                                                margin: 10px 0 
+                                                                p
+                                                                    font-weight: 400
+                                                                    color: $text
+                                                                    font-size: 14px
+                                                                    &:first-child
+                                                                        position: relative
+                                                                        &::before
+                                                                            content: ""
+                                                                            position: absolute
+                                                                            top: 50%
+                                                                            left: -8%
+                                                                            transform: translate(-50%,-50%)
+                                                                            background: #666666
+                                                                            height: 1px 
+                                                                            width: 7px
+                                            .middle
+                                                padding: 10px 20px 0px 20px
+                                                .flex-box
+                                                    display: flex                   
+                                                    justify-content: space-between
+                                                    align-items: center
+                                                table
+                                                    width: 100%
+                                                    border-collapse: collapse
+                                                    th, td 
+                                                        padding: 4px 0
+                                                        text-align: left
+                                                    tr
+                                                        td:last-child
+                                                            text-align: right
+                                                    thead
+                                                        th
+                                                            font-weight: 500
+                                                            font-size: 14px
+                                                        th:last-child
+                                                            text-align: right
+                                                    tbody
+                                                        tr
+                                                            td
+                                                                font-weight: 400
+                                                                color: $text
+                                                                font-size: 14px
+                                                        .green
+                                                            td
+                                                                color:#06A523 
+                                                                padding: 0 0 12px 0
+                                            .bottom
+                                                .highlight
+                                                    border-top: 1px solid #0000002B
+                                                    display: flex
+                                                    justify-content: space-between
+                                                    align-items: center
+                                                    padding: 14px 20px
+                                                    p
+                                                        color: $black
+                                                        font-weight: 700
+                                                        font-size: 18px
+                                                        text-transform: uppercase
+                                    .head
+                                        border-bottom: 1px solid #E3E3E3
+                                        h4
+                                            font-weight: 500
+                                            font-size: 14px
+                                            line-height: 24px
+                                            padding: 8px 16px
+                                    .bottom
+                                        padding: 18px 15px 
+                                        display: grid
+                                        grid-template-columns: repeat(1,1fr)
+                                        .col
+                                            display: flex
+                                            align-items: center
+                                            justify-content: start
+                                            gap: 25px
+                                            figure
+                                                width: 38px
+                                                height: 38px
+                                                border-radius: 5px 
+                                                overflow: hidden
+                                                margin: 0
+                                                img
+                                                    width: 100%
+                                                    height: 100%
+                                                    object-fit: cover
+                                            h5
+                                                font-weight: 500
+                                                font-size: 14px
+                                                color: $black
+                                                line-height: 16px
+                                            p
+                                                font-weight: 400
+                                                font-size: 12px
+                                                color: $text
+                                                line-height: 16px
+                                        .grid-box
+                                            padding: 18px 0 
+                                            display: grid
+                                            grid-template-columns: repeat(6,1fr)
+                                            align-items: baseline
+                                            .col:nth-child(1),.col:nth-child(3)
+                                                flex-direction: column
+                                                align-items: start
+                                                gap: 10px
+                                                .content
+                                                    display: flex
+                                                    align-items: start
+                                                    justify-content: start
+                                                    flex-direction: column
+                                                    gap: 4px
+                                                    h5
+                                                        font-weight: 700
+                                                        font-size: 16px
+                                                        line-height: 16px
+                                                        color: $black
+                                                    p
+                                                        font-weight: 500
+                                                        font-size: 12px
+                                                        color: $black
+                                                        line-height: 16px
+                                                .bott
+                                                    h5
+                                                        font-weight: 500
+                                                        font-size: 16px
+                                                        line-height: 16px
+                                                        color: #06A523
+                                                        margin-bottom: 5px
+                                                    p
+                                                        font-weight: 400
+                                                        font-size: 12px
+                                                        line-height: 16px
+                                                        color: $text
+
+                                            .col:nth-child(2)
+                                                .content
+                                                    display: flex
+                                                    align-items: center
+                                                    flex-direction: column
+                                                    h4
+                                                        font-weight: 400
+                                                        font-size: 12px
+                                                        line-height: 16px
+                                                        color: $text
+                                                        border-bottom: 2px solid #66666694
+                                                        padding: 0 0 6px 0
+                                                        margin: 0 0 1px 0
+                                                        span
+                                                            color: $black
+                                            .col:nth-child(4)
+                                                grid-column: span 3
+                                                flex-direction: column
+                                                gap: 15px
+                                                .info
+                                                    border-radius: 5px 
+                                                    padding: 6px 10px
+                                                    font-weight: 400
+                                                    font-size: 10px
+                                                    line-height: 16px
+                                                    color: #000000B2
+                                                    background: #F2E9FA
+                                                    overflow: hidden
+
+                                                .grid-box2
+                                                    display: grid
+                                                    grid-template-columns: repeat(3, 1fr)
+                                                    width: 100%
+                                                    .content
+                                                        display: flex
+                                                        align-items: start
+                                                        flex-direction: column
+                                                        gap: 4px
+                                                        h5
+                                                            font-weight: 700
+                                                            font-size: 16px
+                                                            line-height: 16px
+                                                            color: $black
+                                                        p
+                                                            font-weight: 400
+                                                            font-size: 12px
+                                                            color: $text
+                                                            line-height: 16px
+            
+

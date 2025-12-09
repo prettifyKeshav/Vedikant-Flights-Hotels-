@@ -14,12 +14,10 @@ const LeftCard = () => {
     // Accordion states
     const [open1, setOpen1] = useState(false);
     const [open2, setOpen2] = useState(false);
-    const [open4, setOpen4] = useState(false);
 
     // Accordion refs for height animation
     const ref1 = useRef(null);
     const ref2 = useRef(null);
-    const ref4 = useRef(null);
 
     // Independent tab states
     const [activeTab1, setActiveTab1] = useState("flightDetails");;
@@ -36,12 +34,7 @@ const LeftCard = () => {
                 ? ref2.current.scrollHeight + "px"
                 : "0px";
         }
-        if (ref4.current) {
-            ref4.current.style.maxHeight = open4
-                ? ref4.current.scrollHeight + "px"
-                : "0px";
-        }
-    }, [open1, open2, open4]);
+    }, [open1, open2]);
 
     return (
         <div className="flight-card">
@@ -55,8 +48,6 @@ const LeftCard = () => {
                         </figure>
                         <h3>Review Flight Details</h3>
                     </div>
-
-                    {/* ===== Accordion 1 ===== */}
 
                     <div className="tab-section">
                         {/* Tabs Navigation */}
@@ -219,39 +210,13 @@ const LeftCard = () => {
                             </div>
                         </div>
                     </div>
-                    
-                    <div className={`accordian ${open4 ? "open" : ""}`}>
-                        <div className="accordian-title" onClick={() => setOpen4(!open4)}>
-                            <div className="grid-box">
-                                <div className="col">
-                                    <p>Refundable</p>
-                                    <span className="point"></span>
-                                    <p>Free Meals</p>
-                                </div>
-                                <div className="col">
-                                    <p>
-                                        Get Flat ₹ 315 OFF using code <strong>#DIWALI</strong>
-                                    </p>
-                                </div>
-                                <div className="col">
-                                    <p>VIEW FLIGHT DETAILS</p>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="accordian-description" ref={ref4}>
-
-                        </div>
-                    </div>
-
                 </div>
 
 
                 <div className="col travel-insurance">
                     <div className="title">
                         <figure>
-                            <Image src="/assets/icon/flight-detail-icon/flight-icon.svg" width={20} height={20} alt="ico "></Image>
+                            <Image src="/assets/icon/flight-detail-icon/insurance.svg" width={20} height={20} alt="ico "></Image>
                         </figure>
                         <h3>Travel Insurance</h3>
                         <div className="recommended-info">
@@ -400,7 +365,7 @@ const LeftCard = () => {
                 <div className="col web-check-in">
                     <div className="title">
                         <figure>
-                            <Image src="/assets/icon/flight-detail-icon/flight-icon.svg" width={20} height={20} alt="ico "></Image>
+                            <Image src="/assets/icon/flight-detail-icon/laptop-icon.svg" width={20} height={20} alt="ico "></Image>
                         </figure>
                         <h3>Web Check-in</h3>
                         <div className="recommended-info">
@@ -465,7 +430,7 @@ const LeftCard = () => {
                 <div className="col booking-refundable">
                     <div className="title">
                         <figure>
-                            <Image src="/assets/icon/flight-detail-icon/flight-icon.svg" width={20} height={20} alt="ico "></Image>
+                            <Image src="/assets/icon/flight-detail-icon/laptop-icon.svg" width={20} height={20} alt="ico "></Image>
                         </figure>
                         <h3>Make My Booking Refundable</h3>
                     </div>
@@ -572,7 +537,7 @@ const LeftCard = () => {
                 <div className="col have-coupon">
                     <div className="title">
                         <figure>
-                            <Image src="/assets/icon/flight-detail-icon/flight-icon.svg" width={20} height={20} alt="ico "></Image>
+                            <Image src="/assets/icon/flight-detail-icon/coupon-icon.svg" width={20} height={20} alt="ico "></Image>
                         </figure>
                         <h3>Have Coupon?</h3>
                     </div>
@@ -624,7 +589,7 @@ const LeftCard = () => {
                 <div className="col price-details">
                     <div className="title">
                         <figure>
-                            <Image src="/assets/icon/flight-detail-icon/flight-icon.svg" width={20} height={20} alt="ico "></Image>
+                            <Image src="/assets/icon/flight-detail-icon/currency-inr-icon.svg" width={20} height={20} alt="ico "></Image>
                         </figure>
                         <h3>Price Details</h3>
                     </div>
@@ -720,11 +685,10 @@ const LeftCard = () => {
                     </div>
                 </div>
 
-
                 <div className="col contact-details">
                     <div className="title">
                         <figure>
-                            <Image src="/assets/icon/flight-detail-icon/flight-icon.svg" width={20} height={20} alt="ico "></Image>
+                            <Image src="/assets/icon/flight-detail-icon/contact-details-icon.svg" width={20} height={20} alt="ico "></Image>
                         </figure>
                         <h3>Contact Details</h3>
                     </div>
@@ -758,17 +722,20 @@ const LeftCard = () => {
                 <div className="col enter-traveller-details">
                     <div className="title">
                         <figure>
-                            <Image src="/assets/icon/flight-detail-icon/flight-icon.svg" width={20} height={20} alt="ico "></Image>
+                            <Image src="/assets/icon/flight-detail-icon/enter-traveller-details-icon.svg" width={20} height={20} alt="ico "></Image>
                         </figure>
                         <h3>Enter Traveller Details</h3>
                     </div>
 
                     <div className="card">
+
+                        <h4>Adult 1</h4>
+
                         <form action="">
                             <div className="form">
                                 <div className="form-group">
                                     <input type="text" className="form-control" />
-                                    <label htmlFor="">Name*</label>
+                                    <label htmlFor="">Title</label>
                                 </div>
                                 <div className="form-group">
                                     <input type="text" className="form-control" />
@@ -779,16 +746,13 @@ const LeftCard = () => {
                                     <label htmlFor="">Last Name</label>
                                 </div>
                                 <div className="form-group">
-                                    <input type="tel" className="form-control" />
-                                    <label htmlFor="">Phone</label>
+                                    <input type="date" className="form-control" />
+                                    {/* <label htmlFor="">DOB</label> */}
                                 </div>
                             </div>
                         </form>
-                        <div className="info flex-box align-item-center">
-                            <figure>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#611BA7" d="M12 17q.425 0 .713-.288T13 16v-4q0-.425-.288-.712T12 11t-.712.288T11 12v4q0 .425.288.713T12 17m0-8q.425 0 .713-.288T13 8t-.288-.712T12 7t-.712.288T11 8t.288.713T12 9m0 13q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" /></svg>
-                            </figure>
-                            <p>Your booking details will be sent to this email address and mobile number.</p>
+                        <div className="info">
+                            <p>[-] Additional requests (optional)</p>
                         </div>
                     </div>
                 </div>
@@ -796,7 +760,7 @@ const LeftCard = () => {
                 <div className="col total-ticket-amount">
                     <div className="title">
                         <figure>
-                            <Image src="/assets/icon/flight-detail-icon/flight-icon.svg" width={20} height={20} alt="ico "></Image>
+                            <Image src="/assets/icon/flight-detail-icon/currency-inr-icon.svg" width={20} height={20} alt="ico "></Image>
                         </figure>
                         <div className="card">
                             <div className="flex-box space-between align-item-center">

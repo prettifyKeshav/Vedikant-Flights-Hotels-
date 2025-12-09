@@ -1,6 +1,5 @@
 "use client"
 import { useModalStore } from "@/store/modalStore";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import MySelect from "./MySelect";
 
