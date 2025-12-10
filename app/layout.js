@@ -1,4 +1,4 @@
-import MainTemplate from "@/components/templates/MainTemplate";
+import MainTemplate from "../components/templates/MainTemplate";
 import "../app/global.css"
 
 export const metadata = {

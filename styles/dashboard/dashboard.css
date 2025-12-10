@@ -15,6 +15,18 @@
   background: #EEEEEE;
 }
 
+.flex-box {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-item-center {
+  align-items: center;
+}
+
 .dashboard-layout {
   margin-top: var(--headerheight);
   display: flex;
@@ -130,14 +142,15 @@
   margin-bottom: var(--headerheight);
 }
 .dashboard-layout .contentArea .contentWrapper {
-  background: white;
   border-radius: 5px;
   max-width: 1024px;
   margin: 0 auto;
   margin-top: 33px;
 }
 .dashboard-layout .contentArea .my-profile {
-  padding: 1.5rem;
+  border-radius: 5px;
+  padding: 1.5rem 2.5rem;
+  background: white;
 }
 .dashboard-layout .contentArea .my-profile h1 {
   font-weight: 500;
@@ -372,6 +385,14 @@
   color: var(--text);
   line-height: 16px;
 }
+.dashboard-layout .contentArea .my-flights .card-container .main-accordian.open .main-accordian-description {
+  display: block;
+}
+.dashboard-layout .contentArea .my-flights .card-container .main-accordian .main-accordian-description {
+  max-height: -moz-fit-content !important;
+  max-height: fit-content !important;
+  display: none;
+}
 .dashboard-layout .contentArea .my-flights .card-container .accordian.true .accordian-title .grid-box .col:nth-child(3) span::before {
   transform: translate(-50%, -50%) rotate(135deg);
 }
@@ -500,7 +521,8 @@
 }
 .dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs {
   border: 1px solid #E3E3E3;
-  height: 242px;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 5px;
   margin-top: 20px;
   opacity: 0;
@@ -558,6 +580,7 @@
   cursor: pointer;
   position: relative;
   transition: 0.3s ease;
+  border: none;
 }
 .dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.fare-summary .card .top .accordian .accordian-title p {
   font-weight: 500;
@@ -672,6 +695,58 @@
   font-weight: 700;
   font-size: 18px;
   text-transform: uppercase;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #E3E3E3;
+  margin-bottom: 10px;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box .flex-box-item {
+  padding-bottom: 7px;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box .flex-box-item p {
+  font-weight: 400;
+  font-size: 14px;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box a {
+  border: 1px solid #802BD6;
+  padding: 5px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  transition: 0.5s ease;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box a:hover {
+  background: var(--secondary);
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box a:hover span {
+  color: white;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box a:hover svg path {
+  fill: white;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box a span {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--secondary);
+  transition: 0.5s ease;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.traveller-details .flex-box a svg path {
+  transition: 0.5s ease;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.contact-details .flex-box {
+  display: flex;
+  justify-content: start;
+  gap: 60px;
+  align-items: center;
+}
+.dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs.contact-details .flex-box .flex-box-item p {
+  font-weight: 400;
+  font-size: 14px;
 }
 .dashboard-layout .contentArea .my-flights .card-container .accordian .accordian-description .tab-section .tab-nav-content .tabs .head {
   border-bottom: 1px solid #E3E3E3;
@@ -815,4 +890,49 @@
   font-size: 12px;
   color: var(--text);
   line-height: 16px;
+}
+.dashboard-layout .contentArea .change-password {
+  border-radius: 5px;
+  padding: 1.5rem 2.5rem;
+  background: white;
+}
+.dashboard-layout .contentArea .change-password h1 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: black;
+  margin-bottom: 20px;
+}
+.dashboard-layout .contentArea .change-password .form {
+  --item: 2;
+  --gaptb: 20px;
+  --gaplr: 50px;
+}
+.dashboard-layout .contentArea .change-password .form .grid-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.dashboard-layout .contentArea .change-password .form .form-group {
+  display: flex;
+  align-items: center;
+}
+.dashboard-layout .contentArea .change-password .form .form-group span {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  line-height: 0;
+  cursor: pointer;
+}
+.dashboard-layout .contentArea .change-password .form .form-group span img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.dashboard-layout .contentArea .change-password .form button {
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  margin-top: 30px;
 }/*# sourceMappingURL=dashboard.css.map */

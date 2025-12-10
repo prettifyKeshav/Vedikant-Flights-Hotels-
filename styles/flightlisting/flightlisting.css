@@ -1052,6 +1052,15 @@ body {
   margin-top: var(--headerheight);
   z-index: -1;
 }
+.flight-detail-banner-bg .flex-box {
+  display: flex;
+}
+.flight-detail-banner-bg .space-between {
+  justify-content: space-between;
+}
+.flight-detail-banner-bg .align-item-center {
+  align-items: center;
+}
 
 .flight-detail-secA {
   margin-top: var(--headerheight);

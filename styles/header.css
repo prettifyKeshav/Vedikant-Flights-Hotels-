@@ -823,18 +823,6 @@ h6 {
   text-transform: uppercase;
 }
 
-.flex-box {
-  display: flex;
-}
-
-.space-between {
-  justify-content: space-between;
-}
-
-.align-item-center {
-  align-items: center;
-}
-
 .flex {
   display: flex;
   flex-wrap: wrap;
