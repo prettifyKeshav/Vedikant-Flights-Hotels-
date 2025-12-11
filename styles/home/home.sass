@@ -68,11 +68,12 @@
                                     figure
                                         opacity: 1
                                         scale: 1
-
                 .flex-box
                     display: flex
                     justify-content: center
                     gap: 40px
+                    @include media(1024)
+                        gap: 10px
                     .col
                         width: 100%
                         height: 347px
@@ -111,7 +112,7 @@
                                         background: $white
                                         transition: 0.5s ease
                                         &:hover
-                                            background: #f1e4fffc
+                                            // background: #f1e4fffc
                                         img
                                             width: 100%
                                             height: 100%
@@ -159,6 +160,8 @@
                                 .detail-section
                                     padding: 20px
                                     transition: 0.3s ease
+                                    @include media(1024)
+                                        padding: 20px 10px
                                     &:hover
                                         background: #f1e4fffc
                                     &:nth-child(2)
@@ -176,6 +179,8 @@
                                         color: $text
                                         padding-bottom: 15px
                                         position: relative
+                                        @include media(1024)
+                                            padding-bottom: 10px
                                         &::before
                                             content: ""
                                             position: absolute
@@ -189,6 +194,8 @@
                                             vertical-align: top
                                             margin: 3px 0 0 8px
                                             transition: all 0.3s ease-in-out
+                                            @include media(1024)
+                                                right: 0% !important
                                     .detail-value
                                         padding-bottom: 10px
                                         b
@@ -201,6 +208,8 @@
                                             font-size: 20px
                                             line-height: 16px
                                             color: $black
+                                            @include media(1024)
+                                                font-size: 16px
                                     .detail-text
                                         font-weight: 400
                                         font-size: 14px
@@ -241,7 +250,6 @@
                                                 left: 50%
                                                 transform: translate(-50%,-50%)
                                                 line-height: 0
-
                                 .detail-section:nth-child(3)
                                     flex: 0 1 60%
                                     border-left:  1px solid #E0DEDE
@@ -264,35 +272,36 @@
                         background: #FFFFFF80
                         background: #8E41DC
                         border-radius: 10px
-                        overflow: hidden
+                        overflow: hidden    
+                        .swiper
+                            .swiper-wrapper
+                                .swiper-slide
+                                    .slide-box
+                                        height: 310px
+                                        img
+                                            border-radius: 10px
+                                            overflow: hidden
+                                            @include media(1024)
+                                                object-fit: fill !important
 
-        .swiper
-            .swiper-wrapper
-                .swiper-slide
-                    .slide-box
-                        height: 310px
-                        img
-                            border-radius: 10px
-                            overflow: hidden
-
-            .swiper-pagination
-                width: 100%
-                height: 50px
-                display: flex
-                justify-content: center
-                align-items: center
-                position: relative
-                z-index: 2
-                gap: 3px
-                span
-                    position: relative
-                    background-color: white
-                    opacity: 1
-                    transition: 0.5s ease
-                    background: #FFFFFF80
-                .swiper-pagination-bullet-active,.fill
-                    background: $white
-                    transition: 0.5s ease
+                            .swiper-pagination
+                                width: 100%
+                                height: 50px
+                                display: flex
+                                justify-content: center
+                                align-items: center
+                                position: relative
+                                z-index: 2
+                                gap: 3px
+                                span
+                                    position: relative
+                                    background-color: white
+                                    opacity: 1
+                                    transition: 0.5s ease
+                                    background: #FFFFFF80
+                                .swiper-pagination-bullet-active,.fill
+                                    background: $white
+                                    transition: 0.5s ease
 
 .home-secA
     .flex-box
@@ -305,10 +314,18 @@
             justify-content: start
             align-items: center
             gap: 30px
+            @include media(1024)
+                gap: 30px
+                flex: 0 1 70%
             p:nth-child(1)
                 color: #66666685
                 font-weight: 500
                 font-size: 20px
+                @include media(1024)
+                    color: #66666685
+                    font-size: 20px
+                    font-weight: 500
+                    line-height: 1.4
             p:nth-child(2)
                 font-size: 40px
                 font-weight: 500
@@ -320,6 +337,8 @@
         .col:last-child
             flex: 0 1 50%
             overflow: hidden
+            @include media(1024)
+                flex: 0 1 50%
             .swiper
                 .swiper-wrapper
                     display: flex
@@ -555,6 +574,8 @@
         display: grid
         grid-template-columns: repeat(5, 1fr)
         gap: 20px
+        @include media(1024)
+            gap: 10px
         .col
             // border: 1px solid $text
             border-radius: 10px
@@ -623,10 +644,12 @@
         .col
             border-radius: 10px
             overflow: hidden
-            height: 218px
+            height: auto
             background: #FFFFFF
             padding: 20px
             transition: 0.5s ease
+            @include media(1024)
+                height: auto
             .flex-box
                 display: flex
                 justify-content: space-between
@@ -636,7 +659,7 @@
                     font-size: 20px
                     line-height: 25px
                     transition: 0.5s ease
-                    max-width: 70%
+                    max-width: 80%
                     margin-bottom: 10px
                 p
                     color: $primary
@@ -644,6 +667,7 @@
                     font-size: 28px
                     line-height: 28px
                     transition: 0.5s ease
+                    margin-bottom: 30px
             p
                 font-weight: 400
                 font-size: 15px
@@ -871,6 +895,8 @@
             height: 433px
             border-radius: 10px
             box-shadow: 0px 2px 8px 0px #63636333
+            @include media(1024)
+                height: auto
             .flex-box
                 display: flex
                 justify-content: space-between
@@ -883,6 +909,8 @@
                     line-height: 28px
                     color: $secondary
                     max-width: 60%
+                    @include media(1024)
+                        font-size: 20px
                 figure
                     width: 66px
                     height: 66px
@@ -893,6 +921,8 @@
                         object-fit: contain
             ul
                 padding: 20px 40px 10px 40px
+                @include media(1024)
+                    padding: 20px 10px 10px 40px
                 li
                     font-weight: 400
                     color: $text
@@ -910,7 +940,7 @@
                         width: 16px
                         background: url('/assets/images/home/first-slider/right-arrow.svg')
             button
-                margin: 0px 10px 10px 30px
+                margin: 0 10px 30px 40px
 
 .home-secG
     position: relative
@@ -1098,6 +1128,8 @@
 .home-secH
     background: #EEEEEE
     padding: 50px 0
+    @include media(1024)
+        padding: 50px 0 100px 0
     .col
         margin: 0 0 30px 0
         h4

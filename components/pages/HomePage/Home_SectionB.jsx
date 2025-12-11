@@ -168,8 +168,15 @@ const Home_SectionB = () => {
                         nextEl: ".homesecB-nav-next",
                         prevEl: ".homesecB-nav-prev",
                     }}
+                    breakpoints={{
+                        0: { slidesPerView: 1.2 },
+                        540: { slidesPerView: 1.2 },
+                        768: { slidesPerView: 1.2 },
+                        991: { slidesPerView: 2 },
+                        1200: { slidesPerView: 3 },
+                    }}
                     spaceBetween={20}
-                    slidesPerView={3}
+                    // slidesPerView={3}
                     loop={flightDeals.length > 1}
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;

@@ -55,6 +55,7 @@ const Home_SectionG = () => {
             document.querySelector(".homesecG-nav-next").style.display = "none";
         }
     };
+
     return (
         <div className="home-secG">
             <div className="container">
@@ -62,7 +63,7 @@ const Home_SectionG = () => {
                     <div className="col">
                         <h2>Business Travellers Love Us</h2>
                     </div>
-                    
+
                     <div className="col">
                         <div className="swiper-nav">
                             <button className="homesecG-nav-prev">
@@ -106,7 +107,13 @@ const Home_SectionG = () => {
                         prevEl: ".homesecG-nav-prev",
                     }}
                     spaceBetween={20}
-                    slidesPerView={4}
+                    breakpoints={{
+                        0: { slidesPerView: 1.2 },
+                        540: { slidesPerView: 1.2 },
+                        768: { slidesPerView: 2 },
+                        991: { slidesPerView: 3 },
+                        1200: { slidesPerView: 4 },
+                    }}
                     loop={flightDeals.length > 1}
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;

@@ -9,6 +9,7 @@ import Image from "next/image";
 import FlightSearchDropdown from "@/components/FlightSearchDropdown";
 import CustomFlightCalendar from "@/components/CustomFlightCalendar";
 import TravellersAndClass from "@/components/TravellersAndClass";
+import toast from "react-hot-toast";
 
 const Hero = () => {
     const swiperRef = useRef(null);
@@ -107,7 +108,7 @@ const Hero = () => {
         const ret = selectedDates.end
             ? selectedDates.end.toLocaleDateString("en-GB")
             : "Not selected";
-
+        
         alert(`
             FLIGHT SEARCH DETAILS =======>>>>>>>>
             
@@ -220,7 +221,7 @@ const Hero = () => {
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div className="flex-box">
                             <div className="col">
                                 <form action="">

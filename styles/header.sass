@@ -145,6 +145,9 @@ header
             display: flex
             align-items: center
             gap: 20px
+            li:last-child   
+                @include media(1024)
+                    display: none
             li:nth-child(1)
                 a
                     padding: 10px 13px
@@ -360,6 +363,8 @@ footer
         top: -10%
         left: 0
         width: 100%
+        @include media(1024)
+            top: -16%
         .grid-box
             height: 86px
             border-radius: 50px
@@ -368,6 +373,8 @@ footer
             display: grid
             grid-template-columns: repeat(4,1fr)
             gap: 40px
+            @include media(1024)
+                height: auto
             .col
                 // padding: 10px
                 display: flex
@@ -377,6 +384,11 @@ footer
                     display: flex
                     align-items: center
                     justify-content: space-between
+                    @include media(1024)
+                        flex-direction: column
+                        text-align: center
+                        gap: 10px
+                        padding: 30px 0
                     figure
                         width: 43px
                         height: 43px
@@ -398,14 +410,13 @@ footer
                             font-size: 13px
                             line-height: 15px
                             color: black
-
-
     .main-footer
         padding: 80px 25px 50px
         display: flex
         gap: 60px
         @include media(1024)
             gap: 0px
+            padding: 150px 25px 50px
         @include media(991)
             flex-direction: column
         @include media(540)     
@@ -538,6 +549,8 @@ footer
                                 display: flex
                                 justify-content: start
                                 align-items: center
+                                @include media(1024)
+                                    font-size: 18px
                         .bottom-btn
                             border-radius: 25px
                             padding: 10px 24px
@@ -557,7 +570,7 @@ footer
 
                     a
                         display: flex
-                        gap: 5px
+                        gap: 10px
                         svg
                             flex: 0 1 30px
     .bottom-footer
@@ -1193,6 +1206,8 @@ footer
     text-align: center
     left: 50%
     transform: translate(-50%, -50%)
+    .disabled
+        visibility: hidden
 .nav-arrow
     background: none
     border: none
@@ -1328,6 +1343,21 @@ footer
 
 /* Selection States
 .day-cell
+    &.empty 
+        border: none
+        &:hover
+            background: none
+    &.disable
+        border: none
+        cursor: no-drop
+        &:hover
+            background: none
+        .day-content
+            .day-number
+                color: #DCE0E0
+            .day-price
+                color: #DCE0E0
+
     &.in-range
         background: #e3f2fd !important
         border-color: #bbdefb !important

@@ -1,53 +1,56 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
-const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClose, initialDate, onSelect }) => {
+const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClose, initialDate, onSelect, mode = "departure" }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [currentMonth, setCurrentMonth] = useState(new Date(2025, 9, 1)); // Oct 2025
+    // const [currentMonth, setCurrentMonth] = useState(new Date());
+
+    // it will start from the current month keshav babu
+    const [currentMonth, setCurrentMonth] = useState(() => {
+        const today = new Date();
+        return new Date(today.getFullYear(), today.getMonth(), 1);
+    });
+
+    const today = new Date();
+    const minMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    
     const [selectedEnd, setSelectedEnd] = useState(null);
-    // const [selectedStart, setSelectedStart] = useState(null);
-    // const [selectedStart, setSelectedStart] = useState(new Date(2025, 9, 15));
     const [selectedStart, setSelectedStart] = useState(new Date());
 
     const prices = {
-        "2025-10-15": 6004,
-        "2025-10-16": 6049,
-        "2025-10-17": 6377,
-        "2025-10-18": 6536,
-        "2025-10-19": 6006,
-        "2025-10-20": 6357,
-        "2025-10-21": 7243,
-        "2025-10-22": 7243,
-        "2025-10-23": 7243,
-        "2025-10-24": 7847,
-        "2025-10-25": 8155,
-        "2025-10-26": 5998,
-        "2025-10-27": 5998,
-        "2025-10-28": 5998,
-        "2025-10-29": 5998,
-        "2025-10-30": 5998,
-        "2025-10-31": 5998,
-        "2025-11-02": 6849,
-        "2025-11-03": 6849,
-        "2025-11-04": 6999,
-        "2025-11-05": 6498,
-        "2025-11-06": 6248,
-        "2025-11-07": 5998,
-        "2025-11-08": 7898,
-        "2025-11-09": 5998,
-        "2025-11-10": 1797,
-        "2025-11-11": 11997,
-        "2025-11-12": 12947,
-        // Add more as needed
-    };
+        "2025-12-01": 6899,
+        "2025-12-02": 7025,
+        "2025-12-03": 7150,
+        "2025-12-04": 6999,
+        "2025-12-05": 7350,
+        "2025-12-06": 7780,
+        "2025-12-07": 7100,
+        "2025-12-08": 6900,
+        "2025-12-09": 6800,
+        "2025-12-10": 6950,
+        "2025-12-11": 7200,
+        "2025-12-12": 7600,
+        "2025-12-13": 8200,
+        "2025-12-14": 7990,
+        "2025-12-15": 7500,
+        "2025-12-16": 7850,
+        "2025-12-17": 8200,
+        "2025-12-18": 8800,
 
-    // Set initial selected date on mount
-    // useEffect(() => {
-    //     if (initialDate && !selectedStart) {
-    //         setSelectedStart(initialDate);
-    //         onSelect({ start: initialDate });
-    //     }
-    // }, [initialDate, onSelect]);
+        "2026-01-20": 6850,
+        "2026-01-21": 6800,
+        "2026-01-22": 6750,
+        "2026-01-23": 6700,
+        "2026-01-24": 6650,
+        "2026-01-25": 6600,
+        "2026-01-26": 7200,
+        "2026-01-27": 6800,
+        "2026-01-28": 6700,
+        "2026-01-29": 6650,
+        "2026-01-30": 6590,
+        "2026-01-31": 6550
+    };
 
     useEffect(() => {
         if (initialDate && !(selectedStart instanceof Date)) {
@@ -55,8 +58,6 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
             onSelect({ start: initialDate });
         }
     }, [initialDate, onSelect, selectedStart]); // Added selectedStart to deps for reactivity
-
-
 
     const generateMonthDays = (month) => {
         const year = month.getFullYear();
@@ -84,13 +85,16 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
     // const handleDayClick = (day) => {
     //     if (!day || !(day.date instanceof Date)) return;
     //     const date = day.date;
+
     //     if (!selectedStart) {
     //         setSelectedStart(date);
     //         onSelect({ start: date });
+    //         closeCalendar();
     //     } else if (isRoundTrip && !selectedEnd) {
     //         if (date > selectedStart) {
     //             setSelectedEnd(date);
     //             onSelect({ start: selectedStart, end: date });
+    //             closeCalendar();
     //         } else {
     //             setSelectedStart(date);
     //         }
@@ -98,34 +102,70 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
     //         setSelectedStart(date);
     //         setSelectedEnd(null);
     //         onSelect({ start: date });
+    //         closeCalendar();
     //     }
     // };
 
     const handleDayClick = (day) => {
         if (!day || !(day.date instanceof Date)) return;
         const date = day.date;
+        const today = new Date();  // NEW: For past-date guard
+        today.setHours(0, 0, 0, 0);  // NEW: Normalize to start of today (ignores time)
 
+        if (date < today) {  // NEW: Block past dates
+            toast.error("Can't select past dates.")
+            return;
+        }
+
+        // if (mode === "return") {  // NEW: Dedicated block for return mode (from Issue 2)
+        //     // NEW: Enforce > start, update only end
+        //     if (!selectedStart || date <= selectedStart) {
+        //         alert("Return must be after departure date.");
+        //         return;
+        //     }
+        //     setSelectedEnd(date);
+        //     setTimeout(() => {  // NEW: From loop fix—ensures fresh state for onSelect
+        //         onSelect({ start: selectedStart, end: date });
+        //     }, 0);
+        //     closeCalendar();
+        //     return;
+        // }
+
+        // CHANGED: Original logic, now with past guard (already handled above) and better invalid handling
         if (!selectedStart) {
             setSelectedStart(date);
-            onSelect({ start: date });
+            setTimeout(() => {  // NEW: Loop fix
+                onSelect({ start: date });
+            }, 0);
             closeCalendar();
-        } else if (isRoundTrip && !selectedEnd) {
+            return;  // NEW: Explicit return for clarity
+        }
+
+        if (isRoundTrip && !selectedEnd) {
             if (date > selectedStart) {
                 setSelectedEnd(date);
-                onSelect({ start: selectedStart, end: date });
+                setTimeout(() => {  // NEW: Loop fix
+                    onSelect({ start: selectedStart, end: date });
+                }, 0);
                 closeCalendar();
             } else {
-                setSelectedStart(date);
+                // CHANGED: Don't reset start—alert and ignore
+                alert("Return must be after departure. Select departure first or edit it separately.");
+                // (No setSelectedStart(date); — prevents accidents)
             }
-        } else {
-            setSelectedStart(date);
-            setSelectedEnd(null);
-            onSelect({ start: date });
-            closeCalendar();
+            return;  // NEW: Stop here
         }
+
+        // CHANGED: Reset branch—clear end, use timeout
+        setSelectedStart(date);
+        setSelectedEnd(null);
+        setTimeout(() => {
+            onSelect({ start: date });
+        }, 0);
+        closeCalendar();
     };
 
-
+    const isPastDate = (date) => { if (!date) return false; const today = new Date(); today.setHours(0, 0, 0, 0); return date < today; };
     const isSelected = (date) => date && selectedStart && selectedStart.toDateString() === date.toDateString();
     // const isInRange = (date) => date && selectedStart && selectedEnd && date >= selectedStart && date <= selectedEnd;
 
@@ -152,16 +192,6 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
         setIsOpen(open);
     }, [open]);
 
-    // const toggleCalendar = () => {
-    //     if (isOpen) {
-    //         setIsOpen(false);
-    //         onClose?.();
-    //     } else {
-    //         setIsOpen(true);
-    //         onOpen?.();
-    //     }
-    // };
-
     const openCalendar = () => {
         if (!isOpen) {
             setIsOpen(true);
@@ -186,7 +216,14 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
                 {days.map((day, i) => (
                     <div
                         key={i}
-                        className={`day-cell ${!day ? 'empty' : ''} ${isSelected(day?.date) ? 'selected' : ''} ${isInRange(day?.date, i, days) || ''}`}
+                        // className={`day-cell ${!day ? 'empty' : ''} ${isSelected(day?.date) ? 'selected' : ''} ${isInRange(day?.date, i, days) || ''}`}
+                        className={`day-cell 
+                            ${!day ? 'empty' : ''} 
+                            ${isPastDate(day?.date) ? 'disable' : ''} 
+                            ${isSelected(day?.date) ? 'selected' : ''} 
+                            ${isInRange(day?.date, i, days) || ''}`
+                        }
+
                         onClick={() => handleDayClick(day)}
                     >
                         {day && (
@@ -223,7 +260,9 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
                         </div>
                         <div className="months-container">
                             <div className="navigation-bar">
-                                <button className="nav-arrow left"
+                                <button
+                                    // className="nav-arrow left"
+                                    className={`nav-arrow left ${currentMonth <= minMonth ? "disabled" : ""}`}
                                     onClick={(e) => {
                                         e.preventDefault();
                                         e.stopPropagation();

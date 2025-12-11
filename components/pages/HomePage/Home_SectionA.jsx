@@ -44,7 +44,7 @@ const Home_SectionA = () => {
                                     0: { slidesPerView: 1.2 },
                                     540: { slidesPerView: 2.1 },
                                     768: { slidesPerView: 5 },
-                                    991: { slidesPerView: 5 },
+                                    991: { slidesPerView: 3 },
                                     1200: { slidesPerView: 4 },
                                 }}
                             >
