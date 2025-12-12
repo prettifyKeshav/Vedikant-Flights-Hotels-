@@ -115,7 +115,7 @@ export default function Footer() {
                                 <li>
                                     <a href="https://www.google.com/maps?ll=41.98127,-87.988919&z=16&t=m&hl=en-US&gl=US&mapclient=embed&q=300+Bauman+Ct+Wood+Dale,+IL+60191+USA" target="_blank">
                                         {/* <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 16 16"><g fill="none" stroke="#232963"><path d="M8 14.5C10.5 11 12.5 8 12.5 6a4.5 4.5 0 1 0-9 0c0 2 2 5 4.5 8.5Z" /><path d="M10 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Z" /></g></svg> */}
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" fillRule="evenodd" d="m12.065 21.243l-.006-.005zm.182-.274a29 29 0 0 0 3.183-3.392c2.04-2.563 3.281-5.09 3.365-7.337a6.8 6.8 0 1 0-13.591 0c.085 2.247 1.327 4.774 3.366 7.337a29 29 0 0 0 3.183 3.392q.166.15.247.218zm-.985 1.165S4 16.018 4 10a8 8 0 1 1 16 0c0 6.018-7.262 12.134-7.262 12.134c-.404.372-1.069.368-1.476 0M12 12.8a2.8 2.8 0 1 0 0-5.6a2.8 2.8 0 0 0 0 5.6m0 1.2a4 4 0 1 1 0-8a4 4 0 0 1 0 8"/></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" fillRule="evenodd" d="m12.065 21.243l-.006-.005zm.182-.274a29 29 0 0 0 3.183-3.392c2.04-2.563 3.281-5.09 3.365-7.337a6.8 6.8 0 1 0-13.591 0c.085 2.247 1.327 4.774 3.366 7.337a29 29 0 0 0 3.183 3.392q.166.15.247.218zm-.985 1.165S4 16.018 4 10a8 8 0 1 1 16 0c0 6.018-7.262 12.134-7.262 12.134c-.404.372-1.069.368-1.476 0M12 12.8a2.8 2.8 0 1 0 0-5.6a2.8 2.8 0 0 0 0 5.6m0 1.2a4 4 0 1 1 0-8a4 4 0 0 1 0 8" /></svg>
                                         <span>Hanuman Dham Road, Khushalpur, Buxa, Ramnagar, Uttarakhand</span>
                                     </a>
                                 </li>
@@ -140,8 +140,15 @@ export default function Footer() {
                 </div>
 
                 <div className="bottom-footer container">
-                    <p>&copy; Vedikant Travel All rights reserved. &nbsp; |  &nbsp;Made by : <span>
-                        <Link href="https://www.prettifycreative.com/" target="_blank"><Image src="/assets/icon/prettify-light.svg" width={100} height={100} alt="prettify creative"></Image></Link></span></p>
+                    <p>&copy; Vedikant Travel All rights reserved.&nbsp; <b className="none">|</b> &nbsp;
+                        <Link href="https://www.prettifycreative.com/" target="_blank">
+                            <span className="madeby"> Made by :
+                                <span>
+                                    <Image src="/assets/icon/prettify-light.svg" width={100} height={100} alt="prettify creative"></Image>
+                                </span>
+                            </span>
+                        </Link>
+                    </p>
                     <div className="pret">
                         <Link href="/privacy-policy">Privacy Policy</Link>
                         <Link href="/terms-conditions">Terms & Conditions</Link>

@@ -389,7 +389,7 @@ const Hero = () => {
                                     pagination={{ clickable: true }}
                                     onSwiper={(swiper) => { swiperRef.current = swiper; }}
                                     className="mySwiper"
-                                    autoplay={{ delay: 5000 }}
+                                    autoplay={{ delay: 3335000 }}
                                     loop={true}
                                 >
                                     {slidesData.map((item, index) => (

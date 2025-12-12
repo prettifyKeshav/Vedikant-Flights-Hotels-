@@ -244,8 +244,8 @@ const Home_SectionE = () => {
                             breakpoints={{
                                 0: { slidesPerView: 1.2 },
                                 540: { slidesPerView: 1.2 },
-                                768: { slidesPerView: 2 },
-                                991: { slidesPerView: 2},
+                                768: { slidesPerView: 1.5 },
+                                991: { slidesPerView: 2 },
                                 1200: { slidesPerView: 3 },
                             }}
                             // loop={flightDeals.filter((deal) => deal.category === "newdelhi").length > 1}
@@ -298,7 +298,13 @@ const Home_SectionE = () => {
                                 prevEl: ".homesecE-nav-prev",
                             }}
                             spaceBetween={20}
-                            slidesPerView={3}
+                            breakpoints={{
+                                0: { slidesPerView: 1.2 },
+                                540: { slidesPerView: 1.2 },
+                                768: { slidesPerView: 1.5 },
+                                991: { slidesPerView: 2 },
+                                1200: { slidesPerView: 3 },
+                            }}
                             // loop={flightDeals.filter((deal) => deal.category === "mumbai").length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
@@ -349,7 +355,13 @@ const Home_SectionE = () => {
                                 prevEl: ".homesecE-nav-prev",
                             }}
                             spaceBetween={20}
-                            slidesPerView={3}
+                            breakpoints={{
+                                0: { slidesPerView: 1.2 },
+                                540: { slidesPerView: 1.2 },
+                                768: { slidesPerView: 1.5 },
+                                991: { slidesPerView: 2 },
+                                1200: { slidesPerView: 3 },
+                            }}
                             // loop={flightDeals.filter((deal) => deal.category === "bengaluru").length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
@@ -400,7 +412,13 @@ const Home_SectionE = () => {
                                 prevEl: ".homesecE-nav-prev",
                             }}
                             spaceBetween={20}
-                            slidesPerView={3}
+                            breakpoints={{
+                                0: { slidesPerView: 1.2 },
+                                540: { slidesPerView: 1.2 },
+                                768: { slidesPerView: 1.5 },
+                                991: { slidesPerView: 2 },
+                                1200: { slidesPerView: 3 },
+                            }}
                             // loop={flightDeals.length > 1}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;

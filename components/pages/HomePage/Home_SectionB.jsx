@@ -171,7 +171,7 @@ const Home_SectionB = () => {
                     breakpoints={{
                         0: { slidesPerView: 1.2 },
                         540: { slidesPerView: 1.2 },
-                        768: { slidesPerView: 1.2 },
+                        768: { slidesPerView: 1.4 },
                         991: { slidesPerView: 2 },
                         1200: { slidesPerView: 3 },
                     }}

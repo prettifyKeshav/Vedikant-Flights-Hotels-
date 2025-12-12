@@ -220,7 +220,7 @@ const CustomFlightCalendar = ({ isRoundTrip = false, open = false, onOpen, onClo
                         className={`day-cell 
                             ${!day ? 'empty' : ''} 
                             ${isPastDate(day?.date) ? 'disable' : ''} 
-                            ${isSelected(day?.date) ? 'selected' : ''} 
+                            ${isSelected(day?.date) ? 'selected' : ''}
                             ${isInRange(day?.date, i, days) || ''}`
                         }
 

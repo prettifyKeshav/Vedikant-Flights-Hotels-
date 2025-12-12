@@ -32,7 +32,6 @@ const Home_SectionA = () => {
                             <Swiper
                                 modules={[Navigation, Autoplay]}
                                 spaceBetween={0}
-                                slidesPerView={5}
                                 loop={true}
                                 speed={2000}
                                 autoplay={{
@@ -41,9 +40,9 @@ const Home_SectionA = () => {
                                     pauseOnMouseEnter: false,
                                 }}
                                 breakpoints={{
-                                    0: { slidesPerView: 1.2 },
+                                    0: { slidesPerView: 2.2 },
                                     540: { slidesPerView: 2.1 },
-                                    768: { slidesPerView: 5 },
+                                    768: { slidesPerView: 4 },
                                     991: { slidesPerView: 3 },
                                     1200: { slidesPerView: 4 },
                                 }}

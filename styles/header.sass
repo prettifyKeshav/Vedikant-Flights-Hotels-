@@ -28,8 +28,6 @@ header
             padding: 27px 0
         @include media(540)
             padding: 34px 0
-    .colA
-        flex: 0 1 92px
 
     .header-wrapper
         // padding: 10px 0
@@ -47,6 +45,10 @@ header
         .colA
             flex: 0 1 92px
             transition: 0.7s ease
+            @include media(768)
+                padding: 10px 0 
+            @include media(540)
+                flex: 0 1 66px
         a
             display: block
         img
@@ -64,7 +66,7 @@ header
         position: relative
         display: none
         @include media(991)
-            display: block
+            // display: block
         span:nth-child(1)
             position: absolute
             top: 0px
@@ -104,6 +106,8 @@ header
         display: flex
         justify-content: space-between
         align-items: center
+        @include media(768)
+            justify-content: right
         .col
             li
                 // padding: 20px 14px
@@ -118,6 +122,8 @@ header
         .col:first-child
             display: flex
             gap: 20px
+            @include media(768)
+                display: none
             a
                 color: $text
             li:first-child
@@ -145,10 +151,14 @@ header
             display: flex
             align-items: center
             gap: 20px
+            @include media(540)
+                gap: 10px
             li:last-child   
                 @include media(1024)
                     display: none
             li:nth-child(1)
+                @include media(768)
+                    display: none
                 a
                     padding: 10px 13px
                     border-radius: 25px
@@ -158,6 +168,8 @@ header
                     justify-content: center
                     gap: 10px
             li:nth-child(2)
+                @include media(768)
+                    display: none
                 a
                     padding: 10px 13px
                     border-radius: 25px
@@ -178,6 +190,8 @@ header
                     &:hover
                         background: $primary
                         color: $white
+                    @include media(540)
+                        font-size: 12px
                 a
                     border-radius: 5px
                     padding: 4px 16px
@@ -185,6 +199,8 @@ header
                     &:hover
                         background: $primary
                         color: $white
+                    @include media(540)
+                        font-size: 12px
             li:nth-child(4)
                 button
                     border-radius: 5px
@@ -196,6 +212,8 @@ header
                     &:hover
                         background: $primary
                         color: $white
+                    @include media(540)
+                        font-size: 12px
                 a
                     border-radius: 5px
                     padding: 4px 16px
@@ -375,11 +393,24 @@ footer
             gap: 40px
             @include media(1024)
                 height: auto
+            @include media(768)
+                border-radius: 100px
+            @include media(540)
+                grid-template-columns: repeat(2,1fr)
+                border-radius: 20px
+                gap: 10px
+                padding: 0 10px
             .col
                 // padding: 10px
                 display: flex
                 align-items: center
                 justify-content: space-between
+                &:nth-child(1)
+                    .flex
+                        padding-bottom: 0
+                &:nth-child(2)
+                    .flex
+                        padding-bottom: 0
                 .flex   
                     display: flex
                     align-items: center
@@ -419,8 +450,10 @@ footer
             padding: 150px 25px 50px
         @include media(991)
             flex-direction: column
+        @include media(768)
+            padding: 100px 25px 50px
         @include media(540)     
-            padding: 30px 15px 0px
+            padding: 200px 15px 0
         .colA
             flex: 0 1 233px 
             flex-direction: column
@@ -430,17 +463,22 @@ footer
                 margin: 0 auto 20px
             @include media(768)
                 flex: 0 1 163px
-                gap: 30px
+                gap: 10px
+                margin: 0 auto 40px
             @include media(540)     
-                margin: 0 auto
+                margin: 0 auto 30px
             figure
                 width: 134px
                 height: 134px
+                @include media(768)
+                    margin: auto
             .social-icons
                 display: flex
                 justify-content: start
                 align-items: center
                 gap: 8px
+                @include media(540)
+                    gap: 19px
                 a
                     border: 1px solid white
                     border-radius: 50%
@@ -474,7 +512,7 @@ footer
             @include media(540)     
                 flex-wrap: wrap
                 padding: 0
-                gap: 30px
+                gap: 10px 30px
             .list
                 flex: 1 1 10%
                 // flex: 1 1 20%
@@ -522,6 +560,7 @@ footer
                     @include media(540)
                         flex: 1
                         margin-top: 20px
+                        margin-bottom: 20px
                     ul
                         display: flex
                         flex-direction: column
@@ -582,9 +621,9 @@ footer
         border-top: 1px solid #FFFFFF2B
         @include media(540)
             flex-direction: column
-            gap: 5px
-            padding: 30px 25px 80px
-        p
+            gap: 22px
+            padding: 30px 25px 40px
+        p,a
             font-weight: 500
             font-size: 14px
             line-height: 24px
@@ -593,9 +632,18 @@ footer
             align-items: center
             @include media(540)
                 text-align: center
+                flex-direction: column
+                gap: 7px
+            .madeby
+                display: flex
+                align-items: center
+                white-space: nowrap
+                gap: 6px
+            .none
+                @include media(540)
+                    display: none
             span
-                width: 80px
-                height: 20px
+                height: 23px
                 display: inline-block
                 img
                     width: 100%
@@ -863,7 +911,7 @@ footer
         path
             stroke: $black
     .model-body
-        padding: 0 70px 50px
+        padding: 0 35px 30px 
         height: 100%
         overflow-y: auto
         margin-top: 40px
@@ -1073,6 +1121,18 @@ footer
         z-index: 999999
         overflow-y: auto
         @include scrollbar(5px,none,$primary,2px)
+        @include media(540)
+            position: fixed
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            width: 100vw
+            height: 100vh
+            max-width: 100%
+            max-height: 100%
+            border-radius: 0
+
     .search-input
         width: 100%
         padding: 6px 16px
@@ -1548,9 +1608,9 @@ footer
     left: 0
     right: 0
     z-index: 4
-    background: $primary
+    background: var(--gradient-a)
     display: none
-    @include media(540)
+    @include media(768)
         display: block
     ul
         @include flex
